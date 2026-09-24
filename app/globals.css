@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
+/*
+  Bourse design system — see DESIGN.md
+  Default theme is dark (:root). Light mode is opt-in via [data-theme="light"].
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: oklch(0.19 0.015 250);
+  --surface: oklch(0.24 0.018 250);
+  --surface-2: oklch(0.285 0.02 250);
+  --hairline: oklch(0.34 0.02 250);
+  --ink: oklch(0.94 0.005 250);
+  --ink-dim: oklch(0.8 0.012 250);
+  --steel: oklch(0.64 0.05 250);
+  --signal: oklch(0.78 0.14 75); /* accent / figures / text (mode-dependent) */
+  --signal-solid: oklch(0.8 0.14 75); /* bright fill for CTAs + live elements */
+  --signal-solid-hover: oklch(0.74 0.13 75);
+  --on-signal: oklch(0.19 0.02 75); /* text on solid amber */
+  --due: oklch(0.78 0.14 75);
+  --overdue: oklch(0.64 0.17 25);
+  --filed: oklch(0.72 0.08 165);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: oklch(0.985 0.003 250);
+  --surface: oklch(0.965 0.005 250);
+  --surface-2: oklch(0.94 0.006 250);
+  --hairline: oklch(0.9 0.008 250);
+  --ink: oklch(0.26 0.02 255);
+  --ink-dim: oklch(0.42 0.02 255);
+  --steel: oklch(0.5 0.03 255);
+  --signal: oklch(0.62 0.15 62);
+  --signal-solid: oklch(0.8 0.14 75);
+  --signal-solid-hover: oklch(0.74 0.13 75);
+  --on-signal: oklch(0.2 0.02 75);
+  --due: oklch(0.62 0.15 62);
+  --overdue: oklch(0.55 0.19 27);
+  --filed: oklch(0.52 0.1 165);
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-steel: var(--steel);
+  --color-signal: var(--signal);
+  --color-signal-solid: var(--signal-solid);
+  --color-signal-solid-hover: var(--signal-solid-hover);
+  --color-on-signal: var(--on-signal);
+  --color-due: var(--due);
+  --color-overdue: var(--overdue);
+  --color-filed: var(--filed);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--hairline);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--signal-solid);
+  color: var(--on-signal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Ticker marquee ------------------------------------------------------- */
+@keyframes bourse-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: bourse-marquee 48s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Hero background ------------------------------------------------------ */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.hero-zoom {
+  animation: hero-zoom 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes hero-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 40px;
+  }
+}
+
+.hero-grid {
+  animation: hero-grid-drift 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .hero-zoom,
+  .hero-grid {
+    animation: none;
+  }
 }
