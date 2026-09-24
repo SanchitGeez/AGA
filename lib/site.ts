@@ -6,7 +6,9 @@ export const site = {
   initial: "A",
   principal: "CS Ayush Gupta",
   credential: "Member, Institute of Company Secretaries of India (ICSI)",
-  url: "https://agaassociates.in",
+  // Canonical origin used by metadata, sitemap, robots.txt, and structured data.
+  // Set NEXT_PUBLIC_SITE_URL on the host when the confirmed domain differs.
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://agaassociates.in").replace(/\/$/, ""),
   description:
     "Peer-reviewed firm of Company Secretaries in Mumbai. Corporate, legal, and regulatory compliance — IPOs, SEBI, FEMA, restructuring, and governance under the Companies Act and allied laws.",
   tagline: "SEBI · NCLT · IPO-ready.",

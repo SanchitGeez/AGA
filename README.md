@@ -100,9 +100,32 @@ lib/
 - **Dark is default**, light via the theme toggle — verify contrast in both (WCAG AA).
 - Keep copy formal and statute-precise — that's the institutional guardrail.
 
-## Deploy
+## Deploy to Vercel
 
-Single Next.js app — deploy anywhere that runs Next 16 (Vercel is the obvious host). Static
-routes prerender; `/api/enquiry` is the one dynamic (Node runtime) route. Set the env vars above
-in the host dashboard. Note Vercel's ~4.5 MB request-body cap — the résumé upload is limited to
-4 MB client- and server-side.
+This is a Next.js App Router application, not a static React-only bundle. Most pages are
+prerendered; `/api/enquiry` runs as a Node.js function to send enquiries and résumé attachments
+through Resend. Vercel supports both as part of one project, so no separate backend or
+`vercel.json` is needed.
+
+1. Import `SanchitGeez/AGA` from GitHub in Vercel.
+2. Keep the framework preset as **Next.js**, the root directory as `./`, and the build, install,
+   and output settings on **Automatic**. The build script is `npm run build`; `package-lock.json`
+   is the canonical lockfile.
+3. Add the environment variables below under the Vercel project's **Settings → Environment
+   Variables**. Add them to Production; add them to Preview too if preview forms should send mail.
+4. Deploy. Connect the confirmed domain in **Settings → Domains**. `NEXT_PUBLIC_SITE_URL` must
+   match the canonical HTTPS domain so metadata, sitemap, robots.txt, and structured data use
+   the right origin. It defaults to `https://agaassociates.in`.
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical HTTPS origin; defaults to `https://agaassociates.in`. |
+| `RESEND_API_KEY` | For email forms | Server-only Resend API key. Without it, enquiry forms offer a WhatsApp fallback and résumé email submissions cannot be sent. |
+| `ENQUIRY_TO` | Optional | Recipient address; defaults to the first firm email in `lib/site.ts`. In Resend test mode, use the account's verified email. |
+| `ENQUIRY_FROM` | Optional | Sender; use a domain-verified address for live mail. Defaults to Resend's shared onboarding sender. |
+
+The résumé limit is 4 MB, below Vercel's function request-body limit. Do not set Next.js static
+export (`output: "export"`): the email route needs a server runtime.
+
+Before a public launch, confirm the domain and replace the placeholder firm statistics, deadline
+calendar, hero image, and principal photo noted in `PROGRESS.md`.
