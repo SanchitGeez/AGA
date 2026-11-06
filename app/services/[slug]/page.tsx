@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
@@ -10,6 +11,7 @@ import {
 import { getServiceScope } from "@/lib/service-content";
 import { site } from "@/lib/site";
 import { Enquire } from "@/components/home/enquire";
+import { serviceImagery } from "@/lib/service-imagery";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -42,6 +44,7 @@ export default async function ServicePage({
     (s) => s.slug !== service.slug,
   );
   const scope = getServiceScope(service.slug);
+  const image = serviceImagery[service.category];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -64,71 +67,77 @@ export default async function ServicePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
-        <nav className="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-wider text-steel">
-          <Link href="/services" className="hover:text-ink">
-            Services
-          </Link>
-          <span aria-hidden>/</span>
-          <span className="text-signal">{categoryName(service.category)}</span>
-        </nav>
+      <article>
+        <header className="service-detail-hero relative isolate overflow-hidden bg-photo-ground text-photo-ink">
+          <Image src={image.src} alt="" fill sizes="100vw" preload className="-z-20 object-cover" style={{ objectPosition: image.position }} />
+          <div className="service-detail-shade absolute inset-0 -z-10" aria-hidden="true" />
+          <div className="site-container section-space flex min-h-[25rem] flex-col justify-center sm:min-h-[28rem]">
+            <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-photo-ink">
+              <Link href="/services" className="text-link hover:text-photo-signal">
+                Services
+              </Link>
+              <span aria-hidden>/</span>
+              <Link href={`/services#${service.category}`} className="text-link hover:text-photo-signal">{categoryName(service.category)}</Link>
+            </nav>
 
-        <h1 className="mt-5 text-[clamp(2rem,1.4rem+2.4vw,3.25rem)] font-semibold leading-[1.06] tracking-[-0.03em] text-ink">
-          {service.name}
-        </h1>
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm text-steel">
-          <span>{service.tagline}</span>
-          <span aria-hidden className="text-hairline">
-            ·
-          </span>
-          <span className="text-signal">{service.law}</span>
-        </div>
-
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-dim">
-          {service.summary}
-        </p>
-
-        {scope.length > 0 && (
-          <div className="mt-12">
-            <h2 className="font-mono text-[0.72rem] uppercase tracking-wider text-steel">
-              Scope of work
-            </h2>
-            <ul className="mt-4 grid gap-x-8 border-t border-hairline sm:grid-cols-2">
-              {scope.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 border-b border-hairline py-3 text-sm leading-relaxed text-ink-dim"
-                >
-                  <span aria-hidden className="mt-1.5 size-1 shrink-0 rounded-full bg-signal-solid" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <h1 className="mt-5 max-w-4xl page-title">
+              {service.name}
+            </h1>
+            <p className="mt-4 max-w-xl text-lg text-photo-ink">{service.tagline}</p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 text-base">
+              <span className="font-mono text-photo-signal">{service.law}</span>
+              {scope.length > 0 && <a href="#scope" className="text-link gap-4 text-photo-ink hover:text-photo-signal">Scope of work <span aria-hidden="true">↓</span></a>}
+            </div>
           </div>
-        )}
+        </header>
 
-        {related.length > 0 && (
-          <div className="mt-12">
-            <h2 className="font-mono text-[0.72rem] uppercase tracking-wider text-steel">
-              More in {categoryName(service.category)}
-            </h2>
-            <ul className="mt-4 border-t border-hairline">
-              {related.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={`/services/${s.slug}`}
-                    className="group flex items-center justify-between gap-4 border-b border-hairline py-3.5 transition-colors hover:bg-surface"
+        <div className="site-container section-space">
+          <p className="max-w-3xl text-lg leading-relaxed text-ink-dim">
+            {service.summary}
+          </p>
+
+          {scope.length > 0 && (
+            <div id="scope" className="mt-10 scroll-mt-36">
+              <h2 className="text-2xl font-semibold tracking-[-0.02em] text-ink">
+                Scope of work
+              </h2>
+              <ul className="mt-4 grid gap-x-12 border-t border-hairline lg:grid-cols-2">
+                {scope.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 border-b border-hairline py-5 text-base leading-relaxed text-ink-dim"
                   >
-                    <span className="text-ink">{s.name}</span>
-                    <span className="font-mono text-steel transition-colors group-hover:text-signal">
-                      →
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+                    <span aria-hidden className="mt-3 size-1.5 shrink-0 rounded-full bg-signal-solid" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {related.length > 0 && (
+            <div className="mt-12">
+              <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">
+                More in {categoryName(service.category)}
+              </h2>
+              <ul className="mt-4 border-t border-hairline">
+                {related.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="group flex items-center justify-between gap-4 border-b border-hairline py-3.5 transition-colors hover:bg-surface"
+                    >
+                      <span className="text-ink underline decoration-control-line underline-offset-4">{s.name}</span>
+                      <span className="font-mono text-steel transition-colors group-hover:text-signal">
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </article>
 
       <div className="border-t border-hairline">

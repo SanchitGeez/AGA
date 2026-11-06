@@ -39,8 +39,8 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Ticker />
       <Positioning />
+      <Ticker />
       <Figures />
       <ServiceCards />
       <CapitalMarkets />

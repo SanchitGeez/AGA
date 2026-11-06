@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 export function ResumeForm() {
+  const formId = useId();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -27,8 +28,7 @@ export function ResumeForm() {
     }
   }
 
-  const field =
-    "w-full rounded-md border border-hairline bg-bg px-3.5 py-2.5 text-sm text-ink outline-none transition-colors focus:border-signal placeholder:text-steel";
+  const field = "form-field";
 
   if (status === "sent") {
     return (
@@ -39,7 +39,7 @@ export function ResumeForm() {
         <h2 className="mt-4 text-lg font-semibold text-ink">
           Thank you — your résumé is on its way to us.
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-ink-dim">
+        <p className="mt-2 text-base leading-relaxed text-ink-dim">
           We&apos;ll be in touch about current and upcoming openings.
         </p>
       </div>
@@ -52,7 +52,7 @@ export function ResumeForm() {
       className="rounded-xl border border-hairline bg-surface p-6 sm:p-8"
     >
       <h2 className="text-lg font-semibold text-ink">Send us your résumé</h2>
-      <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-dim">
+      <p className="mt-2 max-w-xl text-base leading-relaxed text-ink-dim">
         Share your details and attach your updated résumé — we&apos;ll be in
         touch about current and upcoming openings.
       </p>
@@ -71,17 +71,16 @@ export function ResumeForm() {
       <div className="mt-6 space-y-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+            <label htmlFor={`${formId}-name`} className="form-label">
               Name
             </label>
-            <input name="name" required placeholder="Your name" className={field} />
+            <input id={`${formId}-name`} name="name" autoComplete="name" required placeholder="Your name" className={field} />
           </div>
           <div>
-            <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+            <label htmlFor={`${formId}-email`} className="form-label">
               Email
             </label>
-            <input
-              name="email"
+            <input id={`${formId}-email`} name="email" autoComplete="email"
               type="email"
               required
               placeholder="you@email.com"
@@ -90,42 +89,39 @@ export function ResumeForm() {
           </div>
         </div>
         <div>
-          <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+          <label htmlFor={`${formId}-service`} className="form-label">
             Position of interest
           </label>
-          <input
-            name="service"
+          <input id={`${formId}-service`} name="service"
             placeholder="e.g. Company Secretary — Executive"
             className={field}
           />
         </div>
         <div>
-          <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+          <label htmlFor={`${formId}-message`} className="form-label">
             Message
           </label>
-          <textarea
-            name="message"
+          <textarea id={`${formId}-message`} name="message"
             rows={3}
             placeholder="Tell us about yourself"
-            className={`${field} resize-none`}
+            className={field}
           />
         </div>
         <div>
-          <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+          <label htmlFor={`${formId}-resume`} className="form-label">
             Résumé — PDF, DOC, DOCX or RTF · max 4 MB
           </label>
-          <input
-            name="resume"
+          <input id={`${formId}-resume`} name="resume"
             type="file"
             required
             accept=".pdf,.doc,.docx,.rtf"
-            className="w-full text-sm text-ink-dim file:mr-4 file:rounded-md file:border-0 file:bg-surface-2 file:px-4 file:py-2 file:font-mono file:text-xs file:text-ink hover:file:bg-hairline"
+            className="form-field file:mr-4 file:rounded-md file:border-0 file:bg-surface-2 file:px-4 file:py-3 file:text-sm file:font-semibold file:text-ink hover:file:bg-hairline"
           />
         </div>
       </div>
 
       {status === "error" && (
-        <p className="mt-4 font-mono text-[0.72rem] text-overdue">
+        <p role="alert" className="mt-4 text-base text-overdue">
           {errorMsg} You can also email us at {site.emails[0]}.
         </p>
       )}
@@ -133,7 +129,7 @@ export function ResumeForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-6 rounded-md bg-signal-solid px-5 py-3 text-sm font-medium text-on-signal transition-colors hover:bg-signal-solid-hover disabled:opacity-60"
+        className="action-primary mt-6 w-full sm:w-auto"
       >
         {status === "sending" ? "Sending…" : "Submit application →"}
       </button>

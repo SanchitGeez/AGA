@@ -2,8 +2,8 @@
 
 Marketing + lead-generation site for a peer-reviewed Company Secretary firm in Mumbai.
 Design system codename **Bourse** — a markets-terminal aesthetic (deep slate, one amber
-signal, Geist + Geist Mono, tabular figures, a live statutory-deadline ticker, a searchable
-25-service matrix). Serious and institutional by design, not startup-y.
+signal, Geist + Geist Mono, tabular figures, a live statutory-deadline ticker, a photographic
+25-service practice explorer and command-bar search). Serious and institutional by design, not startup-y.
 
 ## New here? Read in this order
 
@@ -72,20 +72,23 @@ app/
   fonts/fraunces.woff2   self-hosted variable serif (hero headline only)
   api/enquiry/route.ts   enquiry + résumé email endpoint (Resend; résumé = attachment, no storage)
   about/ contact/ career/ insights/   top-level pages
-  services/page.tsx      services hub (6 practice areas)
-  services/[slug]/       25 statically-generated detail pages (scope + Service JSON-LD)
+  services/page.tsx      services hub (6 photographic category cards, all 25 links)
+  services/[slug]/       25 static detail pages (category-photo introduction, scope + Service JSON-LD)
 components/
   site/    masthead, command-bar, ticker, footer, theme-toggle, whatsapp-float, resume-form,
            use-mod-key
   home/    positioning (full-bleed hero), hero-visual (hero background), figures,
-           service-cards (6 expandable practice-area cards), capital-markets,
+           service-cards (full-section photo practice explorer), capital-markets,
            principal, insights-teaser, enquire
 lib/
   site.ts               firm constants (name, phones, emails, address, stats, exchange links)
   services.ts           the 25 services + 6 categories + `law` (governing statute) — feeds
-                        matrix, hub, command-bar, detail pages
+                        explorer, hub, command-bar, detail pages
   service-content.ts    full statutory scope-of-work per service (from the brief) — detail pages
+  service-imagery.ts    6 category photographs + focal crops — explorer, hub, detail intros
   deadlines.ts          statutory deadlines + `upcomingDeadlines()` — feeds ticker + insights
+public/services/colour/ optimised full-colour WebPs for the six practice areas
+design/service-imagery/ photographic masters, provenance and approved implementation brief
 ```
 
 ## Conventions (short form — full rules in AGENTS.md / DESIGN.md)
@@ -97,7 +100,13 @@ lib/
   of any viewport.
 - **Mono names data, not decoration** — Geist Mono for figures/labels/codes; Geist for prose.
 - **The serif (Fraunces) is hero-only** — one display serif, one place. Don't spread it.
-- **Dark is default**, light via the theme toggle — verify contrast in both (WCAG AA).
+- **Reading scale:** 18px prose/actions, 20px introductions, 16px labels/statutes and 14px
+  short counts/keyboard hints. Use shared `page-title` / `section-title` headings.
+- **Controls:** `action-primary` / `action-secondary` are at least 52px; `form-field` is
+  at least 54px with 18px text, paired `form-label` and a visible `control-line` border.
+  Standalone `text-link` actions are underlined and at least 48px tall.
+- **Dark is default**, light via the theme toggle — verify text/control contrast in both.
+  The target is WCAG AA; scoped contrast/Lighthouse checks are not a full conformance claim.
 - Keep copy formal and statute-precise — that's the institutional guardrail.
 
 ## Deploy to Vercel
@@ -127,5 +136,8 @@ through Resend. Vercel supports both as part of one project, so no separate back
 The résumé limit is 4 MB, below Vercel's function request-body limit. Do not set Next.js static
 export (`output: "export"`): the email route needs a server runtime.
 
-Before a public launch, confirm the domain and replace the placeholder firm statistics, deadline
-calendar, hero image, and principal photo noted in `PROGRESS.md`.
+Before a public launch, confirm the domain and replace the placeholder firm statistics and deadline
+calendar noted in `PROGRESS.md`. The hero uses the approved full-colour illustrative boardroom
+image (`public/services/colour/advisory.webp`), continuous behind the home header and opening;
+it does not depict the firm's office. The principal portrait's master and web export live in
+`public/portraits/`.

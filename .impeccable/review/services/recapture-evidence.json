@@ -1,0 +1,14 @@
+{
+  "home": {
+    "panel": "practice-panel-formation",
+    "visibleImages": [
+      "http://localhost:3100/_next/image?url=%2Fservices%2Fcolour%2Fformation.webp&w=1920&q=75"
+    ]
+  },
+  "detail": {
+    "complete": true,
+    "image": "http://localhost:3100/_next/image?url=%2Fservices%2Fcolour%2Fcapital-markets.webp&w=1920&q=75",
+    "title": "IPO Advisory",
+    "width": 1254
+  }
+}

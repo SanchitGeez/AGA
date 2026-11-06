@@ -8,17 +8,23 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 
 ---
 
-## At a glance (2026-07-09)
+## At a glance (2026-11-07)
 
 - **What works:** the whole site. Home + About, Services (hub + 25 detail pages with full
   statutory scope), Insights (compliance calendar), Career (résumé upload), Contact. Enquiry &
   résumé forms email the firm via Resend (with a WhatsApp fallback). SEO: metadata, JSON-LD,
-  sitemap, robots. Dark + light. Build is green at **37 routes**.
+  sitemap, robots. Dark + light. Build is green at **38 generated pages**.
 - **To make forms send in prod:** set `RESEND_API_KEY` (see README → Email). Nothing else is
   wired to a secret.
-- **Next planned work:** a **UI-polish pass** (functionality was built first, by request). The
-  known polish items are collected under "Known placeholders / tech-debt" below. Formal Phase 5
-  (a11y focus-trap, Lighthouse, cross-browser QA) also remains.
+- **Latest UI work:** the site-wide adult-reader readability pass is complete: 18px prose,
+  20px introductions, larger headings, clearer contrast, 52px actions, 54px labelled fields,
+  default link underlines and readable mobile reflow. Both themes retain Bourse. The approved
+  full-colour Boardroom opening and six-category service photography remain. Concurrent header
+  work supplies centered About-first navigation and an active underline; Contact has one
+  “Start a conversation” h1. Search remains keyboard-operable with focus restoration.
+- **Next planned work:** improve production loading performance, complete broader browser/
+  physical-device QA, and resolve client content/configuration placeholders. The scoped
+  readability phase is complete; this does not establish full WCAG conformance.
 - **Before you build framework-level code:** this Next.js is a modified build — read
   `node_modules/next/dist/docs/`. Standard App-Router conventions held for everything used so far.
 
@@ -32,7 +38,7 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 | **2 — About + Contact + real enquiry** | `/about` and `/contact` pages + working enquiry form (POST → `/api/enquiry` → Resend email; WhatsApp fallback) | ✅ **Done** (2026-07-09). Needs `RESEND_API_KEY` set to go live |
 | **3 — Services engine** | `/services` hub (6 areas) + full statutory scope for all 25 (`lib/service-content.ts`, from the brief) + per-service `Service` JSON-LD | ✅ **Done** (2026-07-08). Per-category standalone routes skipped — hub + anchors + 25 indexable detail pages cover it |
 | **4 — Insights + Career** | `/insights` (compliance calendar, orders by next-upcoming) + `/career` (real résumé upload → email attachment). Dated regulatory-update *articles* deferred (no content yet, YAGNI) | ✅ **Done** (2026-07-09) |
-| **5 — Polish** | SEO/schema completion, performance, a11y (incl. command-bar focus trap), Lighthouse pass, cross-browser/mobile QA | ⬜ Planned |
+| **5 — Polish** | SEO/schema, performance, a11y, cross-browser/mobile QA | Partial: header/search, layout, Boardroom/services and site-wide readability completed 2026-11-07; loading performance, broad accessibility and cross-browser/device QA remain |
 
 ---
 
@@ -55,6 +61,309 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 ---
 
 ## Decisions log
+
+*2026-11-07 — Main-branch publishing preparation*
+
+- Included all pending source changes, brand/portrait/service assets, design provenance,
+  documentation and review evidence in the requested main-branch update. Environment
+  files and SSH keys remain outside the commit.
+- Replaced the unfinished pnpm `sharp` build-permission placeholder with `true`, as
+  required by pnpm's boolean `allowBuilds` configuration. The documented npm workflow
+  and canonical `package-lock.json` remain unchanged.
+- Production build passes with 38 generated pages; whitespace checks are clean. The
+  existing hook-lint limitations are recorded in the readability phase below.
+
+*2026-11-07 — Site-wide readability for adult professional readers*
+
+1. **Approved system evolution:** the client requested larger fonts, clear actions and easier
+   reading across the site, accepting a modest increase in visual weight. The RIL reference
+   (`https://www.ril.com/`) informed comfortable 18px prose and explicit outlined actions;
+   it did not replace Bourse. Slate/amber, Geist/Geist Mono, hero-only Fraunces, approved
+   natural-colour photography and the continuous home header/hero remain.
+2. **Type, space and contrast:** Tailwind's shared scale is now 14/16/18/20/24/30px; body
+   is 18px, introductions 20px, labels/statutes 16px and short counts/hints 14px. Page
+   statements span 40–68px, main section headings 32–52px. Section spacing is 64–88px.
+   Raised secondary ink, steel, rules and photo captions; introduced `control-line` for
+   visible controls. Light amber now supports small text. Dark/light text ratios on
+   `surface` include steel 7.70/6.75:1, signal 8.04/4.77:1 and control borders 4.18/3.56:1.
+3. **Affordances and forms:** shared filled/outlined actions have 52px minimum height;
+   fields are 54px minimum with 18px text and 16px semibold associated labels. Text links
+   are underlined, standalone actions at least 48px tall. Forms use unique label IDs,
+   autocomplete and announced errors; textareas resize vertically. Existing fields/order,
+   payloads, Resend attachment handling and WhatsApp fallback remain. No dependency,
+   asset, backend or storage was introduced for this pass.
+4. **Site-wide application:** enlarged reading copy, statutes, service controls and footer;
+   all directory practice links stay visible. Scope lists become two columns on desktop;
+   the mobile calendar stacks code/name/date. Contact phone/email links occupy separate
+   rows. Footer headings are h2 and the bottom rail clears the floating WhatsApp control.
+   Removed redundant prose eyebrows. The home Insights action now reads “View compliance
+   calendar” and opens `/insights`, accurately representing the available feature.
+5. **Concurrent work preserved:** the About-first, centered 22–24px header navigation,
+   centered mobile menu, current-route underline and single Contact h1 were being refined
+   separately during this session. Their current implementation is ground truth; this pass
+   preserves those decisions rather than attributing the entire header/Contact revision
+   to readability. Historical entries below remain the record of their own phases.
+6. **Validation:** production build passes (38 generated pages); scoped ESLint passes.
+   Full ESLint still reports three pre-existing `setState-in-effect` findings in figures,
+   theme-toggle and use-mod-key; offending logic was not changed here. Recorded browser
+   checks total 166 across all 31 content routes at 320/1440px in both themes and seven
+   representative routes at 390/768/1024/1360/1920px plus 667px landscape. No horizontal
+   overflow, clipped headings or unlabelled/undersized fields were found. Nine behavior
+   checks passed for menu/search, keyboard practice selection, error retention and form
+   success. Submissions were browser-mocked; no real email was sent. One UI-detector run
+   over app/components returned no findings. Independent finish review found only footer
+   heading order and documentation sync; both are now resolved.
+7. **Limits and follow-up:** production Lighthouse Home is performance 80/accessibility
+   100 (LCP 4.6s, TBT 230ms, CLS 0). Final Contact accessibility is 100 with heading order
+   passing and no failed accessibility audits. These are scoped automated results, not a
+   performance or full WCAG pass. Fresh production browser console was empty; an earlier
+   development hydration warning contained `data-agent-browser-located` instrumentation.
+   Safari/Firefox and physical-device QA were not performed. Evidence is in
+   `.impeccable/review/readability/`; design tokens and sidecar are synchronized.
+
+*2026-11-07 — Centered header navigation and concise Contact page*
+
+1. **Header prominence:** centered the desktop links with equal left/right grid
+   columns, retaining the logo and utility controls. Enlarged links to 22px
+   (24px from 1536px); the mobile menu is centered at 22px. Preserved the existing
+   1360px desktop-navigation breakpoint and header heights.
+2. **Order and selection:** About now precedes Services in both header menus.
+   A 2px amber underline scales from its center on hover and keyboard focus,
+   and persists for the current page/section, including Services detail routes.
+   Uses `aria-current`; reduced-motion mode changes the indicator instantly.
+3. **Contact duplication:** removed the separate Contact introduction. The shared
+   enquiry section now supplies its single visible h1, “Start a conversation.”
+   Other uses retain h2. Kept form fields, service defaults and the Maps link;
+   stacked email links to keep the two addresses visually distinct.
+4. **Verified:** build passes (38 generated pages), changed TSX files pass ESLint,
+   and the UI detector returns no findings. Browser checks cover exact desktop
+   centering and separation at 1360–1920px, mobile menu order/centering at
+   320–1280px, both themes, hover/focus and reduced-motion indicators, nested
+   Services routes, and Contact's single h1, form and Maps link (22 cases plus
+   interaction checks). Active navigation text contrast in light is 5.05:1.
+
+*2026-11-07 — Photographic services explorer, directory and detail introductions shipped*
+
+1. **Approved local evolution:** implemented the colourful service-image direction within
+   Bourse. The selected category photograph fills the entire homepage services section;
+   six choices remain visible and one service panel expands. Desktop pairs a shaded left
+   category rail with the lower-right panel; mobile expands the selected content inline
+   with a visible image. Counts, direct service links and governing statutes remain.
+2. **Client directory revision:** each category and all its sub-services share one
+   photograph-backed card. The hub uses a consistent two-column grid from 1024px and one
+   column below, retaining category jump anchors and all 25 links without interaction.
+   The client explicitly requested subtle reading gradients on service photographs; this
+   local exception does not authorise decorative UI gradients or another interface accent.
+3. **Detail pages:** all 25 introductions use their category photograph behind breadcrumbs,
+   heading, tagline and law. Summary, scope, related services and the enquiry form retain
+   normal page-theme surfaces. Existing URLs, anchors, service names, statutes, scope copy,
+   metadata, Service JSON-LD and service-prefilled enquiry defaults are preserved.
+4. **Image system:** `lib/service-imagery.ts` centralises six optimised WebPs and focal
+   crops. Natural colour remains unfiltered. Five fixed `photo-*` tokens protect media
+   captions in either page theme; they are not another global theme or accent palette.
+   Background images mount on first selection and crossfade over 300ms after loading;
+   reduced motion removes that transition. Failed images leave usable controls and links
+   over `photo-ground`. No dependency, storage or service was added.
+5. **Verified:** changed-source ESLint and the production build pass (38 generated pages).
+   Browser evidence records 31 responsive/selection checks at 320–1920px in both themes,
+   plus 100 checks across all 25 detail pages at 320px/1440px in both themes, covering image
+   mapping, titles, scope, breadcrumbs, enquiry default and JSON-LD. Reduced-motion
+   background transition is `none`. Evidence: `.impeccable/review/services/checks.json`,
+   `detail-checks.json`, `final-verification.json` and `recapture-evidence.json`. The detector
+   reported only the existing global 2px focus-radius advisory. Independent review of the
+   corrected 17-capture set found no material introduced findings. Fresh production
+   Lighthouse: Home performance 81 / accessibility 92; Services performance 79 /
+   accessibility 92. Both colour-contrast audits pass. Existing enquiry-select naming and
+   contact-link target-spacing findings remain; these scores are not a full AA or
+   performance pass. Reports: `final-lighthouse-home.json` and
+   `final-lighthouse-services.json` in the same review directory. Broad site accessibility,
+   performance and cross-browser work remains outside this phase. An intentionally failed
+   Cross-Border image retained its two service links; selecting cached Formation restored
+   the photo (`image-failure-check.json`). The main browser error log is empty; the final
+   review disposition is recorded in `review.md`.
+
+*2026-11-07 — Approved Boardroom hero within Bourse*
+
+1. **Direction:** the client selected Boardroom to give the opening more personality and
+   express “Where governance meets growth”. This is a home-surface redesign within Bourse;
+   the existing firm identity, slate/amber system, fonts and remaining section order stay.
+2. **One continuous image:** reused `public/services/colour/advisory.webp`, the generated
+   illustrative boardroom from the colour service imagery. It is not the firm's office.
+   The photograph spans the home masthead and hero from the document top. Natural colour
+   remains visible, with a directional reading shade and top navigation shade only; the
+   old duotone, grid, zoom and parallax are removed. No separate `public/hero.jpg` is needed.
+3. **Content:** two-line Fraunces motto, with “growth” in amber; short support line:
+   “Company secretarial, governance and capital markets advisory, from incorporation to IPO.”
+   Enquire links to `/contact`; Explore services links to `/#services`. Removed the legacy
+   credentials/meta strip. The ticker now follows the hero, then the existing figures,
+   services, capital-markets, principal, insights and enquiry sections.
+4. **Header behavior:** the existing 80/96/112px rail (plus border) shares the image at the
+   home top. A 1px intersection marker restores the normal solid, theme-aware sticky header
+   on scrolling. Inner pages retain their normal header. Photo foreground tokens are fixed
+   in both themes, like the service photography. Mobile navigation overlays below the
+   header, scrolls within the viewport and does not displace the image; menu/search surfaces
+   stay opaque.
+5. **Delivery:** server-rendered `next/image` uses eager loading and high fetch priority
+   (the local Next 16 docs deprecate `priority`). No dependency or service was added.
+6. **Verified:** production build passes (38 generated pages); scoped ESLint passes.
+   Twelve viewport/theme checks cover 320×667, 390×844, 667×375, 1024×768, 1440×600 and
+   1440×900 in both themes: two-line heading and CTA visibility, no horizontal overflow,
+   unfiltered image, hero at document top, and ticker after it. Six behavior checks cover
+   solid sticky header after scroll, mobile menu position/bounds, search focus/dismissal,
+   inner-page header and return to the home photographic header. Review evidence lives in
+   `.impeccable/review/hero/`. Final production mobile Lighthouse: performance 82,
+   accessibility 92, LCP 4.8s, CLS 0 and TBT 100ms. High-priority LCP discovery now passes;
+   LCP remains above the 2.5s target. Existing enquiry-select naming and email-link target
+   spacing findings remain; this is not a full performance or AA pass. No new hero contrast
+   failure was reported. The detector's existing global 2px focus-radius advisory is outside
+   this change. See `lighthouse-final.json` in the review directory.
+
+*2026-11-07 — Career form aligns beside the entire introduction*
+
+- Corrected the previous layout grouping: the Career heading, introduction and reasons
+  now occupy one left column, with the résumé form as its right-hand sibling. The form
+  starts at the top of the text block instead of below the introduction beside the list.
+- Mobile keeps the full text block followed by the form. Shared site width and gutters
+  remain in effect.
+- Verified visually on desktop/mobile; browser assertions confirm identical column top
+  coordinates and a 48px desktop gap, and equal widths with a 32px mobile stacking gap.
+  Production build (38 generated pages) and Career-page ESLint pass.
+
+*2026-11-07 — Colour service imagery prepared; explorer direction approved*
+
+1. **Approved direction:** the homepage service explorer will use the selected
+   category's photograph as the entire section background. The Services hub will
+   introduce its six practice areas with the same photographic subjects while
+   retaining all 25 direct service links and governing-statute information.
+2. **Colour photography:** client explicitly requested richer colour, clean and
+   elegant. Retain the Bourse interface and its amber accent; the new photographs
+   must not receive the incumbent grayscale, brightness and duotone overlay stack.
+3. **Asset phase completed:** generated and visually reviewed six standalone
+   approximately 16:9 photographs with built-in ImageGen. Incorporation documents,
+   statutory register, BSE architecture and transaction review replace the old four
+   concepts. The port and boardroom concepts return in colour with revised framing.
+4. **Saved deliverables:** native-resolution PNGs and exact prompts/provenance in
+   `design/service-imagery/`; optimised WebPs in `public/services/colour/`.
+   See that directory's README for composition, references and integration notes.
+   Existing JPEGs and page components are unchanged; layout integration remains.
+
+*2026-11-07 — Consistent, wider site layout (client-requested)*
+
+1. **Root cause:** header, standard sections and inner pages used separate 1280px,
+   1152px and 896px outer widths. About and service-detail introductions shifted inward
+   relative to their reused enquiry/portrait sections; the figure row also added a second
+   large gap after About's padded introduction.
+2. **Shared layout:** `site-container` in `app/globals.css` now owns the outer width
+   (1600px) and responsive gutters (16px mobile / 24px tablet / 32px desktop). Applied
+   across all pages, all 25 service details, home sections, header and both footer rows.
+   At 1440px, standard content spans 1376px instead of 1104px; previously narrow inner
+   pages start at the same 32px left edge. Prose and search keep local readable measures.
+3. **Spacing:** shared `section-space`, `section-start` and `section-end` utilities use
+   48–64px instead of the former 64–96px section padding. Removed About's doubled gap
+   before figures; reduced hero minimum height and padding. Capital-markets, insights
+   and enquiry sections share equal desktop columns and 48px gaps (32px stacked).
+4. **Responsive composition:** Career places reasons beside the résumé form on desktop
+   and stacks them on mobile. The principal portrait aligns with the left content edge
+   when stacked. Section anchors clear the existing larger sticky header.
+5. **Verified:** production build passes (38 generated pages). Browser assertions pass
+   on all 31 content routes at 390px and 1440px; seven representative routes also pass
+   in light theme at 320px, 768px, 1280px and 1920px (90 checks total). Assertions verify
+   shared width, left/right gutter alignment, heading/form bounds and no horizontal
+   overflow. Visually inspected Home, About, Career, Contact and a long service title
+   across desktop/mobile and both themes. Layout detector returns no findings; browser
+   error log is empty. Full ESLint still reports five existing copy/hook errors in
+   capital-markets, figures, insights-teaser, theme-toggle and use-mod-key; their
+   offending code is unchanged by this layout pass.
+
+*2026-11-07 — Professional principal portrait from client-supplied photos*
+
+1. **Placement informed the asset:** the shared `Principal` component appears on About
+   and Home, with a 300px-wide 4:5 portrait beside the biography on desktop. Chose an
+   upper-torso composition, navy suit/white shirt/plain navy tie, and a simple cool gray
+   studio background. Natural face color remains unchanged by CSS in either theme.
+2. **Identity preservation:** used `IMG_0054.JPG` as the primary edit source and
+   `IMG_0078.JPG` as a secondary identity reference. Prompt explicitly locks facial
+   proportions, smile/teeth, hairline/curls, stubble, skin tone and natural asymmetry;
+   avoids beautification, facial slimming and changing expression. One built-in ImageGen
+   edit selected after visual comparison; client can review the full-resolution result.
+3. **Assets:** `public/portraits/ayush-gupta-master.png` retains the generated master;
+   `ayush-gupta.webp` is a 960x1200, ~96KB website export. Full prompt/provenance in
+   `design/portrait-generation.txt`. Original photos in Downloads were not modified or
+   copied into the public website.
+4. **Implementation:** replaced the AG placeholder and its caption with `next/image`,
+   preserving the 4:5 frame. Mobile/tablet portrait width caps at 384px; desktop stays
+   300px. Explicit image sizes, lazy loading, descriptive alt text, and reserved dimensions.
+   Anchor offset now accommodates the larger sticky header.
+5. **Verified:** production build passes (38 generated pages), portrait component ESLint
+   passes, detector has no findings. About inspected on desktop/mobile in both theme
+   contexts; Home portrait also loads. Browser assertions confirm image load, 4:5 bounds,
+   no horizontal overflow, and no CSS color filter; no console errors.
+
+*2026-11-07 — Larger uppercase header + responsive search redesign*
+
+1. **Header prominence:** enlarged the rail to 80px mobile / 96px tablet / 112px desktop,
+   with a larger emblem and bold “AYUSH D GUPTA”. The shared footer wordmark is uppercase
+   too. Navigation is 16px semibold with stronger contrast; search/Enquire controls are
+   48px tall, theme/menu targets at least 44px. Navigation collapses below 1280px.
+   Preserved the Bourse palette, fonts, routes and existing brand asset. This deliberately
+   overrides the design skill's default header-height cap in response to the client's request.
+2. **Removed the hero emblem watermark** completely; retained the header/footer and icons.
+3. **Search root cause:** the flex overlay stretched its child vertically, creating a large
+   blank area. Replaced it with native `<dialog>` in the browser top layer, capped to viewport
+   height with a stable top position, an internally scrolling results list and fixed controls.
+   This supersedes the original Phase-1 decision to use a custom overlay.
+4. **Search behavior:** full names wrap above practice areas; clear Close and empty-state
+   actions; searches all 25 services + 6 page shortcuts by name, category and governing law.
+   Removed the silent result limit. Added combobox/listbox semantics, explicit Tab wrapping,
+   focus restoration (including after opening from the mobile menu), and prior-scroll-style
+   restoration. Existing shortcut and events remain compatible. No dependency added.
+5. **Verified:** production build passes (38 generated pages). Changed search, masthead,
+   brand and hero TSX files pass ESLint. Browser assertions cover viewport bounds at desktop,
+   320px mobile and 667x375 landscape; filtering, empty recovery, Arrow/Enter navigation,
+   Escape/backdrop closing, Tab wrapping, focus restoration and body-scroll restoration.
+   Both themes inspected; no browser console errors. Mechanical UI detector returned no findings.
+6. **Broader Lighthouse findings:** a mobile run scored performance 54 / accessibility 84.
+   Existing image payload/LCP, principal-placeholder contrast, hero definition-list markup,
+   enquiry select labeling, and contact-link target spacing remain outside this scoped pass.
+   The reported contrast/target-size failures are outside the header/search components.
+
+*2026-11-07 — Supplied firm emblem replaces the ADG concept*
+
+1. **Source:** the client's attached circular logo, also present on the newly downloaded
+   visiting card. Preserved the sprout, three people, central Y, and partial gear; used
+   built-in ImageGen to regenerate transparent flat gold linework (one cleanup iteration).
+2. **Assets:** `public/brand/firm-emblem.png` is the 1254px transparent master;
+   `firm-emblem-web.png` is the 640px website derivative. The shared `Brand` uses its alpha
+   mask with the existing theme-aware `signal` token, retaining the full firm name.
+3. **Placement:** header + footer throughout the site, a restrained static watermark on
+   the right of the home hero at 1280px+, and matching favicon / Apple touch icon. The
+   watermark is decorative, ignores pointer events, and stays off smaller screens.
+4. **Validation:** build passes (38 generated pages including the new Apple icon route).
+   Changed TSX files pass ESLint. Detector's only finding is the existing 2px focus-ring
+   radius in globals.css; it is unrelated to the logo and remains unchanged.
+
+*2026-11-07 — Full-name wordmark + custom ADG monogram*
+
+1. **Replaced the abbreviated masthead identity** with “Ayush D Gupta & Associates”,
+   set as a two-line Geist wordmark beside an authored amber SVG monogram. The A shares
+   its apex with the D bowl; a return bar suggests G. No additional font or image dependency.
+2. **One shared identity** (`components/site/brand.tsx`) serves the header and footer.
+   The masthead has more vertical room (72px mobile / 80px desktop) and preserves the
+   full firm name on small screens. Both home links expose the full name to assistive tech.
+3. **Validation:** production build passes (37 generated pages); responsive/theme browser
+   checks pass, including the mobile menu at 320px. Impeccable's detector returned no findings.
+   The full lint run still reports seven existing errors in unchanged components.
+
+*2026-11-07 — Contact number removal*
+
+- Removed the retired phone entry from `lib/site.ts`, updating the footer, enquiry/contact
+  sections, confirmation copy, and structured data through their shared source.
+- WhatsApp links now use the remaining listed number, +91 99307 66702, including form fallbacks.
+- The original client brief remains an unchanged historical reference.
+- Verified: production build passed (37 pages); the removed number is absent from generated
+  pages and client bundles.
+- Separate lint check reports seven existing errors in unchanged components (unescaped
+  apostrophes and synchronous state updates in effects).
 
 *2026-07-09 — Home UI pass: full-bleed hero + services cards (client-requested)*
 
@@ -184,12 +493,13 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 Swap these for real client assets when available (never block a build on them):
 
 - **Stats** — `lib/site.ts` (`500+ / 10+ / 2,400+`) are placeholders.
-- **Hero image** — `public/hero.jpg` not yet added; hero shows a ruled-grid placeholder.
-  Source spec: Mumbai financial district / BSE / BKC architecture (or documentary detail —
-  seals, ledgers), landscape-ish, **no people, no handshakes**, high detail. It's rendered
-  grayscale + slate/amber duotone automatically, so pick for composition, not colour.
-- **CS Ayush headshot** — monogram placeholder in `components/home/principal.tsx`.
-- **Logo** — currently an amber "A" initial mark; no supplied logo yet.
+- **Hero image — resolved** — approved full-colour illustrative boardroom at
+  `public/services/colour/advisory.webp`, shared with Advisory & Governance. It does not
+  depict the firm's office; no `public/hero.jpg` placeholder remains in the implementation.
+- **CS Ayush portrait** — AI-edited professional portrait from client-supplied photos now
+  replaces the monogram on About/Home. Master and web asset in `public/portraits/`.
+- **Logo** — regenerated client-supplied circular emblem + full-name wordmark; header,
+  footer and browser/touch icons shipped on 2026-11-07. Hero watermark subsequently removed.
 - **Testimonials / client logos** — none yet (not in the layout yet; add when supplied).
 - **Deadline data** — `lib/deadlines.ts` is illustrative; wire to a maintained calendar.
 - **Domain** — `site.url` guesses `agaassociates.in`; confirm the real domain.
@@ -205,7 +515,7 @@ Deferred (need client input, not stubbed):
 
 - **Regulatory-update articles** — client-written; add as in-repo MDX when there's a first post.
 - **Live calendar data** — `lib/deadlines.ts` is illustrative; confirm/extend the dates.
-- Command-bar focus trap (Phase 5) · leftover default `public/*.svg` from create-next-app.
+- Leftover default `public/*.svg` from create-next-app.
 
 Known content polish (UI pass): `/about` repeats the firm blurb + Vision between the intro,
 the reused `Principal` block, and the Vision card — de-duplicate when polishing.

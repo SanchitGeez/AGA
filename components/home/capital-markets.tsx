@@ -7,18 +7,15 @@ export function CapitalMarkets() {
   return (
     <section
       id="capital-markets"
-      className="scroll-mt-20 border-y border-hairline bg-surface"
+      className="scroll-mt-32 border-y border-hairline bg-surface"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+      <div className="site-container section-space grid gap-8 lg:grid-cols-2 lg:gap-12">
         <div>
-          <p className="font-mono text-sm tracking-wide text-signal">
-            The growth wedge
-          </p>
-          <h2 className="mt-4 text-[clamp(1.6rem,1.2rem+1.4vw,2.25rem)] font-semibold tracking-[-0.02em] text-ink">
+          <h2 className="section-title text-ink">
             Built for the capital markets.
           </h2>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-ink-dim">
-            The firm's edge is where regulation meets the markets — listings,
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-dim">
+            The firm&apos;s edge is where regulation meets the markets — listings,
             disclosures, and corporate actions under SEBI and the exchanges. If
             you are heading toward an IPO or already listed, this is the desk
             for it.
@@ -33,8 +30,8 @@ export function CapitalMarkets() {
               className="group flex items-start justify-between gap-6 border-b border-hairline py-6 transition-colors hover:bg-bg/40"
             >
               <div>
-                <h3 className="text-lg font-medium text-ink">{s.name}</h3>
-                <p className="mt-1 text-sm text-steel">{s.summary}</p>
+                <h3 className="text-xl font-semibold text-ink underline decoration-control-line underline-offset-4">{s.name}</h3>
+                <p className="mt-1 text-base text-steel">{s.summary}</p>
               </div>
               <span className="mt-1 shrink-0 font-mono text-steel transition-colors group-hover:text-signal">
                 →

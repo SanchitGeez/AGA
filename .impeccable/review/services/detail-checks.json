@@ -1,0 +1,602 @@
+[
+  {
+    "route": "/services/incorporation-registration",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/incorporation-registration",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/incorporation-registration",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/incorporation-registration",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/startup-advisory",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/startup-advisory",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/startup-advisory",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/startup-advisory",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/regulatory-registrations",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/regulatory-registrations",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/regulatory-registrations",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/regulatory-registrations",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/dsc-services",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/dsc-services",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/dsc-services",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/dsc-services",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/partnership-firms",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/partnership-firms",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/partnership-firms",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/partnership-firms",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/company-secretarial-compliance",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/company-secretarial-compliance",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/company-secretarial-compliance",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/company-secretarial-compliance",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/llp-compliance",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/llp-compliance",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/llp-compliance",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/llp-compliance",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/xbrl-filings",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/xbrl-filings",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/xbrl-filings",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/xbrl-filings",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/statutory-certification",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/statutory-certification",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/statutory-certification",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/statutory-certification",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/secretarial-audit",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/secretarial-audit",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/secretarial-audit",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/secretarial-audit",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/sebi-stock-exchange",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/sebi-stock-exchange",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/sebi-stock-exchange",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/sebi-stock-exchange",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/ipo-advisory",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/ipo-advisory",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/ipo-advisory",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/ipo-advisory",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-actions",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-actions",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-actions",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-actions",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-restructuring",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-restructuring",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-restructuring",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-restructuring",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/due-diligence",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/due-diligence",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/due-diligence",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/due-diligence",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/nclt-legal",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/nclt-legal",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/nclt-legal",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/nclt-legal",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-matchmaking",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-matchmaking",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-matchmaking",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/corporate-matchmaking",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/closure-exit",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/closure-exit",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/closure-exit",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/closure-exit",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/rbi-fema",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/rbi-fema",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/rbi-fema",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/rbi-fema",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/nbfc-services",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/nbfc-services",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/nbfc-services",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/nbfc-services",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/advisory-consulting",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/advisory-consulting",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/advisory-consulting",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/advisory-consulting",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/approvals-appearances",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/approvals-appearances",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/approvals-appearances",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/approvals-appearances",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/trademark-ipr",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/trademark-ipr",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/trademark-ipr",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/trademark-ipr",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/drafting-vetting",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/drafting-vetting",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/drafting-vetting",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/drafting-vetting",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/independent-director",
+    "theme": "dark",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/independent-director",
+    "theme": "dark",
+    "width": 1440,
+    "pass": true
+  },
+  {
+    "route": "/services/independent-director",
+    "theme": "light",
+    "width": 320,
+    "pass": true
+  },
+  {
+    "route": "/services/independent-director",
+    "theme": "light",
+    "width": 1440,
+    "pass": true
+  }
+]

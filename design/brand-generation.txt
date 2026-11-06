@@ -1,0 +1,15 @@
+Logo generation record
+
+Source: client-supplied circular emblem, also present on Ayush D Gupta & Associates Visiting Card.jpg.
+Tool: built-in ImageGen.
+Shipped master: public/brand/firm-emblem.png (1254 x 1254, transparent PNG).
+Website derivative: public/brand/firm-emblem-web.png (640 x 640).
+Other exports: app/favicon.ico and app/apple-icon.png.
+
+Initial prompt
+
+Use case: logo-brand / background-extraction. Edit target: the supplied circular firm emblem. Reproduce ONLY this exact logo as immaculate flat vector-style line art with a genuinely transparent background. Preserve the reference composition closely: complete outer circle; central smaller circle split into three by a Y junction, the bottom spoke reaching the outer circle; upright stem with two leaves in the upper compartment; three small circular person/profile symbols arranged diagonally in the lower-left compartment with connecting lines to the center; partial angular gear/cog in the right lower compartment connected along the radial boundaries. Clean smooth consistent strokes, precise circles, balanced geometry, accurate leaf silhouettes and people icons. One uniform warm antique-gold color, no gradients, metallic texture, grain, lighting, shadows, glow, black background, extra symbols, text or firm name. Center the complete isolated emblem, square canvas, close framing with only 4 percent transparent safe margin. Intended for a professional company secretary website header and large watermark. Preserve the original identity rather than redesigning it.
+
+Cleanup prompt (selected result)
+
+Edit the attached logo image. Keep ONLY the solid antique-gold logo linework: outer circular ring, two leaves, center circle and Y spokes, three circular people icons, and partial gear outline. REMOVE ALL yellow/red speckles, scattered dots, grunge, texture and noise from the open spaces and outside the circle. Every region between the logo strokes must be COMPLETELY TRANSPARENT, clean empty alpha. The actual gold strokes should be smooth solid flat single-color vector-style paths, without grain or outlines around outlines. Preserve exact existing geometry and proportions. No black background, checkerboard, new text, shading, gradients or additional details. Centered square transparent logo asset with small margin.

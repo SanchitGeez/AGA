@@ -1,0 +1,24 @@
+[
+  {
+    "theme": "dark",
+    "ratios": {
+      "ink": 13.75,
+      "ink-dim": 11.09,
+      "steel": 7.7,
+      "signal": 8.04,
+      "overdue": 4.51,
+      "control-line": 4.18
+    }
+  },
+  {
+    "theme": "light",
+    "ratios": {
+      "ink": 14,
+      "ink-dim": 7.64,
+      "steel": 6.75,
+      "signal": 4.77,
+      "overdue": 4.82,
+      "control-line": 3.56
+    }
+  }
+]

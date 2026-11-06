@@ -8,7 +8,7 @@ function TickerRun({ ariaHidden = false }: { ariaHidden?: boolean }) {
       {ordered.map((d, i) => (
         <span
           key={`${d.code}-${i}`}
-          className="flex items-center gap-2 whitespace-nowrap px-5 font-mono text-[0.8rem] tabular-nums"
+          className="flex items-center gap-2 whitespace-nowrap px-5 font-mono text-sm tabular-nums"
         >
           <span className="text-steel">{d.code}</span>
           <span className="text-ink-dim">{d.name}</span>
@@ -25,7 +25,7 @@ function TickerRun({ ariaHidden = false }: { ariaHidden?: boolean }) {
 export function Ticker() {
   return (
     <div className="marquee-track flex items-stretch border-b border-hairline bg-surface">
-      <div className="z-10 flex shrink-0 items-center gap-2 border-r border-hairline bg-surface px-4 font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+      <div className="z-10 flex shrink-0 items-center gap-2 border-r border-hairline bg-surface px-4 font-mono text-xs uppercase tracking-wider text-steel">
         <span className="size-1.5 rounded-full bg-signal-solid shadow-[0_0_10px_1px_var(--signal-solid)]" />
         <span className="hidden sm:inline">Statutory Calendar</span>
       </div>

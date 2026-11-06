@@ -121,7 +121,14 @@ Strategic, not visual (visual rules live in DESIGN.md).
    *tool*: a command-bar search (⌘K feel) across all services and a filterable matrix
    resolve "my need" in one move. Never make the visitor scroll a wall of identical cards.
 
-5. **The site knows what day it is.** The live statutory-deadline ticker is the
+5. **Read comfortably, act confidently.** Adult professional readers should not need to
+   enlarge the page to read a service, statutory reference or form. Prefer comfortable prose,
+   visible field boundaries, underlined links and explicit filled/outlined actions, even when
+   these add visual weight. The client’s RIL reference informs readable scale and clear
+   actions; Bourse keeps its own slate/amber identity, typography and photography. Small
+   screens wrap names and stack data rather than compressing reading text.
+
+6. **The site knows what day it is.** The live statutory-deadline ticker is the
    differentiator and the reason to return. Currency = authority for a compliance firm.
 
 ---
@@ -168,13 +175,17 @@ Ordered to move a skeptic from "who is this" to "I should call," using the instr
 metaphor as the through-line. Full section-by-section walkthrough is delivered as prose
 after the specs; this is the canonical order.
 
-1. **Masthead** — compact terminal header, firm mark, command-bar trigger.
-2. **Live ticker** — scrolling statutory deadlines, ordered by next-upcoming. Currency in one second.
-3. **Hero (positioning)** — a **display-serif** headline (the one serif on the site) + subhead +
-   a single primary CTA + a hairline meta row, beside a **treated duotone photo** visual with
-   subtle scroll parallax. *(As built: the earlier "Firm Profile" readout panel was removed — it
-   was fake telemetry and duplicated the Principal section; the serif + photo replaced it to give
-   the hero its own weight and stop the page reading as one repeating template.)*
+1. **Masthead** — full firm identity, navigation and command-bar trigger, transparent over
+   the opening photograph at the home top; becomes the normal solid sticky header on scroll.
+2. **Hero (positioning)** — the approved Boardroom direction: one continuous full-colour
+   illustrative photograph behind header and hero, with local reading/navigation shades.
+   Two-line **Fraunces** motto (the one serif on the site), “Where governance meets growth”,
+   with amber emphasis on “growth”. A short support line identifies company secretarial,
+   governance and capital markets advisory from incorporation to IPO. Enquire → `/contact`;
+   Explore services → `/#services`. No credential/meta strip. The generated boardroom is
+   illustrative, not a representation of the firm's office; no duotone or decorative motion.
+3. **Live ticker** — scrolling statutory deadlines, ordered by next-upcoming. It sits directly
+   after the hero, reconnecting the photographic opening to the compliance instrument.
 4. **Figures** — count-up, tabular, *integrated inline* (Clients · Years · ROC filings).
    Deliberately not the boxed hero-metric cliché.
 5. **Service matrix** — the instrument. All 25 **grouped under the 6 practice areas** (structure
@@ -192,16 +203,25 @@ after the specs; this is the canonical order.
 - **WCAG 2.1 AA** target. The dark theme makes contrast the first-class risk:
   - Body text uses `ink`, not `steel`; `steel` is for secondary/labels only and must be
     verified ≥4.5:1 on both `bg` and `surface`.
-  - `signal` (amber) is for figures, accents, and small/bold highlights (≥3:1), **never**
-    for body paragraphs.
+  - `signal` (amber) is for figures, accents and highlights, **never** body paragraphs.
+    Small accent text still needs ≥4.5:1; large text/meaningful controls need ≥3:1.
+  - Visible control borders use `control-line` at ≥3:1; decorative rules use `hairline`.
+  - Prose/actions start at 18px, introductions at 20px; labels/statutes are 16px. Short
+    counts and keyboard hints may use 14px. Standalone actions and form fields have
+    generous targets and clear focus indicators.
   - Placeholder text meets 4.5:1 — no default light-gray placeholder.
 - **Ships a light mode** (per the reference). Amber darkens in light mode to hold contrast
   for text use; see DESIGN.md.
 - **Reduced motion is mandatory:** the ticker becomes a static list, count-ups render at
   final value, reveals become instant. Nothing about the instrument depends on motion to
   be usable.
-- Keyboard-first: the command-bar is fully operable by keyboard; matrix rows are focusable
-  links; visible focus rings in `signal`.
+- Keyboard-first: the command-bar is fully operable by keyboard; service rows are focusable
+  links; visible focus rings in `signal`. Form labels are programmatically associated and
+  error messages are announced. Contact details remain separate, underlined actions.
+- **Validation scope (2026-11-07):** the readability pass checked all 31 content routes at
+  narrow/desktop widths in both themes plus representative intermediate/landscape layouts.
+  Production Home and Contact Lighthouse accessibility scores are 100. This supports the
+  implementation; it is not full WCAG certification or physical-device/cross-browser QA.
 
 ---
 
@@ -222,8 +242,9 @@ after the specs; this is the canonical order.
   when unconfigured or on error. Needs `RESEND_API_KEY` (see README → Email).
 - **SEO:** per-page metadata, `LegalService` JSON-LD (home, with nested `Person`), per-service
   `Service` JSON-LD, plus `app/sitemap.ts` (31 URLs) and `app/robots.ts`.
-- **Assets:** real stats / hero photo / headshot / logo swapped in as available; tasteful
-  placeholders never block a build. See placeholder inventory in `PROGRESS.md`.
+- **Assets:** the home hero reuses the approved illustrative boardroom from
+  `public/services/colour/`; principal portrait and firm emblem are implemented. Remaining
+  statistics/calendar placeholders are listed in `PROGRESS.md` and never block a build.
 
 > **Status & decision log:** see [PROGRESS.md](./PROGRESS.md) for phase tracking, the
 > decisions made during the build, and known placeholders / tech-debt.

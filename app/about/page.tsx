@@ -13,11 +13,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
-        <p className="font-mono text-[0.72rem] uppercase tracking-wider text-steel">
-          Company Secretary firm · Mumbai
-        </p>
-        <h1 className="mt-3 text-[clamp(2rem,1.4rem+2.4vw,3.25rem)] font-semibold leading-[1.06] tracking-[-0.03em] text-ink">
+      <div className="site-container section-start">
+        <h1 className="page-title text-ink">
           About the firm
         </h1>
 
@@ -47,10 +44,10 @@ export default function AboutPage() {
 
       <Principal />
 
-      <section className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 sm:pb-24">
+      <section className="site-container section-end">
         <div className="grid gap-8 sm:grid-cols-2">
           <div className="rounded-xl border border-hairline bg-surface p-6 sm:p-8">
-            <h2 className="font-mono text-[0.72rem] uppercase tracking-wider text-steel">
+            <h2 className="text-xl font-semibold text-ink">
               Vision
             </h2>
             <p className="mt-4 text-lg italic leading-relaxed text-ink">
@@ -59,7 +56,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="rounded-xl border border-hairline bg-surface p-6 sm:p-8">
-            <h2 className="font-mono text-[0.72rem] uppercase tracking-wider text-steel">
+            <h2 className="text-xl font-semibold text-ink">
               Mission
             </h2>
             <p className="mt-4 leading-relaxed text-ink-dim">

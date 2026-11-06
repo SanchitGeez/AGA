@@ -34,12 +34,12 @@ export const categories: ServiceCategory[] = [
   {
     id: "compliance",
     name: "Ongoing Compliance",
-    blurb: "Annual filings, audits, and the statutory calendar — handled.",
+    blurb: "Annual filings, audits and continuing statutory obligations.",
   },
   {
     id: "capital-markets",
     name: "Capital Markets",
-    blurb: "Listed-company and IPO work — SEBI, exchanges, corporate actions.",
+    blurb: "Listed-company and IPO work across SEBI, exchanges and corporate actions.",
   },
   {
     id: "transactions",

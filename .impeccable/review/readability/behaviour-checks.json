@@ -1,0 +1,14 @@
+{
+  "passed": [
+    "mobile menu bounds",
+    "search opens/focuses",
+    "search empty recovery",
+    "Escape dismissal",
+    "practice selection",
+    "keyboard practice navigation",
+    "enquiry error + retained input",
+    "enquiry success",
+    "resume success"
+  ],
+  "email": "All submissions mocked in browser; no messages sent."
+}

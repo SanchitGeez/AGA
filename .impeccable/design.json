@@ -1,0 +1,702 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T21:32:58.189451+00:00",
+  "title": "Bourse — Design System",
+  "extensions": {
+    "colorMeta": {
+      "photo-ground": {
+        "role": "neutral",
+        "displayName": "Photographic Reading Ground",
+        "canonical": "oklch(0.19 0.015 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.015 250)",
+          "oklch(0.25 0.015 250)",
+          "oklch(0.35 0.015 250)",
+          "oklch(0.45 0.015 250)",
+          "oklch(0.55 0.015 250)",
+          "oklch(0.65 0.015 250)",
+          "oklch(0.8 0.015 250)",
+          "oklch(0.95 0.015 250)"
+        ]
+      },
+      "photo-ink": {
+        "role": "neutral",
+        "displayName": "Photographic Caption Ink",
+        "canonical": "oklch(0.97 0.005 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 250)",
+          "oklch(0.25 0.005 250)",
+          "oklch(0.35 0.005 250)",
+          "oklch(0.45 0.005 250)",
+          "oklch(0.55 0.005 250)",
+          "oklch(0.65 0.005 250)",
+          "oklch(0.8 0.005 250)",
+          "oklch(0.95 0.005 250)"
+        ]
+      },
+      "photo-dim": {
+        "role": "neutral",
+        "displayName": "Photographic Secondary Caption",
+        "canonical": "oklch(0.92 0.008 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 250)",
+          "oklch(0.25 0.008 250)",
+          "oklch(0.35 0.008 250)",
+          "oklch(0.45 0.008 250)",
+          "oklch(0.55 0.008 250)",
+          "oklch(0.65 0.008 250)",
+          "oklch(0.8 0.008 250)",
+          "oklch(0.95 0.008 250)"
+        ]
+      },
+      "photo-rule": {
+        "role": "neutral",
+        "displayName": "Photographic Divider",
+        "canonical": "oklch(0.97 0.005 250 / 0.42)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 250 / 0.42)",
+          "oklch(0.25 0.005 250 / 0.42)",
+          "oklch(0.35 0.005 250 / 0.42)",
+          "oklch(0.45 0.005 250 / 0.42)",
+          "oklch(0.55 0.005 250 / 0.42)",
+          "oklch(0.65 0.005 250 / 0.42)",
+          "oklch(0.8 0.005 250 / 0.42)",
+          "oklch(0.95 0.005 250 / 0.42)"
+        ]
+      },
+      "photo-signal": {
+        "role": "primary",
+        "displayName": "Photographic Amber Signal",
+        "canonical": "oklch(0.8 0.14 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.14 75)",
+          "oklch(0.25 0.14 75)",
+          "oklch(0.35 0.14 75)",
+          "oklch(0.45 0.14 75)",
+          "oklch(0.55 0.14 75)",
+          "oklch(0.65 0.14 75)",
+          "oklch(0.8 0.14 75)",
+          "oklch(0.95 0.14 75)"
+        ]
+      },
+      "bg": {
+        "displayName": "Bg",
+        "role": "neutral",
+        "canonical": "oklch(0.19 0.015 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.015 250)",
+          "oklch(0.25 0.015 250)",
+          "oklch(0.35 0.015 250)",
+          "oklch(0.45 0.015 250)",
+          "oklch(0.55 0.015 250)",
+          "oklch(0.65 0.015 250)",
+          "oklch(0.8 0.015 250)",
+          "oklch(0.95 0.015 250)"
+        ]
+      },
+      "surface": {
+        "displayName": "Surface",
+        "role": "neutral",
+        "canonical": "oklch(0.24 0.018 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.018 250)",
+          "oklch(0.25 0.018 250)",
+          "oklch(0.35 0.018 250)",
+          "oklch(0.45 0.018 250)",
+          "oklch(0.55 0.018 250)",
+          "oklch(0.65 0.018 250)",
+          "oklch(0.8 0.018 250)",
+          "oklch(0.95 0.018 250)"
+        ]
+      },
+      "surface-2": {
+        "displayName": "Surface 2",
+        "role": "neutral",
+        "canonical": "oklch(0.285 0.02 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 250)",
+          "oklch(0.25 0.02 250)",
+          "oklch(0.35 0.02 250)",
+          "oklch(0.45 0.02 250)",
+          "oklch(0.55 0.02 250)",
+          "oklch(0.65 0.02 250)",
+          "oklch(0.8 0.02 250)",
+          "oklch(0.95 0.02 250)"
+        ]
+      },
+      "hairline": {
+        "displayName": "Hairline",
+        "role": "neutral",
+        "canonical": "oklch(0.43 0.02 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 250)",
+          "oklch(0.25 0.02 250)",
+          "oklch(0.35 0.02 250)",
+          "oklch(0.45 0.02 250)",
+          "oklch(0.55 0.02 250)",
+          "oklch(0.65 0.02 250)",
+          "oklch(0.8 0.02 250)",
+          "oklch(0.95 0.02 250)"
+        ]
+      },
+      "control-line": {
+        "displayName": "Control Line",
+        "role": "neutral",
+        "canonical": "oklch(0.6 0.025 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.025 250)",
+          "oklch(0.25 0.025 250)",
+          "oklch(0.35 0.025 250)",
+          "oklch(0.45 0.025 250)",
+          "oklch(0.55 0.025 250)",
+          "oklch(0.65 0.025 250)",
+          "oklch(0.8 0.025 250)",
+          "oklch(0.95 0.025 250)"
+        ]
+      },
+      "ink": {
+        "displayName": "Ink",
+        "role": "neutral",
+        "canonical": "oklch(0.94 0.005 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 250)",
+          "oklch(0.25 0.005 250)",
+          "oklch(0.35 0.005 250)",
+          "oklch(0.45 0.005 250)",
+          "oklch(0.55 0.005 250)",
+          "oklch(0.65 0.005 250)",
+          "oklch(0.8 0.005 250)",
+          "oklch(0.95 0.005 250)"
+        ]
+      },
+      "ink-dim": {
+        "displayName": "Ink Dim",
+        "role": "neutral",
+        "canonical": "oklch(0.87 0.012 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 250)",
+          "oklch(0.25 0.012 250)",
+          "oklch(0.35 0.012 250)",
+          "oklch(0.45 0.012 250)",
+          "oklch(0.55 0.012 250)",
+          "oklch(0.65 0.012 250)",
+          "oklch(0.8 0.012 250)",
+          "oklch(0.95 0.012 250)"
+        ]
+      },
+      "steel": {
+        "displayName": "Steel",
+        "role": "neutral",
+        "canonical": "oklch(0.76 0.025 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.025 250)",
+          "oklch(0.25 0.025 250)",
+          "oklch(0.35 0.025 250)",
+          "oklch(0.45 0.025 250)",
+          "oklch(0.55 0.025 250)",
+          "oklch(0.65 0.025 250)",
+          "oklch(0.8 0.025 250)",
+          "oklch(0.95 0.025 250)"
+        ]
+      },
+      "signal": {
+        "displayName": "Signal",
+        "role": "primary",
+        "canonical": "oklch(0.78 0.14 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.14 75)",
+          "oklch(0.25 0.14 75)",
+          "oklch(0.35 0.14 75)",
+          "oklch(0.45 0.14 75)",
+          "oklch(0.55 0.14 75)",
+          "oklch(0.65 0.14 75)",
+          "oklch(0.8 0.14 75)",
+          "oklch(0.95 0.14 75)"
+        ]
+      },
+      "signal-solid": {
+        "displayName": "Signal Solid",
+        "role": "primary",
+        "canonical": "oklch(0.8 0.14 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.14 75)",
+          "oklch(0.25 0.14 75)",
+          "oklch(0.35 0.14 75)",
+          "oklch(0.45 0.14 75)",
+          "oklch(0.55 0.14 75)",
+          "oklch(0.65 0.14 75)",
+          "oklch(0.8 0.14 75)",
+          "oklch(0.95 0.14 75)"
+        ]
+      },
+      "signal-solid-hover": {
+        "displayName": "Signal Solid Hover",
+        "role": "primary",
+        "canonical": "oklch(0.74 0.13 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.13 75)",
+          "oklch(0.25 0.13 75)",
+          "oklch(0.35 0.13 75)",
+          "oklch(0.45 0.13 75)",
+          "oklch(0.55 0.13 75)",
+          "oklch(0.65 0.13 75)",
+          "oklch(0.8 0.13 75)",
+          "oklch(0.95 0.13 75)"
+        ]
+      },
+      "on-signal": {
+        "displayName": "On Signal",
+        "role": "primary",
+        "canonical": "oklch(0.19 0.02 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 75)",
+          "oklch(0.25 0.02 75)",
+          "oklch(0.35 0.02 75)",
+          "oklch(0.45 0.02 75)",
+          "oklch(0.55 0.02 75)",
+          "oklch(0.65 0.02 75)",
+          "oklch(0.8 0.02 75)",
+          "oklch(0.95 0.02 75)"
+        ]
+      },
+      "due": {
+        "displayName": "Due",
+        "role": "primary",
+        "canonical": "oklch(0.78 0.14 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.14 75)",
+          "oklch(0.25 0.14 75)",
+          "oklch(0.35 0.14 75)",
+          "oklch(0.45 0.14 75)",
+          "oklch(0.55 0.14 75)",
+          "oklch(0.65 0.14 75)",
+          "oklch(0.8 0.14 75)",
+          "oklch(0.95 0.14 75)"
+        ]
+      },
+      "overdue": {
+        "displayName": "Overdue",
+        "role": "neutral",
+        "canonical": "oklch(0.64 0.17 25)",
+        "tonalRamp": [
+          "oklch(0.15 0.17 25)",
+          "oklch(0.25 0.17 25)",
+          "oklch(0.35 0.17 25)",
+          "oklch(0.45 0.17 25)",
+          "oklch(0.55 0.17 25)",
+          "oklch(0.65 0.17 25)",
+          "oklch(0.8 0.17 25)",
+          "oklch(0.95 0.17 25)"
+        ]
+      },
+      "filed": {
+        "displayName": "Filed",
+        "role": "neutral",
+        "canonical": "oklch(0.72 0.08 165)",
+        "tonalRamp": [
+          "oklch(0.15 0.08 165)",
+          "oklch(0.25 0.08 165)",
+          "oklch(0.35 0.08 165)",
+          "oklch(0.45 0.08 165)",
+          "oklch(0.55 0.08 165)",
+          "oklch(0.65 0.08 165)",
+          "oklch(0.8 0.08 165)",
+          "oklch(0.95 0.08 165)"
+        ]
+      },
+      "light-bg": {
+        "displayName": "Light Bg",
+        "role": "neutral",
+        "canonical": "oklch(0.985 0.003 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.003 250)",
+          "oklch(0.25 0.003 250)",
+          "oklch(0.35 0.003 250)",
+          "oklch(0.45 0.003 250)",
+          "oklch(0.55 0.003 250)",
+          "oklch(0.65 0.003 250)",
+          "oklch(0.8 0.003 250)",
+          "oklch(0.95 0.003 250)"
+        ]
+      },
+      "light-surface": {
+        "displayName": "Light Surface",
+        "role": "neutral",
+        "canonical": "oklch(0.965 0.005 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 250)",
+          "oklch(0.25 0.005 250)",
+          "oklch(0.35 0.005 250)",
+          "oklch(0.45 0.005 250)",
+          "oklch(0.55 0.005 250)",
+          "oklch(0.65 0.005 250)",
+          "oklch(0.8 0.005 250)",
+          "oklch(0.95 0.005 250)"
+        ]
+      },
+      "light-surface-2": {
+        "displayName": "Light Surface 2",
+        "role": "neutral",
+        "canonical": "oklch(0.94 0.006 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 250)",
+          "oklch(0.25 0.006 250)",
+          "oklch(0.35 0.006 250)",
+          "oklch(0.45 0.006 250)",
+          "oklch(0.55 0.006 250)",
+          "oklch(0.65 0.006 250)",
+          "oklch(0.8 0.006 250)",
+          "oklch(0.95 0.006 250)"
+        ]
+      },
+      "light-hairline": {
+        "displayName": "Light Hairline",
+        "role": "neutral",
+        "canonical": "oklch(0.8 0.012 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 250)",
+          "oklch(0.25 0.012 250)",
+          "oklch(0.35 0.012 250)",
+          "oklch(0.45 0.012 250)",
+          "oklch(0.55 0.012 250)",
+          "oklch(0.65 0.012 250)",
+          "oklch(0.8 0.012 250)",
+          "oklch(0.95 0.012 250)"
+        ]
+      },
+      "light-ink": {
+        "displayName": "Light Ink",
+        "role": "neutral",
+        "canonical": "oklch(0.26 0.02 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 255)",
+          "oklch(0.25 0.02 255)",
+          "oklch(0.35 0.02 255)",
+          "oklch(0.45 0.02 255)",
+          "oklch(0.55 0.02 255)",
+          "oklch(0.65 0.02 255)",
+          "oklch(0.8 0.02 255)",
+          "oklch(0.95 0.02 255)"
+        ]
+      },
+      "light-ink-dim": {
+        "displayName": "Light Ink Dim",
+        "role": "neutral",
+        "canonical": "oklch(0.42 0.02 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 255)",
+          "oklch(0.25 0.02 255)",
+          "oklch(0.35 0.02 255)",
+          "oklch(0.45 0.02 255)",
+          "oklch(0.55 0.02 255)",
+          "oklch(0.65 0.02 255)",
+          "oklch(0.8 0.02 255)",
+          "oklch(0.95 0.02 255)"
+        ]
+      },
+      "light-steel": {
+        "displayName": "Light Steel",
+        "role": "neutral",
+        "canonical": "oklch(0.45 0.025 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.025 255)",
+          "oklch(0.25 0.025 255)",
+          "oklch(0.35 0.025 255)",
+          "oklch(0.45 0.025 255)",
+          "oklch(0.55 0.025 255)",
+          "oklch(0.65 0.025 255)",
+          "oklch(0.8 0.025 255)",
+          "oklch(0.95 0.025 255)"
+        ]
+      },
+      "light-signal": {
+        "displayName": "Light Signal",
+        "role": "primary",
+        "canonical": "oklch(0.54 0.14 62)",
+        "tonalRamp": [
+          "oklch(0.15 0.14 62)",
+          "oklch(0.25 0.14 62)",
+          "oklch(0.35 0.14 62)",
+          "oklch(0.45 0.14 62)",
+          "oklch(0.55 0.14 62)",
+          "oklch(0.65 0.14 62)",
+          "oklch(0.8 0.14 62)",
+          "oklch(0.95 0.14 62)"
+        ]
+      },
+      "light-control-line": {
+        "displayName": "Light Control Line",
+        "role": "neutral",
+        "canonical": "oklch(0.6 0.025 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.025 250)",
+          "oklch(0.25 0.025 250)",
+          "oklch(0.35 0.025 250)",
+          "oklch(0.45 0.025 250)",
+          "oklch(0.55 0.025 250)",
+          "oklch(0.65 0.025 250)",
+          "oklch(0.8 0.025 250)",
+          "oklch(0.95 0.025 250)"
+        ]
+      },
+      "light-on-signal": {
+        "displayName": "Light On Signal",
+        "role": "primary",
+        "canonical": "oklch(0.2 0.02 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 75)",
+          "oklch(0.25 0.02 75)",
+          "oklch(0.35 0.02 75)",
+          "oklch(0.45 0.02 75)",
+          "oklch(0.55 0.02 75)",
+          "oklch(0.65 0.02 75)",
+          "oklch(0.8 0.02 75)",
+          "oklch(0.95 0.02 75)"
+        ]
+      },
+      "light-due": {
+        "displayName": "Light Due",
+        "role": "primary",
+        "canonical": "oklch(0.54 0.14 62)",
+        "tonalRamp": [
+          "oklch(0.15 0.14 62)",
+          "oklch(0.25 0.14 62)",
+          "oklch(0.35 0.14 62)",
+          "oklch(0.45 0.14 62)",
+          "oklch(0.55 0.14 62)",
+          "oklch(0.65 0.14 62)",
+          "oklch(0.8 0.14 62)",
+          "oklch(0.95 0.14 62)"
+        ]
+      },
+      "light-overdue": {
+        "displayName": "Light Overdue",
+        "role": "neutral",
+        "canonical": "oklch(0.55 0.19 27)",
+        "tonalRamp": [
+          "oklch(0.15 0.19 27)",
+          "oklch(0.25 0.19 27)",
+          "oklch(0.35 0.19 27)",
+          "oklch(0.45 0.19 27)",
+          "oklch(0.55 0.19 27)",
+          "oklch(0.65 0.19 27)",
+          "oklch(0.8 0.19 27)",
+          "oklch(0.95 0.19 27)"
+        ]
+      },
+      "light-filed": {
+        "displayName": "Light Filed",
+        "role": "neutral",
+        "canonical": "oklch(0.52 0.1 165)",
+        "tonalRamp": [
+          "oklch(0.15 0.1 165)",
+          "oklch(0.25 0.1 165)",
+          "oklch(0.35 0.1 165)",
+          "oklch(0.45 0.1 165)",
+          "oklch(0.55 0.1 165)",
+          "oklch(0.65 0.1 165)",
+          "oklch(0.8 0.1 165)",
+          "oklch(0.95 0.1 165)"
+        ]
+      }
+    },
+    "motion": [
+      {
+        "name": "practice-background-crossfade",
+        "value": "opacity 300ms",
+        "purpose": "The selected category photograph fades in only after loading; previously selected image stays visible while loading."
+      },
+      {
+        "name": "practice-background-reduced-motion",
+        "value": "transition-property: none",
+        "purpose": "Under prefers-reduced-motion: reduce, the selected background changes without a crossfade."
+      },
+      {
+        "name": "masthead-selection-underline",
+        "value": "transform 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "A 2px amber underline scales from its center on hover/focus and remains for the active page or section. Reduced motion disables the transition."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "practice-explorer-desktop",
+        "value": "1024px"
+      },
+      {
+        "name": "masthead-desktop-navigation",
+        "value": "1360px"
+      }
+    ],
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero display",
+        "purpose": "Fraunces only on the home motto; mobile and short-height overrides keep it readable."
+      },
+      "body": {
+        "displayName": "Reading prose",
+        "purpose": "18px Geist reading copy; body line-height 1.7, Tailwind text-base line-height 1.65."
+      },
+      "body-sm": {
+        "displayName": "Supporting reading",
+        "purpose": "16px labels, statutory references and legal copy."
+      },
+      "supporting": {
+        "displayName": "Brief data",
+        "purpose": "14px short counts, keyboard hints and brief labels, never reading prose."
+      },
+      "action": {
+        "displayName": "Explicit action",
+        "purpose": "18px semibold Geist on 52px minimum primary/secondary actions."
+      }
+    },
+    "focus": {
+      "outline": "3px solid var(--signal)",
+      "offset": "4px",
+      "radius": "6px",
+      "photoOutline": "var(--photo-signal)"
+    },
+    "controls": {
+      "actionMinHeight": "52px",
+      "fieldMinHeight": "54px",
+      "textLinkMinHeight": "48px",
+      "footerLinkMinHeight": "44px",
+      "fieldBorder": "1px solid var(--control-line)",
+      "textareaMinHeight": "144px",
+      "textareaResize": "vertical"
+    },
+    "responsiveTypography": {
+      "heroMobile": {
+        "query": "width < 48rem",
+        "fontSize": "clamp(2rem, 9vw, 3.25rem)"
+      },
+      "heroShortDesktop": {
+        "query": "width >= 48rem and height < 45rem",
+        "fontSize": "min(5.35vw, 10svh)"
+      }
+    },
+    "layout": {
+      "pageWidth": "100rem",
+      "gutters": [
+        "16px",
+        "24px from 640px",
+        "32px from 1024px"
+      ],
+      "sectionSpace": "clamp(4rem, 6vw, 5.5rem)",
+      "scopeColumns": "two from 1024px",
+      "calendarColumns": "three from 768px",
+      "footerBottomSpace": "96px"
+    },
+    "shadows": [
+      {
+        "name": "command-bar",
+        "value": "0 20px 64px -16px var(--bg)",
+        "purpose": "Native modal search overlay only."
+      },
+      {
+        "name": "live-dot",
+        "value": "0 0 10px 1px var(--signal-solid)",
+        "purpose": "Small statutory-calendar status dot."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Photographic Service Link",
+      "kind": "custom",
+      "refersTo": "service-photo-link",
+      "description": "A ruled direct service link over a local reading ground; fixed photo-caption tokens retain contrast in either page theme. Primitives are defined in DESIGN.md frontmatter.",
+      "html": "<div class=\"ds-photo-caption\"><a class=\"ds-photo-service\" href=\"#service\"><span>Secretarial Audit<span class=\"ds-photo-law\">§204 · MR-3</span></span><span class=\"ds-photo-arrow\" aria-hidden=\"true\">→</span></a></div>",
+      "css": ".ds-photo-caption { background: var(--photo-ground); color: var(--photo-ink); padding: 20px; border-radius: 12px; } .ds-photo-service { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; border-top: 1px solid var(--photo-rule); padding: 12px 0; color: var(--photo-ink); font-family: var(--font-sans); font-size: 18px; line-height: 1.55; text-decoration: underline; text-underline-offset: 4px; transition: color 140ms; } .ds-photo-law { display: block; margin-top: 4px; color: var(--photo-dim); font-family: var(--font-mono); font-size: 16px; } .ds-photo-arrow { color: var(--photo-signal); transition: transform 140ms; } .ds-photo-service:hover { color: var(--photo-signal); } .ds-photo-service:hover .ds-photo-arrow { transform: translateX(4px); } .ds-photo-service:focus-visible { outline: 3px solid var(--photo-signal); outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-photo-arrow { transition: none; transform: none !important; } }"
+    },
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Explicit key action, minimum 52px height.",
+      "html": "<button class=\"ds-action-primary\">Send enquiry</button>",
+      "css": ".ds-action-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;max-width:100%;padding:12px 24px;border:1px solid transparent;border-radius:6px;font-family:var(--font-sans);font-size:18px;font-weight:600;line-height:1.5;text-decoration:none;transition:background-color 140ms,border-color 140ms,color 140ms;background:var(--signal-solid);color:var(--on-signal)}.ds-action-primary:hover{background:var(--signal-solid-hover)}.ds-action-primary:focus-visible{outline:3px solid var(--signal);outline-offset:4px}.ds-action-primary:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-action-primary{transition:none}}"
+    },
+    {
+      "name": "Secondary Action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined supporting action with a visible control boundary.",
+      "html": "<a class=\"ds-action-secondary\" href=\"#services\">Explore services</a>",
+      "css": ".ds-action-secondary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;max-width:100%;padding:12px 24px;border:1px solid transparent;border-radius:6px;font-family:var(--font-sans);font-size:18px;font-weight:600;line-height:1.5;text-decoration:none;transition:background-color 140ms,border-color 140ms,color 140ms;border-color:var(--control-line);background:var(--surface);color:var(--ink)}.ds-action-secondary:hover{background:var(--surface-2);border-color:var(--signal)}.ds-action-secondary:focus-visible{outline:3px solid var(--signal);outline-offset:4px}.ds-action-secondary:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-action-secondary{transition:none}}"
+    },
+    {
+      "name": "Labelled Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Readable 18px field with a 16px semibold associated label.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-enquiry-name\">Name</label><input class=\"ds-field\" id=\"ds-enquiry-name\" autocomplete=\"name\" placeholder=\"Your name\">",
+      "css": ".ds-field-label{display:block;margin-bottom:8px;color:var(--ink);font-family:var(--font-sans);font-size:16px;font-weight:600;line-height:1.5}.ds-field{display:block;width:100%;min-height:54px;padding:12px 16px;border:1px solid var(--control-line);border-radius:6px;background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:18px;line-height:1.5}.ds-field::placeholder{color:var(--steel);opacity:1}.ds-field:focus-visible{border-color:var(--signal);outline:3px solid var(--signal);outline-offset:4px}"
+    },
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "description": "Centered About-first links; active, hover and focus receive the incumbent center-growing underline.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#about\" aria-current=\"page\"><span>About</span></a><a class=\"ds-nav-link\" href=\"#services\"><span>Services</span></a></nav>",
+      "css": ".ds-nav{display:flex;justify-content:center;gap:24px}.ds-nav-link{display:flex;align-items:center;min-height:56px;color:var(--ink);font-family:var(--font-sans);font-size:22px;font-weight:600;text-decoration:none}.ds-nav-link span{position:relative}.ds-nav-link span::after{content:\"\";position:absolute;inset-inline:0;bottom:-.45rem;height:2px;background:var(--signal);transform:scaleX(0);transform-origin:center;transition:transform 200ms cubic-bezier(.16,1,.3,1)}.ds-nav-link:hover,.ds-nav-link[aria-current]{color:var(--signal)}.ds-nav-link:hover span::after,.ds-nav-link:focus-visible span::after,.ds-nav-link[aria-current] span::after{transform:scaleX(1)}.ds-nav-link:focus-visible{outline:3px solid var(--signal);outline-offset:4px;border-radius:6px}@media(prefers-reduced-motion:reduce){.ds-nav-link span::after{transition:none}}"
+    },
+    {
+      "name": "Reading Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat ruled surface for grouped form or reading content.",
+      "html": "<section class=\"ds-panel\"><h2>Deadline reminders</h2><p>A compliance calendar mapped to your entity’s obligations.</p></section>",
+      "css": ".ds-panel{padding:24px;border:1px solid var(--hairline);border-radius:12px;background:var(--surface);color:var(--ink);font-family:var(--font-sans)}.ds-panel h2{margin:0;font-size:20px;font-weight:600;line-height:1.65}.ds-panel p{margin:8px 0 0;font-size:18px;line-height:1.7;color:var(--ink-dim)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Bourse — a markets terminal for corporate compliance",
+    "overview": "Bourse is a **markets terminal for corporate compliance.** Deep slate surface, a single\namber signal, monospaced tabular figures, ruled grids, a live statutory-deadline ticker.\nIt borrows the visual language of the exchanges the firm works with daily (NSE/BSE/NSDL/\nCDSL/NCLT) because the firm's edge is capital markets — IPO, SEBI, FEMA, corporate actions.\n\nThe aesthetic is deliberately distinctive-yet-serious. Its one risk is reading as a tech\nstartup or a crypto dashboard; the guardrail is **institutional restraint** — formal copy,\nstatutory precision, disciplined color, calm-but-crisp motion. Bloomberg terminal energy,\nlaw-firm gravitas. Mono is used because there is *real data* (deadlines, filing counts,\nregulation numbers), never as decoration.\n\nPersonality: **precise · disciplined · institutional.** The visitor should feel the firm\nwill not let them get it wrong. Adult professional readers need comfortable text, clear\nheadings and unmistakable actions. Readability takes precedence over extreme minimalism.",
+    "keyCharacteristics": [
+      "Deep slate, cool light mode and one restrained amber interface accent.",
+      "Generous reading type, explicit actions and visible control boundaries.",
+      "Real statutory data in mono; Geist prose and a single hero-only Fraunces statement.",
+      "Natural-colour photography with local reading shades and ruled structure."
+    ],
+    "rules": [
+      {
+        "name": "The Amber Scalpel Rule",
+        "body": "If more than a small percentage of a viewport is amber, cut it back. Live figures, the active deadline, the primary CTA, focus rings — that's the whole budget.",
+        "section": "colors"
+      },
+      {
+        "name": "The Visible Control Rule",
+        "body": "Decorative dividers use `hairline`; actionable outlined controls and fields use `control-line`. Keep their boundaries visibly distinct from the surrounding surface. Use `on-signal` on `signal-solid` fills. Ordinary body text uses `ink` or `ink-dim`; `steel` remains secondary and `signal` remains an accent. ",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading First Rule",
+        "body": "Keep prose comfortably readable and actions explicit before pursuing sparse styling. Increase wrapping or stack content on narrow screens; never shrink long names, legal copy or form text to fit a dense desktop arrangement.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Names Data Rule",
+        "body": "Mono labels identify actual figures, statutes, codes, deadlines or keyboard hints. They do not introduce prose headings as decorative eyebrows. Form labels, ordinary links, search text and explanatory copy use Geist. ",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Keep amber to a small percentage of any viewport — live, active, figure, one CTA.",
+      "Make every figure real and tabular; align numbers in columns with `tnum`.",
+      "Use mono for *data* (labels, deadlines, codes, figures) and Geist for language.",
+      "Build depth from tonal layers + hairlines; save shadow for overlays and glow for the one live element.",
+      "Keep copy formal and statute-exact — the aesthetic's institutional guardrail lives in the words.",
+      "Vary density while preserving 18px prose, clear 16px legal labels and generous targets.",
+      "Keep explicit filled/outlined actions, default link underlines and visible keyboard focus."
+    ],
+    "donts": [
+      "Don't let it read as SaaS/crypto: no decorative gradients, gradient text, emoji, playful copy, or big boxed hero-metrics. Local photographic reading shades are the approved exception.",
+      "Don't use mono as a decorative eyebrow above prose headings — mono names data or it goes.",
+      "Don't set reading prose in `steel` or `signal`; use `ink` or `ink-dim`.",
+      "Don't turn the 25 services into separate identical cards. Keep them within the six practice areas, with direct detail links and governing statutes; the approved hub has six category cards.",
+      "Don't add a second accent color; the discipline of one signal is the design.",
+      "Don't spread the display serif — it's the **home-hero headline only**; every other heading is Geist.",
+      "Don't animate floaty/bouncy or gate content visibility on reveal classes.",
+      "Don't use side-stripe borders, glassmorphism, or arbitrary z-index (use a semantic scale)."
+    ]
+  }
+}

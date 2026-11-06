@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { categories } from "@/lib/services";
+import { Brand } from "./brand";
 
-const label = "font-mono text-[0.7rem] uppercase tracking-wider text-steel";
+const label = "text-lg font-semibold text-ink";
 
 const pageLinks = [
   { label: "Services", href: "/services" },
@@ -17,28 +18,23 @@ export function Footer() {
 
   return (
     <footer className="border-t border-hairline bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="site-container section-space grid gap-8 md:grid-cols-2 xl:grid-cols-4 lg:gap-12">
         <div className="lg:col-span-1">
-          <div className="flex items-center gap-2.5">
-            <span className="grid size-7 place-items-center rounded bg-signal-solid font-mono text-sm font-semibold text-on-signal">
-              {site.initial}
-            </span>
-            <span className="text-[0.95rem] font-semibold tracking-tight text-ink">
-              {site.shortName}
-            </span>
-          </div>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-dim">
+          <Link href="/" className="inline-block" aria-label={`${site.name} — Home`}>
+            <Brand />
+          </Link>
+          <p className="mt-4 max-w-xs text-base leading-relaxed text-ink-dim">
             A peer-reviewed firm of Company Secretaries in {site.address.city} —
             governance, compliance, and strategic insight.
           </p>
-          <address className="mt-5 not-italic text-sm leading-relaxed text-steel">
+          <address className="mt-5 not-italic text-base leading-relaxed text-steel">
             {site.address.lines.map((l) => (
               <span key={l} className="block">
                 {l}
               </span>
             ))}
           </address>
-          <nav className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5 text-sm">
+          <nav className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5 text-base">
             {pageLinks.map((p) => (
               <Link
                 key={p.href}
@@ -52,13 +48,13 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className={label}>Services</h3>
-          <ul className="mt-4 space-y-2.5">
+          <h2 className={label}>Services</h2>
+          <ul className="mt-4 space-y-1">
             {categories.map((c) => (
               <li key={c.id}>
                 <Link
                   href={`/services#${c.id}`}
-                  className="text-sm text-ink-dim transition-colors hover:text-ink"
+                  className="text-base text-ink-dim transition-colors hover:text-ink"
                 >
                   {c.name}
                 </Link>
@@ -68,8 +64,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className={label}>Contact</h3>
-          <ul className="mt-4 space-y-2.5 text-sm">
+          <h2 className={label}>Contact</h2>
+          <ul className="mt-4 space-y-1 text-base">
             {site.phones.map((p) => (
               <li key={p.tel}>
                 <a
@@ -94,8 +90,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className={label}>Important Links</h3>
-          <ul className="mt-4 grid grid-cols-2 gap-2.5 text-sm">
+          <h2 className={label}>Important Links</h2>
+          <ul className="mt-4 grid grid-cols-2 gap-2.5 text-base">
             {site.exchangeLinks.map((l) => (
               <li key={l.label}>
                 <a
@@ -113,7 +109,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-hairline">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1.5 px-4 py-5 font-mono text-[0.7rem] text-steel sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="site-container flex flex-col gap-4 py-5 text-sm text-steel sm:flex-row sm:items-center sm:justify-between">
           <span>
             © {year} {site.name}. All rights reserved.
           </span>

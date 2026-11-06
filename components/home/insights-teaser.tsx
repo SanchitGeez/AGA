@@ -7,26 +7,22 @@ export function InsightsTeaser() {
   return (
     <section
       id="insights"
-      className="scroll-mt-20 border-y border-hairline bg-surface"
+      className="scroll-mt-32 border-y border-hairline bg-surface"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+      <div className="site-container section-space grid gap-8 lg:grid-cols-2 lg:gap-12">
         <div>
-          <p className="font-mono text-sm tracking-wide text-signal">
-            Insights
-          </p>
-          <h2 className="mt-4 text-[clamp(1.6rem,1.2rem+1.4vw,2.25rem)] font-semibold tracking-[-0.02em] text-ink">
+          <h2 className="section-title text-ink">
             The calendar, always current.
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-ink-dim">
-            Statutory deadlines don't wait. We track the filing calendar so you
-            never miss a due date — the same feed that runs across the top of
-            this page.
+            Statutory deadlines don&apos;t wait. We track the filing calendar so you
+            never miss a due date. The same calendar appears below the homepage opening.
           </p>
           <Link
-            href="/#enquire"
-            className="mt-6 inline-block font-mono text-sm text-signal hover:underline"
+            href="/insights"
+            className="action-secondary mt-6"
           >
-            Get deadline reminders →
+            View compliance calendar
           </Link>
         </div>
 
@@ -34,13 +30,13 @@ export function InsightsTeaser() {
           {upcoming.map((d, i) => (
             <div
               key={`${d.code}-${i}`}
-              className="grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-hairline py-4"
+              className="grid grid-cols-1 sm:grid-cols-[1fr_auto] sm:items-baseline gap-4 border-b border-hairline py-4"
             >
               <div>
-                <span className="font-mono text-sm text-ink">{d.code}</span>
-                <span className="ml-3 text-sm text-steel">{d.name}</span>
+                <span className="font-mono text-base text-ink">{d.code}</span>
+                <span className="mt-1 block text-base text-ink-dim">{d.name}</span>
               </div>
-              <span className="font-mono text-sm tabular-nums text-signal">
+              <span className="font-mono text-base tabular-nums text-signal">
                 {d.due}
               </span>
             </div>

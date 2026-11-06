@@ -1,0 +1,258 @@
+[
+  {
+    "route": "/#services",
+    "theme": "dark",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 320
+  },
+  {
+    "route": "/#services",
+    "theme": "dark",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 390
+  },
+  {
+    "route": "/#services",
+    "theme": "dark",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 768
+  },
+  {
+    "route": "/#services",
+    "theme": "dark",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 1024
+  },
+  {
+    "route": "/#services",
+    "theme": "dark",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 1440
+  },
+  {
+    "route": "/#services",
+    "theme": "dark",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 1920
+  },
+  {
+    "route": "/#services",
+    "theme": "light",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 320
+  },
+  {
+    "route": "/#services",
+    "theme": "light",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 390
+  },
+  {
+    "route": "/#services",
+    "theme": "light",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 768
+  },
+  {
+    "route": "/#services",
+    "theme": "light",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 1024
+  },
+  {
+    "route": "/#services",
+    "theme": "light",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 1440
+  },
+  {
+    "route": "/#services",
+    "theme": "light",
+    "links": 28,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 1,
+    "width": 1920
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 320
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 390
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 768
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 1024
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 1440
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 1920
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 320
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 390
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 768
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 1024
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 1440
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "links": 25,
+    "overflow": false,
+    "panelContained": true,
+    "panels": 0,
+    "width": 1920
+  },
+  {
+    "selection": "formation",
+    "expanded": 1,
+    "id": "practice-panel-formation",
+    "links": 5
+  },
+  {
+    "selection": "compliance",
+    "expanded": 1,
+    "id": "practice-panel-compliance",
+    "links": 5
+  },
+  {
+    "selection": "capital-markets",
+    "expanded": 1,
+    "id": "practice-panel-capital-markets",
+    "links": 3
+  },
+  {
+    "selection": "transactions",
+    "expanded": 1,
+    "id": "practice-panel-transactions",
+    "links": 5
+  },
+  {
+    "selection": "cross-border",
+    "expanded": 1,
+    "id": "practice-panel-cross-border",
+    "links": 2
+  },
+  {
+    "selection": "advisory",
+    "expanded": 1,
+    "id": "practice-panel-advisory",
+    "links": 5
+  },
+  {
+    "keyboard": "Arrow/Home/End and Tab assertions passed",
+    "mobile": "All six choices passed"
+  }
+]

@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { site, whatsappHref } from "@/lib/site";
 import { services } from "@/lib/services";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export function Enquire({ defaultService }: { defaultService?: string }) {
+export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?: string; headingLevel?: 1 | 2 }) {
+  const Heading = headingLevel === 1 ? "h1" : "h2";
+  const formId = useId();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -37,20 +39,18 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
     }
   }
 
-  const field =
-    "w-full rounded-md border border-hairline bg-bg px-3.5 py-2.5 text-sm text-ink outline-none transition-colors focus:border-signal placeholder:text-steel";
+  const field = "form-field";
 
   return (
     <section
       id="enquire"
-      className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 sm:py-24"
+      className="site-container scroll-mt-32 section-space"
     >
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+      <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
         <div>
-          <p className="font-mono text-sm tracking-wide text-signal">Enquire</p>
-          <h2 className="mt-4 text-[clamp(1.6rem,1.2rem+1.4vw,2.25rem)] font-semibold tracking-[-0.02em] text-ink">
+          <Heading className="section-title text-ink">
             Start a conversation.
-          </h2>
+          </Heading>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-ink-dim">
             Looking for clarity or strategic direction? Our team responds
             promptly with practical, dependable guidance for every stage of your
@@ -58,43 +58,43 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
           </p>
 
           <dl className="mt-8 divide-y divide-hairline border-t border-hairline">
-            <div className="flex items-baseline justify-between gap-4 py-3">
-              <dt className="font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+            <div className="grid gap-2 py-5">
+              <dt className="text-base font-semibold text-ink">
                 Call
               </dt>
-              <dd className="text-right font-mono text-sm tabular-nums">
+              <dd className="flex flex-col items-start font-mono text-base tabular-nums">
                 {site.phones.map((p) => (
                   <a
                     key={p.tel}
                     href={`tel:${p.tel}`}
-                    className="block text-ink transition-colors hover:text-signal"
+                    className="text-link w-fit text-ink transition-colors hover:text-signal"
                   >
                     {p.display}
                   </a>
                 ))}
               </dd>
             </div>
-            <div className="flex items-baseline justify-between gap-4 py-3">
-              <dt className="font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+            <div className="grid gap-2 py-5">
+              <dt className="text-base font-semibold text-ink">
                 Email
               </dt>
-              <dd className="text-right text-sm">
+              <dd className="flex min-w-0 flex-col items-start gap-1 text-base">
                 {site.emails.map((e) => (
                   <a
                     key={e}
                     href={`mailto:${e}`}
-                    className="block break-all text-ink transition-colors hover:text-signal"
+                    className="text-link w-fit break-all text-ink transition-colors hover:text-signal"
                   >
                     {e}
                   </a>
                 ))}
               </dd>
             </div>
-            <div className="flex items-baseline justify-between gap-4 py-3">
-              <dt className="font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+            <div className="grid gap-2 py-5">
+              <dt className="text-base font-semibold text-ink">
                 Office
               </dt>
-              <dd className="max-w-[16rem] text-right text-sm text-ink">
+              <dd className="max-w-sm text-base text-ink-dim">
                 {site.address.lines.join(" ")}
               </dd>
             </div>
@@ -109,7 +109,7 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
             <h3 className="mt-4 text-lg font-semibold text-ink">
               Thank you — we&apos;ve received your enquiry.
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink-dim">
+            <p className="mt-2 text-base leading-relaxed text-ink-dim">
               Our team will respond promptly. For anything urgent, call{" "}
               {site.phones[0].display} or reach us on WhatsApp.
             </p>
@@ -132,11 +132,11 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
 
             <div className="space-y-4">
               <div>
-                <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+                <label htmlFor={`${formId}-name`} className="form-label">
                   Name
                 </label>
-                <input
-                  name="name"
+                <input id={`${formId}-name`} name="name"
+                  autoComplete="name"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -146,11 +146,10 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+                  <label htmlFor={`${formId}-email`} className="form-label">
                     Email
                   </label>
-                  <input
-                    name="email"
+                  <input id={`${formId}-email`} name="email" autoComplete="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -159,11 +158,10 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
                   />
                 </div>
                 <div>
-                  <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+                  <label htmlFor={`${formId}-phone`} className="form-label">
                     Phone
                   </label>
-                  <input
-                    name="phone"
+                  <input id={`${formId}-phone`} name="phone" autoComplete="tel"
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -173,11 +171,10 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
                 </div>
               </div>
               <div>
-                <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+                <label htmlFor={`${formId}-service`} className="form-label">
                   Service
                 </label>
-                <select
-                  name="service"
+                <select id={`${formId}-service`} name="service"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
                   className={field}
@@ -191,22 +188,21 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
                 </select>
               </div>
               <div>
-                <label className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-wider text-steel">
+                <label htmlFor={`${formId}-message`} className="form-label">
                   Message
                 </label>
-                <textarea
-                  name="message"
+                <textarea id={`${formId}-message`} name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={4}
                   placeholder="How can we help?"
-                  className={`${field} resize-none`}
+                  className={field}
                 />
               </div>
             </div>
 
             {status === "error" && (
-              <p className="mt-4 font-mono text-[0.72rem] text-overdue">
+              <p role="alert" className="mt-4 text-base text-overdue">
                 {errorMsg}{" "}
                 <a href={waHref} className="underline">
                   Send via WhatsApp instead →
@@ -218,7 +214,7 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="flex-1 rounded-md bg-signal-solid px-5 py-3 text-center text-sm font-medium text-on-signal transition-colors hover:bg-signal-solid-hover disabled:opacity-60"
+                className="action-primary flex-1"
               >
                 {status === "sending" ? "Sending…" : "Send enquiry"}
               </button>
@@ -226,12 +222,12 @@ export function Enquire({ defaultService }: { defaultService?: string }) {
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 rounded-md border border-hairline px-5 py-3 text-center text-sm font-medium text-ink transition-colors hover:bg-bg"
+                className="action-secondary flex-1"
               >
                 WhatsApp instead
               </a>
             </div>
-            <p className="mt-3 font-mono text-[0.68rem] text-steel">
+            <p className="mt-4 text-sm text-steel">
               We&apos;ll reply by email or phone. Prefer chat? Use WhatsApp.
             </p>
           </form>

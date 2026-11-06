@@ -1,63 +1,59 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { categories, servicesByCategory } from "@/lib/services";
+import { serviceImagery } from "@/lib/service-imagery";
 import { Enquire } from "@/components/home/enquire";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Twenty-five company-secretarial and corporate-compliance services across six practice areas — incorporation, ongoing compliance, capital markets, transactions, cross-border & NBFC, and advisory & governance.",
+    "Twenty-five company-secretarial and corporate-compliance services across six practice areas: incorporation, ongoing compliance, capital markets, transactions, cross-border & NBFC, and advisory & governance.",
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <p className="font-mono text-[0.72rem] uppercase tracking-wider text-steel">
-          25 services · 6 practice areas
-        </p>
-        <h1 className="mt-3 text-[clamp(2rem,1.4rem+2.4vw,3.25rem)] font-semibold leading-[1.06] tracking-[-0.03em] text-ink">
-          Services
-        </h1>
+      <div className="site-container section-space">
+        <h1 className="page-title text-ink">Services</h1>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-dim">
-          The full practice, grouped by area and mapped to the statute each
-          service answers to. Every service has its own detailed scope of work —
-          select any to see the checklist.
+          Twenty-five services across six practice areas. Find the support your
+          business needs, with a detailed scope of work for every service.
         </p>
 
-        <div className="mt-14 space-y-16">
-          {categories.map((c) => {
-            const items = servicesByCategory(c.id);
+        <nav aria-label="Practice areas" className="mt-8 grid gap-x-8 divide-y divide-hairline border-y border-hairline sm:grid-cols-2 xl:grid-cols-3">
+          {categories.map((category) => (
+            <Link key={category.id} href={`#${category.id}`} className="group flex min-h-20 items-center justify-between gap-4 py-3 text-base font-medium text-ink-dim transition-colors hover:text-signal sm:pr-6">
+              <span>{category.name}</span>
+              <span className="shrink-0 font-mono text-xs tabular-nums text-steel">{servicesByCategory(category.id).length}<span aria-hidden="true" className="ml-3 group-hover:text-signal">↓</span></span>
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          {categories.map((category) => {
+            const items = servicesByCategory(category.id);
+            const image = serviceImagery[category.id];
             return (
-              <section key={c.id} id={c.id} className="scroll-mt-20">
-                <div className="flex items-baseline justify-between gap-4 border-b border-hairline pb-3">
-                  <div>
-                    <h2 className="text-xl font-semibold text-ink">{c.name}</h2>
-                    <p className="mt-1 text-sm text-steel">{c.blurb}</p>
+              <section key={category.id} id={category.id} aria-labelledby={`heading-${category.id}`} className="service-directory-card relative isolate flex min-h-[46rem] scroll-mt-32 flex-col overflow-hidden rounded-xl bg-photo-ground p-5 text-photo-ink sm:p-7">
+                <Image src={image.src} alt="" fill sizes="(min-width: 1600px) 756px, (min-width: 1024px) calc((100vw - 5.5rem) / 2), (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)" className="-z-20 object-cover" style={{ objectPosition: image.position }} />
+                <div className="service-directory-shade absolute inset-0 -z-10" aria-hidden="true" />
+                <div>
+                  <div className="flex items-start justify-between gap-4">
+                    <h2 id={`heading-${category.id}`} className="max-w-md text-[clamp(1.75rem,1.2rem+1.2vw,2.375rem)] font-semibold leading-tight tracking-[-0.02em]">{category.name}</h2>
+                    <span className="shrink-0 pt-1 font-mono text-xs tabular-nums">{String(items.length).padStart(2, "0")}</span>
                   </div>
-                  <span className="shrink-0 font-mono text-sm tabular-nums text-steel">
-                    {String(items.length).padStart(2, "0")}
-                  </span>
+                  <p className="mt-3 max-w-md text-base leading-relaxed">{category.blurb}</p>
                 </div>
-                <ul>
-                  {items.map((s) => (
-                    <li key={s.slug}>
-                      <Link
-                        href={`/services/${s.slug}`}
-                        className="group grid grid-cols-1 gap-1 border-b border-hairline px-1 py-4 transition-colors hover:bg-surface md:grid-cols-[150px_1fr_auto] md:items-baseline md:gap-4 md:px-3"
-                      >
-                        <span className="font-mono text-[0.72rem] tabular-nums text-steel">
-                          {s.law}
-                        </span>
+                <ul className="mt-auto pt-24">
+                  {items.map((service) => (
+                    <li key={service.slug}>
+                      <Link href={`/services/${service.slug}`} className="group flex min-h-20 items-center justify-between gap-4 border-t border-photo-rule py-3 text-base transition-colors hover:text-photo-signal">
                         <span>
-                          <span className="font-medium text-ink">{s.name}</span>
-                          <span className="mt-0.5 block text-sm text-steel">
-                            {s.tagline}
-                          </span>
+                          <span className="font-medium leading-snug underline decoration-photo-rule underline-offset-4">{service.name}</span>
+                          <span className="mt-2 block font-mono text-sm tabular-nums text-photo-dim">{service.law}</span>
                         </span>
-                        <span className="hidden font-mono text-steel transition-colors group-hover:text-signal md:block">
-                          →
-                        </span>
+                        <span aria-hidden="true" className="shrink-0 text-photo-signal transition-transform group-hover:translate-x-1 motion-reduce:transform-none">→</span>
                       </Link>
                     </li>
                   ))}
@@ -67,10 +63,7 @@ export default function ServicesPage() {
           })}
         </div>
       </div>
-
-      <div className="border-t border-hairline">
-        <Enquire />
-      </div>
+      <div className="border-t border-hairline"><Enquire /></div>
     </>
   );
 }

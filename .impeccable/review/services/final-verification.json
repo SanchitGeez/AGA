@@ -1,0 +1,24 @@
+{
+  "layoutAndSelectionChecks": 31,
+  "detailChecks": 100,
+  "reducedMotion": "PASS: transition-property none",
+  "captures": [
+    "final-detail-mobile-dark.png",
+    "final-home-desktop-advisory.png",
+    "final-detail-mobile-light.png",
+    "final-home-desktop-capital.png",
+    "final-home-mobile-dark.png",
+    "final-home-mobile-light.png",
+    "final-hub-mobile-dark.png",
+    "final-detail-desktop-dark.png",
+    "final-hub-desktop-light.png",
+    "final-hub-mobile-light.png",
+    "final-detail-capital-desktop.png",
+    "final-home-mobile-advisory.png",
+    "final-home-desktop-dark.png",
+    "final-hub-desktop-full.png",
+    "final-hub-desktop-dark.png",
+    "final-detail-desktop-light.png",
+    "final-home-desktop-light.png"
+  ]
+}

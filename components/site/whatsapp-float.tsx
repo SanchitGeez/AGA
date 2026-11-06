@@ -7,7 +7,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-5 right-5 z-30 flex items-center gap-2 rounded-full border border-hairline bg-surface-2 px-4 py-3 text-sm font-medium text-ink shadow-[0_8px_28px_-8px_rgba(0,0,0,0.6)] transition-colors hover:bg-surface"
+      className="fixed bottom-5 right-5 z-30 flex items-center gap-2 rounded-full border border-hairline bg-surface-2 px-4 py-3 text-base font-medium text-ink shadow-[0_8px_28px_-8px_rgba(0,0,0,0.6)] transition-colors hover:bg-surface"
     >
       <span
         aria-hidden

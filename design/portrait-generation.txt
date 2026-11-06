@@ -1,0 +1,22 @@
+Portrait generation record
+
+Tool: built-in ImageGen, identity-preserving edit.
+Primary edit source: IMG_0054.JPG (client-supplied front-facing photo).
+Supporting identity reference: IMG_0078.JPG (client-supplied mirror selfie).
+Master: public/portraits/ayush-gupta-master.png.
+Website export: public/portraits/ayush-gupta.webp (960px wide, WebP quality 92).
+Placement: shared Principal component on About and Home, 4:5 crop.
+No skin recoloring, duotone, grayscale or CSS beauty filter is applied on the website.
+
+Prompt
+
+Use case: identity-preserve.
+Asset type: photorealistic professional portrait for the principal biography of an Indian Company Secretary firm. Vertical 4:5 portrait, shown at approximately 300 x 375 CSS pixels beside biography text.
+Input images: Image 1 (IMG_0054.JPG) is the PRIMARY EDIT TARGET and immutable facial identity source. Image 2 (IMG_0078.JPG) is a secondary reference showing the same subject from another angle; it is a mirror selfie, so do not copy its mirror reversal or its pose.
+Primary request: Edit the person from Image 1 into a formal professional suit against a clean simple studio background. Treat this as a clothing-and-background replacement of the existing person, not a newly invented portrait.
+IDENTITY LOCK, highest priority: retain the exact face and recognizable likeness from Image 1, including the same head angle, exact eye shape and spacing, eyebrows, nose width and tip, lips, natural tooth-showing smile and teeth arrangement, cheek fullness, jawline and chin, ears, curly black hair, hairline, light facial stubble, natural skin tone and facial asymmetry. Preserve original age and normal skin texture. Do not beautify, slim, sculpt, symmetrize, sharpen the jaw, enlarge eyes, change the smile, change teeth, alter hairstyle, add hair, or replace the subject with a generic executive. Preserve the actual facial features from the input as closely as possible; do not average the two faces together.
+Wardrobe: a well-fitting dark navy business suit with understated notch lapels, crisp white dress shirt, and a plain dark navy matte tie. Conservative, professionally tailored, realistic woven fabric. No pocket square, badges, pins, watch showcase, logos, or accessories.
+Background: plain seamless cool slate-gray studio backdrop, softly and evenly lit. No office, furniture, architecture, text, props, patterns, spotlight circle, graphic effects, or watermark.
+Composition: upper-torso portrait cropped around the lower chest, no hands visible. Preserve Image 1's subtle natural shoulder angle and head orientation, looking toward the camera with the SAME friendly, modest smile. Center head horizontally with roughly 7-9% headroom, face large and clearly readable in a narrow 4:5 website portrait. Keep both shoulders and enough jacket visible to show the suit.
+Lighting and finish: restrained professional photography, soft natural light with gentle dimensional shadows, believable skin pores and fine hair detail. Avoid dramatic rim lighting, glamor retouching, plastic skin, cinematic grading, fake bokeh or exaggerated contrast. Keep face natural in color; the background and suit should complement a dark slate and amber website as well as its light mode.
+Deliver one clean high-resolution 4:5 portrait, photograph only. Likeness accuracy outranks every styling choice.

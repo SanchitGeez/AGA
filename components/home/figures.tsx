@@ -48,7 +48,7 @@ function CountUp({ target }: { target: number }) {
 
 export function Figures() {
   return (
-    <section className="mx-auto mt-16 max-w-6xl px-4 sm:mt-24 sm:px-6">
+    <section className="site-container section-start">
       <div className="grid grid-cols-1 divide-y divide-hairline rounded-xl border border-hairline bg-surface sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         {site.stats.map((s) => (
           <div key={s.label} className="px-6 py-8 sm:px-8">
@@ -56,7 +56,7 @@ export function Figures() {
               <CountUp target={s.value} />
               {s.suffix}
             </div>
-            <div className="mt-3 font-mono text-[0.72rem] uppercase tracking-wider text-steel">
+            <div className="mt-3 text-sm font-medium text-steel">
               {s.label}
             </div>
           </div>

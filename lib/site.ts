@@ -13,11 +13,10 @@ export const site = {
     "Peer-reviewed firm of Company Secretaries in Mumbai. Corporate, legal, and regulatory compliance — IPOs, SEBI, FEMA, restructuring, and governance under the Companies Act and allied laws.",
   tagline: "SEBI · NCLT · IPO-ready.",
   phones: [
-    { display: "+91 91361 12695", tel: "+919136112695" },
     { display: "+91 99307 66702", tel: "+919930766702" },
   ],
   emails: ["staff.agaassociates@gmail.com", "info.agaassociates@gmail.com"],
-  whatsapp: "919136112695",
+  whatsapp: "919930766702",
   address: {
     lines: [
       "404, Madhu Industrial Park, Mogra Cross Road,",

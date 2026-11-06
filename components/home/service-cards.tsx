@@ -1,166 +1,130 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import {
-  categories,
-  servicesByCategory,
-  type CategoryId,
-} from "@/lib/services";
+import { useRef, useState, type KeyboardEvent } from "react";
+import { categories, servicesByCategory, type CategoryId } from "@/lib/services";
+import { serviceImagery } from "@/lib/service-imagery";
 
-/**
- * Landing-page services block — the six practice areas as cards. Clicking a card
- * expands its services as a list directly below it, but the list is absolutely
- * positioned and the card is lifted (elevated z), so it overlays the cards
- * beneath instead of pushing the grid around — no layout shift. Click away or
- * press Esc to close; the full searchable 25-row matrix lives on /services and
- * under ⌘K. Drop a themed photo at `public/services/<category-id>.jpg`; until
- * then a ruled-grid placeholder stands in.
- */
 export function ServiceCards() {
-  const [openId, setOpenId] = useState<CategoryId | null>(null);
+  const [selectedId, setSelectedId] = useState<CategoryId>("formation");
+  const [renderedIds, setRenderedIds] = useState<CategoryId[]>(["formation"]);
+  const [loadedIds, setLoadedIds] = useState<CategoryId[]>([]);
+  const [failedIds, setFailedIds] = useState<CategoryId[]>([]);
+  const [displayedId, setDisplayedId] = useState<CategoryId | null>("formation");
+  const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 
-  useEffect(() => {
-    if (!openId) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenId(null);
-    };
-    const onDown = (e: PointerEvent) => {
-      const el = (e.target as Element).closest("[data-card]");
-      if (el?.getAttribute("data-card") !== openId) setOpenId(null);
-    };
-    window.addEventListener("keydown", onKey);
-    document.addEventListener("pointerdown", onDown);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.removeEventListener("pointerdown", onDown);
-    };
-  }, [openId]);
+  function selectPractice(id: CategoryId) {
+    setSelectedId(id);
+    setRenderedIds((ids) => (ids.includes(id) ? ids : [...ids, id]));
+    if (loadedIds.includes(id)) setDisplayedId(id);
+    if (failedIds.includes(id)) setDisplayedId(null);
+  }
+
+  function moveFocus(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    const next =
+      event.key === "ArrowDown" ? (index + 1) % categories.length :
+      event.key === "ArrowUp" ? (index - 1 + categories.length) % categories.length :
+      event.key === "Home" ? 0 :
+      event.key === "End" ? categories.length - 1 : null;
+    if (next === null) return;
+    event.preventDefault();
+    buttons.current[next]?.focus();
+    selectPractice(categories[next].id);
+  }
 
   return (
-    <section
-      id="services"
-      className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 sm:py-24"
-    >
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h2 className="text-[clamp(1.6rem,1.2rem+1.4vw,2.25rem)] font-semibold tracking-[-0.02em] text-ink">
+    <section id="services" aria-labelledby="practice-heading" className="practice-explorer relative isolate scroll-mt-32 overflow-hidden bg-photo-ground text-photo-ink">
+      <div className="absolute inset-0 -z-20" aria-hidden="true">
+        {renderedIds.map((id) => (
+          <Image
+            key={id}
+            src={serviceImagery[id].src}
+            alt=""
+            fill
+            sizes="100vw"
+            loading={id === "formation" ? "lazy" : "eager"}
+            className={`object-cover transition-opacity duration-300 motion-reduce:transition-none ${displayedId === id ? "opacity-100" : "opacity-0"}`}
+            style={{ objectPosition: serviceImagery[id].position }}
+            onLoad={() => {
+              setLoadedIds((ids) => (ids.includes(id) ? ids : [...ids, id]));
+              if (id === selectedId) setDisplayedId(id);
+            }}
+            onError={() => {
+              setFailedIds((ids) => (ids.includes(id) ? ids : [...ids, id]));
+              if (id === selectedId) setDisplayedId(null);
+            }}
+          />
+        ))}
+      </div>
+      <div className="practice-explorer-shade absolute inset-0 -z-10 bg-photo-ground/90" aria-hidden="true" />
+
+      <div className="practice-content site-container relative section-space lg:min-h-[60rem]">
+        <div className="practice-navigation lg:w-[40%]">
+          <h2 id="practice-heading" className="section-title">
             Six practice areas
           </h2>
-          <p className="mt-2 max-w-lg text-ink-dim">
-            Twenty-five services, grouped by the work they do. Open an area to see
-            what&rsquo;s inside — or search the full matrix.
+          <p className="mt-3 max-w-sm text-photo-dim">
+            Explore twenty-five services across company law, capital markets and corporate governance.
           </p>
-        </div>
-        <Link
-          href="/services"
-          className="shrink-0 font-mono text-[0.72rem] uppercase tracking-wider text-steel underline-offset-4 transition-colors hover:text-signal hover:underline"
-        >
-          All 25 services →
-        </Link>
-      </div>
 
-      <div className="mt-10 grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {categories.map((c, i) => {
-          const items = servicesByCategory(c.id);
-          const isOpen = openId === c.id;
-          return (
-            <div
-              key={c.id}
-              data-card={c.id}
-              className={`relative origin-top transition-transform duration-200 ease-out motion-reduce:transition-none ${
-                isOpen ? "z-20 scale-[1.03]" : "z-0 scale-100"
-              }`}
-            >
-              <button
-                type="button"
-                onClick={() => setOpenId(isOpen ? null : c.id)}
-                aria-expanded={isOpen}
-                className={`group flex w-full flex-col overflow-hidden rounded-xl border border-hairline text-left transition-colors ${
-                  isOpen
-                    ? "rounded-b-none bg-surface-2 shadow-[0_16px_48px_-12px_oklch(0_0_0/0.6)]"
-                    : "bg-surface hover:bg-surface-2"
-                }`}
-              >
-                {/* Duotone banner */}
-                <div className="relative aspect-[16/9] overflow-hidden bg-bg">
-                  <div className="absolute inset-0 opacity-25 [background-image:repeating-linear-gradient(0deg,transparent_0,transparent_23px,var(--hairline)_24px),repeating-linear-gradient(90deg,transparent_0,transparent_23px,var(--hairline)_24px)]" />
-                  <div
-                    style={{ backgroundImage: `url(/services/${c.id}.jpg)` }}
-                    className="absolute inset-0 bg-cover bg-center grayscale contrast-[1.15] brightness-[0.8] transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-bg/55 mix-blend-color" />
-                  <div className="absolute inset-0 bg-signal-solid/15 mix-blend-overlay" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent" />
-                  <span className="absolute left-3 top-3 font-mono text-[0.65rem] tabular-nums text-steel">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* Card face */}
-                <div className="flex items-start justify-between gap-3 p-5">
-                  <div>
-                    <h3 className="font-medium text-ink">{c.name}</h3>
-                    <p className="mt-1 text-sm text-steel">{c.blurb}</p>
-                  </div>
-                  <div className="flex shrink-0 flex-col items-end gap-2">
-                    <span className="font-mono text-sm tabular-nums text-signal">
-                      {String(items.length).padStart(2, "0")}
-                    </span>
-                    <svg
-                      className={`size-4 text-steel transition-transform duration-200 group-hover:text-signal ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      aria-hidden
+          <div className="mt-8 border-t border-photo-rule">
+            {categories.map((category, index) => {
+              const selected = selectedId === category.id;
+              const items = servicesByCategory(category.id);
+              return (
+                <div key={category.id} className="border-b border-photo-rule">
+                  <h3>
+                    <button
+                      ref={(element) => { buttons.current[index] = element; }}
+                      id={`practice-button-${category.id}`}
+                      aria-expanded={selected}
+                      aria-disabled={selected || undefined}
+                      aria-controls={`practice-panel-${category.id}`}
+                      onClick={() => selectPractice(category.id)}
+                      onKeyDown={(event) => moveFocus(event, index)}
+                      className={`practice-button flex min-h-20 w-full scroll-mt-36 items-center justify-between gap-4 px-3 py-5 text-left transition-colors hover:text-photo-signal focus-visible:outline-photo-signal ${selected ? "bg-photo-ground/60 text-photo-signal" : "text-photo-ink"}`}
                     >
-                      <path
-                        d="M4 6l4 4 4-4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                      <span className="text-lg font-medium leading-snug xl:text-xl">{category.name}</span>
+                      <span className="flex shrink-0 items-center gap-4">
+                        <span className="font-mono text-xs tabular-nums text-photo-dim">{String(items.length).padStart(2, "0")}</span>
+                        <span aria-hidden="true" className="grid size-10 place-items-center rounded-md border border-photo-rule text-xl font-normal">{selected ? "−" : "+"}</span>
+                      </span>
+                    </button>
+                  </h3>
+
+                  <div
+                    id={`practice-panel-${category.id}`}
+                    role="region"
+                    aria-labelledby={`practice-button-${category.id}`}
+                    hidden={!selected}
+                    className="practice-panel pb-6 lg:absolute lg:bottom-16 lg:right-8 lg:w-[51%] lg:max-w-2xl lg:border-t lg:border-photo-rule lg:bg-photo-ground/95 lg:p-7"
+                  >
+                    <div className="relative mb-5 aspect-video overflow-hidden rounded-md bg-photo-ground lg:hidden">
+                      {selected && <Image src={serviceImagery[category.id].src} alt="" fill sizes="(min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)" className="object-cover" style={{ objectPosition: serviceImagery[category.id].position }} />}
+                    </div>
+                    <h4 className="hidden text-2xl font-medium leading-tight tracking-[-0.02em] lg:block">{category.name}</h4>
+                    <p className="max-w-lg text-base leading-relaxed text-photo-dim lg:mt-2">{category.blurb}</p>
+                    <ul className="mt-5 grid gap-x-8 xl:grid-cols-2">
+                      {items.map((service) => (
+                        <li key={service.slug}>
+                          <Link href={`/services/${service.slug}`} className="group flex h-full min-h-20 scroll-mt-36 items-center justify-between gap-3 border-t border-photo-rule py-4 text-base leading-snug text-photo-ink transition-colors hover:text-photo-signal focus-visible:outline-photo-signal">
+                            <span><span className="underline decoration-photo-rule underline-offset-4">{service.name}</span><span className="mt-1 block font-mono text-sm text-photo-dim">{service.law}</span></span>
+                            <span aria-hidden="true" className="text-photo-signal transition-transform group-hover:translate-x-1 motion-reduce:transform-none">→</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              </button>
+              );
+            })}
+          </div>
 
-              {/* Expansion — absolute overlay, lifts above the cards beneath */}
-              <div
-                className={`absolute inset-x-0 top-full origin-top overflow-hidden rounded-b-xl border border-t-0 border-hairline bg-surface-2 shadow-[0_16px_48px_-12px_oklch(0_0_0/0.6)] transition-all duration-200 ease-out ${
-                  isOpen
-                    ? "visible translate-y-0 opacity-100"
-                    : "invisible pointer-events-none -translate-y-1 opacity-0"
-                }`}
-              >
-                <ul className="px-5 pb-2">
-                  {items.map((s) => (
-                    <li key={s.slug}>
-                      <Link
-                        href={`/services/${s.slug}`}
-                        className="group/row flex items-baseline justify-between gap-3 border-b border-hairline py-3 last:border-0"
-                      >
-                        <span>
-                          <span className="text-sm font-medium text-ink">
-                            {s.name}
-                          </span>
-                          <span className="mt-0.5 block text-xs text-steel">
-                            {s.tagline}
-                          </span>
-                        </span>
-                        <span className="shrink-0 font-mono text-[0.7rem] tabular-nums text-steel transition-colors group-hover/row:text-signal">
-                          {s.law}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
+          <Link href="/services" className="text-link mt-7 gap-5 text-base font-semibold text-photo-ink hover:text-photo-signal focus-visible:outline-photo-signal">
+            All 25 services <span aria-hidden="true" className="text-photo-signal">→</span>
+          </Link>
+        </div>
       </div>
     </section>
   );
