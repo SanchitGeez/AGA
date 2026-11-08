@@ -12,11 +12,11 @@ export function InsightsTeaser() {
       <div className="site-container section-space grid gap-8 lg:grid-cols-2 lg:gap-12">
         <div>
           <h2 className="section-title text-ink">
-            The calendar, always current.
+            Plan your compliance.
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-ink-dim">
             Statutory deadlines don&apos;t wait. We track the filing calendar so you
-            never miss a due date. The same calendar appears below the homepage opening.
+            can plan ahead for your entity’s obligations.
           </p>
           <Link
             href="/insights"

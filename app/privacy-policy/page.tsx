@@ -1,0 +1,16 @@
+import type { Metadata } from "next";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = { title: "Privacy Policy", description: "How Ayush D Gupta & Associates handles website enquiries, career applications, personal information and privacy requests." };
+export default function PrivacyPolicy() {
+  return <article className="site-container section-space"><div className="max-w-3xl space-y-8 text-base leading-relaxed text-ink-dim">
+    <h1 className="page-title text-ink">Privacy Policy</h1>
+    <p>This notice explains how {site.name} uses personal information provided through this website.</p>
+    <section><h2 className="text-2xl text-ink">Information you provide</h2><p className="mt-3">An enquiry may include your name, email, telephone number, organisation, selected service and message. A career application also includes your position of interest and résumé. Please provide only information relevant to your request and avoid sending sensitive or confidential client records through the initial form.</p></section>
+    <section><h2 className="text-2xl text-ink">How we use it</h2><p className="mt-3">We use enquiry information to understand and respond to your request and application information to consider employment or training opportunities. The form asks for your agreement to this use. An enquiry does not subscribe you to marketing messages or create a professional engagement.</p></section>
+    <section><h2 className="text-2xl text-ink">Email delivery and service providers</h2><p className="mt-3">Forms send information to the firm by email through Resend. Résumés pass through the website as email attachments; the website does not save them in a document database or file bucket. Submitted information may remain in the firm’s email system. Website hosting and email providers may process information needed to operate and secure their services.</p></section>
+    <section><h2 className="text-2xl text-ink">Retention and requests</h2><p className="mt-3">For questions about access, correction, deletion, withdrawal of consent or how long correspondence or applications are retained, contact the firm using the email below. Requests are considered in light of the information held, the purpose of processing and applicable professional or legal record-keeping requirements.</p></section>
+    <section><h2 className="text-2xl text-ink">Theme preference, cookies and external services</h2><p className="mt-3">The website saves a manual theme choice in your browser’s local storage. It does not currently include an advertising or audience-analytics integration. External links, WhatsApp, LinkedIn and Google Maps operate under their own privacy terms. An embedded map, when loaded, connects your browser to Google and may involve Google cookies or other browser information.</p></section>
+    <section><h2 className="text-2xl text-ink">Contact and changes</h2><p className="mt-3">For privacy questions, email <a className="text-ink underline underline-offset-4" href={`mailto:${site.emails.at(-1)}`}>{site.emails.at(-1)}</a> or write to {site.address.lines.join(" ")}. This notice may be updated when the website or its processing practices change.</p></section>
+  </div></article>;
+}

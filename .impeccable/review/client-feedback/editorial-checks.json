@@ -1,0 +1,153 @@
+{
+  "date": "2026-11-08",
+  "change": "Client-requested Capital Markets replacement and green WhatsApp logo",
+  "build": "passed, 47 generated pages",
+  "lint": "passed",
+  "detector": [],
+  "checks": [
+    {
+      "width": 320,
+      "theme": "dark",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 288,
+        "h": 288
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 288,
+        "h": 288
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 358,
+        "h": 288
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 358,
+        "h": 288
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 720,
+        "h": 384
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 720,
+        "h": 384
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 384.1875,
+        "h": 842.203125
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 384.1875,
+        "h": 842.203125
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 550.796875,
+        "h": 713.1875
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "services": 7,
+      "hiddenServiceLinks": false,
+      "photo": {
+        "w": 550.796875,
+        "h": 713.1875
+      },
+      "logo": true,
+      "logoColour": "rgb(37, 211, 102)",
+      "circles": 0
+    },
+    {
+      "reducedMotion": "Photo transition disabled"
+    }
+  ],
+  "limits": "Chromium viewport emulation; physical iPhone/Android/Safari checks not performed"
+}

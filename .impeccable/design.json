@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-06T21:32:58.189451+00:00",
+  "generatedAt": "2026-11-08",
   "title": "Bourse — Design System",
   "extensions": {
     "colorMeta": {
@@ -498,6 +498,12 @@
           "oklch(0.8 0.1 165)",
           "oklch(0.95 0.1 165)"
         ]
+      },
+      "whatsapp": {
+        "role": "accent",
+        "displayName": "WhatsApp Logo Green",
+        "canonical": "rgb(37 211 102)",
+        "purpose": "Client-requested brand logo only, fixed in both page themes"
       }
     },
     "motion": [
@@ -530,23 +536,23 @@
     "typographyMeta": {
       "hero": {
         "displayName": "Hero display",
-        "purpose": "Fraunces only on the home motto; mobile and short-height overrides keep it readable."
+        "purpose": "Fraunces home motto; the client now uses Fraunces for all headings and the wordmark."
       },
       "body": {
         "displayName": "Reading prose",
-        "purpose": "18px Geist reading copy; body line-height 1.7, Tailwind text-base line-height 1.65."
+        "purpose": "16px Geist prose; 1.7 body line height."
       },
       "body-sm": {
-        "displayName": "Supporting reading",
-        "purpose": "16px labels, statutory references and legal copy."
+        "displayName": "Supporting text",
+        "purpose": "14px labels and supporting references."
       },
       "supporting": {
         "displayName": "Brief data",
-        "purpose": "14px short counts, keyboard hints and brief labels, never reading prose."
+        "purpose": "13px keyboard hints and short data."
       },
       "action": {
         "displayName": "Explicit action",
-        "purpose": "18px semibold Geist on 52px minimum primary/secondary actions."
+        "purpose": "16px Geist, with 52px minimum primary/secondary actions."
       }
     },
     "focus": {
@@ -567,11 +573,11 @@
     "responsiveTypography": {
       "heroMobile": {
         "query": "width < 48rem",
-        "fontSize": "clamp(2rem, 9vw, 3.25rem)"
+        "fontSize": "clamp(1.75rem, 7.875vw, 2.84375rem)"
       },
       "heroShortDesktop": {
         "query": "width >= 48rem and height < 45rem",
-        "fontSize": "min(5.35vw, 10svh)"
+        "fontSize": "min(4.68vw, 8.75svh)"
       }
     },
     "layout": {
@@ -652,10 +658,11 @@
     "northStar": "Bourse — a markets terminal for corporate compliance",
     "overview": "Bourse is a **markets terminal for corporate compliance.** Deep slate surface, a single\namber signal, monospaced tabular figures, ruled grids, a live statutory-deadline ticker.\nIt borrows the visual language of the exchanges the firm works with daily (NSE/BSE/NSDL/\nCDSL/NCLT) because the firm's edge is capital markets — IPO, SEBI, FEMA, corporate actions.\n\nThe aesthetic is deliberately distinctive-yet-serious. Its one risk is reading as a tech\nstartup or a crypto dashboard; the guardrail is **institutional restraint** — formal copy,\nstatutory precision, disciplined color, calm-but-crisp motion. Bloomberg terminal energy,\nlaw-firm gravitas. Mono is used because there is *real data* (deadlines, filing counts,\nregulation numbers), never as decoration.\n\nPersonality: **precise · disciplined · institutional.** The visitor should feel the firm\nwill not let them get it wrong. Adult professional readers need comfortable text, clear\nheadings and unmistakable actions. Readability takes precedence over extreme minimalism.",
     "keyCharacteristics": [
-      "Deep slate, cool light mode and one restrained amber interface accent.",
-      "Generous reading type, explicit actions and visible control boundaries.",
-      "Real statutory data in mono; Geist prose and a single hero-only Fraunces statement.",
-      "Natural-colour photography with local reading shades and ruled structure."
+      "Institutional slate and amber palette",
+      "Fraunces headings and wordmark, Geist prose, mono data",
+      "Editorial capital-markets photography and a four-stage process",
+      "Prominent vision/mission feature on About",
+      "Coherent illustrative service photography with a distinct advisory asset"
     ],
     "rules": [
       {
@@ -694,7 +701,6 @@
       "Don't set reading prose in `steel` or `signal`; use `ink` or `ink-dim`.",
       "Don't turn the 25 services into separate identical cards. Keep them within the six practice areas, with direct detail links and governing statutes; the approved hub has six category cards.",
       "Don't add a second accent color; the discipline of one signal is the design.",
-      "Don't spread the display serif — it's the **home-hero headline only**; every other heading is Geist.",
       "Don't animate floaty/bouncy or gate content visibility on reveal classes.",
       "Don't use side-stripe borders, glassmorphism, or arbitrary z-index (use a semantic scale)."
     ]

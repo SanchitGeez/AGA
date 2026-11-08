@@ -1,4 +1,4 @@
-// Full statutory scope for each of the 25 services, transcribed faithfully from
+// Statutory scopes based on the original brief and client revisions; see
 // the client brief (`Website (1).md` → "SERVICES TAB"). Keyed by service slug.
 // This is the deep, indexable content the summary in `services.ts` only teases.
 
@@ -65,6 +65,7 @@ export const serviceScope: Record<string, string[]> = {
     "Support during SEBI inspections, queries, and compliance reviews",
   ],
   "rbi-fema": [
+    "Preparation and submission support for the Foreign Liabilities and Assets (FLA) return",
     "Compliance with the Foreign Exchange Management Act (FEMA), 1999 and RBI regulations",
     "Advisory on Foreign Direct Investment (FDI) — automatic and approval routes",
     "External Commercial Borrowings (ECB) and related reporting",
@@ -109,6 +110,8 @@ export const serviceScope: Record<string, string[]> = {
     "Coordination with legal, financial, and tax professionals for integrated review",
   ],
   "corporate-restructuring": [
+    "Assessment of legal, tax and compliance implications of the proposed structure",
+    "Coordination with tax and legal professionals on implementation and post-transaction obligations",
     "Amalgamation, merger, and demerger advisory and compliance support",
     "Capital restructuring including alteration of share capital and ownership",
     "Reduction of share capital and related regulatory approvals",
@@ -121,6 +124,8 @@ export const serviceScope: Record<string, string[]> = {
     "Post-restructuring compliance and implementation assistance",
   ],
   "trademark-ipr": [
+    "Design search, registration applications, responses and renewal support",
+    "International trademark filing strategy and coordination, including the Madrid System where applicable",
     "Trademark search and availability assessment before filing",
     "Filing and prosecution of trademark applications in India",
     "Handling of trademark objections, oppositions, and rectifications",
@@ -353,6 +358,56 @@ export const serviceScope: Record<string, string[]> = {
     "Participation and guidance for Board and Committee meetings",
     "Support in board evaluation and governance frameworks",
   ],
+  "reconciliation-share-capital-audit": [
+      "Review of issued, subscribed, paid-up and listed share capital",
+      "Reconciliation of registrar records with NSDL and CDSL statements",
+      "Review of changes in capital and dematerialisation records",
+      "Identification and review of reconciliation differences",
+      "Preparation of the quarterly reconciliation of share capital audit report",
+      "Coordination of supporting records and exchange submission"
+  ],
+  "annual-report": [
+      "Annual-report checklist and applicability review",
+      "Drafting and review support for the Board’s Report and statutory annexures",
+      "Coordination of corporate-governance and shareholder disclosures",
+      "Consistency review of approved financial and non-financial information",
+      "Coordination with management, auditors and other contributors",
+      "Support for approval, circulation and applicable regulatory submissions"
+  ],
+  "annual-secretarial-compliance-report": [
+      "Review of compliance with applicable SEBI regulations and circulars",
+      "Examination of records, filings and management representations",
+      "Review of observations, prior-year actions and regulatory correspondence",
+      "Preparation of the Annual Secretarial Compliance Report under Regulation 24A",
+      "Discussion of corrective actions and management responses",
+      "Support with the applicable exchange submission process"
+  ],
+  "rera-services": [
+      "Assessment of project or agent registration requirements under applicable state rules",
+      "Preparation and coordination of registration documentation",
+      "Support with periodic project updates and disclosures",
+      "Review of continuing compliance requirements and record maintenance",
+      "Assistance with registration amendments, extensions and related applications",
+      "Coordination of responses to authority queries and professional certifications"
+  ],
+  "audit-tax-gst-support": [
+      "Audit-readiness review and coordination of supporting records",
+      "Coordination with auditors and appropriately qualified professionals",
+      "Tax compliance documentation and return-filing support",
+      "GST registration, amendment and cancellation support",
+      "GST return preparation, reconciliation and compliance review",
+      "Assistance with notices, queries and follow-up documentation"
+  ],
+  "dpdp-privacy-compliance": [
+      "Assessment of personal-data collection, uses, sharing and retention practices",
+      "Drafting of data-protection policies and clear privacy notices",
+      "Privacy-compliance setup for digital-first startups",
+      "Review of consent and withdrawal journeys where applicable",
+      "Support with individual-rights and grievance-handling procedures",
+      "Vendor-processing, security and incident-response documentation review",
+      "Implementation planning against applicable DPDP provisions and commencement dates"
+  ],
+
 };
 
 export const getServiceScope = (slug: string): string[] =>

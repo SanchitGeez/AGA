@@ -1,5 +1,4 @@
-// The 25 services, grouped into 6 categories (see PRODUCT.md).
-// Summaries are Phase-1 concise; the full statutory bullet lists land in Phase 3.
+// Client-approved services grouped by practice area.
 
 export type CategoryId =
   | "formation"
@@ -29,12 +28,12 @@ export const categories: ServiceCategory[] = [
   {
     id: "formation",
     name: "Formation & Setup",
-    blurb: "Entities, registrations, and the paperwork that gets you operating.",
+    blurb: "Companies, LLPs, trusts, societies and Section 8 formations.",
   },
   {
     id: "compliance",
     name: "Ongoing Compliance",
-    blurb: "Annual filings, audits and continuing statutory obligations.",
+    blurb: "Annual filings, tax and GST support, RERA and continuing obligations.",
   },
   {
     id: "capital-markets",
@@ -65,9 +64,9 @@ export const services: Service[] = [
     name: "Incorporation & Registration",
     category: "formation",
     law: "Cos. Act 2013",
-    tagline: "Company, LLP, OPC & Section 8 setup",
+    tagline: "Company, LLP, trust, society & Section 8 setup",
     summary:
-      "End-to-end incorporation — entity selection, DSC & DIN, name approval, MOA/AOA drafting, and MCA filings — so your business starts on a sound legal footing.",
+      "End-to-end incorporation — entity selection, DSC & DIN, name approval, MOA/AOA drafting and MCA filings, alongside trust and society registrations.",
   },
   {
     slug: "startup-advisory",
@@ -146,8 +145,8 @@ export const services: Service[] = [
   {
     slug: "secretarial-audit",
     name: "Secretarial Audit",
-    category: "compliance",
-    law: "§204 · MR-3",
+    category: "capital-markets",
+    law: "Section 204 · MR-3",
     tagline: "Independent Section 204 audit (MR-3)",
     summary:
       "Independent secretarial audit assessing statutory compliance, governance, and risk — culminating in the MR-3 report and corrective advisory.",
@@ -187,10 +186,10 @@ export const services: Service[] = [
     slug: "corporate-restructuring",
     name: "Corporate Restructuring",
     category: "transactions",
-    law: "§230–232",
-    tagline: "Mergers, demergers & capital reduction",
+    law: "Sections 230–232",
+    tagline: "Legal, tax & compliance support for restructuring",
     summary:
-      "Advisory and compliance for mergers, demergers, amalgamations, capital restructuring, and schemes of arrangement under the Companies Act.",
+      "Advisory and compliance for mergers, demergers, amalgamations, capital restructuring, and schemes of arrangement, covering legal, tax and regulatory compliance.",
   },
   {
     slug: "due-diligence",
@@ -223,7 +222,7 @@ export const services: Service[] = [
     slug: "closure-exit",
     name: "Closure & Exit Services",
     category: "transactions",
-    law: "§248 · IBC",
+    law: "Section 248 · IBC",
     tagline: "Strike-off, winding up & dissolution",
     summary:
       "End-to-end exit support — company strike-off, voluntary liquidation, LLP closure, and related statutory filings, done cleanly.",
@@ -235,9 +234,9 @@ export const services: Service[] = [
     name: "RBI & FEMA Compliances",
     category: "cross-border",
     law: "FEMA 1999",
-    tagline: "FDI, ODI, ECB & RBI filings",
+    tagline: "FDI, ODI, ECB, FLA & RBI filings",
     summary:
-      "FEMA and RBI advisory for cross-border transactions — FDI/ODI structuring, FC-GPR/FC-TRS, ECB reporting, and compounding of contraventions.",
+      "FEMA and RBI advisory for cross-border transactions — FDI/ODI structuring, FC-GPR/FC-TRS, FLA returns, ECB reporting, and compounding of contraventions.",
   },
   {
     slug: "nbfc-services",
@@ -273,9 +272,9 @@ export const services: Service[] = [
     name: "Trademark & IPR",
     category: "advisory",
     law: "Trademarks Act",
-    tagline: "Search, filing & brand protection",
+    tagline: "Trademarks, designs & international filing",
     summary:
-      "Trademark search, filing, prosecution, and IP portfolio advisory to protect your brand and creative assets.",
+      "Trademark search, Indian and international trademark filing, design registration, prosecution and IP portfolio advisory.",
   },
   {
     slug: "drafting-vetting",
@@ -290,10 +289,58 @@ export const services: Service[] = [
     slug: "independent-director",
     name: "Independent Director Services",
     category: "advisory",
-    law: "§149 · IICA",
+    law: "Section 149 · IICA",
     tagline: "Board roles & IICA compliance",
     summary:
       "Independent director services and placement, IICA registration support, and governance advisory to strengthen board effectiveness.",
+  },
+  {
+    slug: "reconciliation-share-capital-audit",
+    name: "Reconciliation of Share Capital Audit",
+    category: "capital-markets",
+    law: "SEBI Depositories Regulations",
+    tagline: "Reconcile issued, listed and dematerialised capital",
+    summary: "Reconciliation of share capital records, depository and registrar data, exceptions and the quarterly audit report required for applicable listed entities.",
+  },
+  {
+    slug: "annual-report",
+    name: "Annual Report Support",
+    category: "capital-markets",
+    law: "Companies Act · SEBI LODR",
+    tagline: "Board reporting, disclosures & annual-report coordination",
+    summary: "Preparation and coordination of annual-report statutory disclosures, Board reporting, governance information and submission requirements.",
+  },
+  {
+    slug: "annual-secretarial-compliance-report",
+    name: "Annual Secretarial Compliance Report",
+    category: "capital-markets",
+    law: "SEBI LODR Regulation 24A",
+    tagline: "Annual review of listed-company SEBI compliance",
+    summary: "Review of applicable SEBI regulations and circulars, identification of observations and preparation of the annual secretarial compliance report.",
+  },
+  {
+    slug: "rera-services",
+    name: "RERA Services",
+    category: "compliance",
+    law: "RERA · State rules",
+    tagline: "Project registration & continuing compliance",
+    summary: "Support for real-estate project and agent registration, periodic disclosures, documentation and compliance under applicable RERA and state rules.",
+  },
+  {
+    slug: "audit-tax-gst-support",
+    name: "Audit, Tax & GST Support",
+    category: "compliance",
+    law: "Tax laws · GST",
+    tagline: "Audit coordination, tax filings & GST compliance",
+    summary: "Practical support with audit documentation, tax compliance, GST registrations, returns and reconciliations, with coordination of appropriately qualified professionals where required.",
+  },
+  {
+    slug: "dpdp-privacy-compliance",
+    name: "DPDP & Privacy Compliance",
+    category: "advisory",
+    law: "DPDP Act · Rules",
+    tagline: "Privacy policies & compliance setup for digital-first startups",
+    summary: "Data-protection policy drafting, privacy notices, data-flow assessment and privacy-compliance setup under the DPDP framework for digital-first startups and growing businesses.",
   },
 ];
 

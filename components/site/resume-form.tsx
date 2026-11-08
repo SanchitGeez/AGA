@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { PrivacyConsent } from "./privacy-consent";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -32,7 +33,7 @@ export function ResumeForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-xl border border-hairline bg-surface p-6 sm:p-8">
+      <div role="status" className="rounded-xl border border-hairline bg-surface p-6 sm:p-8">
         <span className="grid size-10 place-items-center rounded-full bg-signal-solid font-mono text-lg text-on-signal">
           ✓
         </span>
@@ -61,7 +62,7 @@ export function ResumeForm() {
       {/* honeypot */}
       <input
         type="text"
-        name="company"
+        name="website"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
@@ -74,7 +75,7 @@ export function ResumeForm() {
             <label htmlFor={`${formId}-name`} className="form-label">
               Name
             </label>
-            <input id={`${formId}-name`} name="name" autoComplete="name" required placeholder="Your name" className={field} />
+            <input id={`${formId}-name`} name="name" autoComplete="name" maxLength={120} required placeholder="Your name" className={field} />
           </div>
           <div>
             <label htmlFor={`${formId}-email`} className="form-label">
@@ -82,6 +83,7 @@ export function ResumeForm() {
             </label>
             <input id={`${formId}-email`} name="email" autoComplete="email"
               type="email"
+              maxLength={254}
               required
               placeholder="you@email.com"
               className={field}
@@ -102,6 +104,7 @@ export function ResumeForm() {
             Message
           </label>
           <textarea id={`${formId}-message`} name="message"
+            maxLength={6000}
             rows={3}
             placeholder="Tell us about yourself"
             className={field}
@@ -119,6 +122,8 @@ export function ResumeForm() {
           />
         </div>
       </div>
+
+      <PrivacyConsent id={formId} application />
 
       {status === "error" && (
         <p role="alert" className="mt-4 text-base text-overdue">

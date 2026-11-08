@@ -2,7 +2,7 @@
 
 /*
   Bourse design system — see DESIGN.md
-  Default theme is dark (:root). Light mode is opt-in via [data-theme="light"].
+  Dark tokens live on :root; local daytime defaults to [data-theme="light"].
 */
 
 :root {
@@ -20,7 +20,8 @@
   --signal: oklch(0.78 0.14 75); /* accent / figures / text (mode-dependent) */
   --signal-solid: oklch(0.8 0.14 75); /* bright fill for CTAs + live elements */
   --signal-solid-hover: oklch(0.74 0.13 75);
-  --on-signal: oklch(0.19 0.02 75); /* text on solid amber */
+  --on-signal: oklch(0.19 0.02 75);
+  --whatsapp: rgb(37 211 102); /* Brand logo only; fixed in both themes. */ /* text on solid amber */
   --due: oklch(0.78 0.14 75);
   --overdue: oklch(0.64 0.17 25);
   --filed: oklch(0.72 0.08 165);
@@ -70,6 +71,7 @@
   --color-signal-solid: var(--signal-solid);
   --color-signal-solid-hover: var(--signal-solid-hover);
   --color-on-signal: var(--on-signal);
+  --color-whatsapp: var(--whatsapp);
   --color-due: var(--due);
   --color-overdue: var(--overdue);
   --color-filed: var(--filed);
@@ -83,18 +85,18 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
 
-  /* Reading-first type scale: supporting data 14px, labels 16px, prose 18–20px. */
-  --text-xs: 0.875rem;
+  /* Client-approved compact scale: prose 16px, introductions 18px; controls retain generous targets. */
+  --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5;
-  --text-sm: 1rem;
+  --text-sm: 0.875rem;
   --text-sm--line-height: 1.6;
-  --text-base: 1.125rem;
+  --text-base: 1rem;
   --text-base--line-height: 1.65;
-  --text-lg: 1.25rem;
+  --text-lg: 1.125rem;
   --text-lg--line-height: 1.65;
-  --text-xl: 1.5rem;
+  --text-xl: 1.3125rem;
   --text-xl--line-height: 1.4;
-  --text-2xl: 1.875rem;
+  --text-2xl: 1.625rem;
   --text-2xl--line-height: 1.3;
 }
 
@@ -131,14 +133,14 @@ button, select, summary { cursor: pointer; }
 button:disabled { cursor: wait; }
 
 .page-title {
-  font-size: clamp(2.5rem, 1.6rem + 3vw, 4.25rem);
+  font-size: clamp(2.1875rem, 1.4rem + 2.625vw, 3.71875rem);
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.025em;
 }
 
 .section-title {
-  font-size: clamp(2rem, 1.3rem + 2vw, 3.25rem);
+  font-size: clamp(1.75rem, 1.1375rem + 1.75vw, 2.84375rem);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -248,6 +250,8 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
   text-wrap: balance;
 }
 
@@ -298,6 +302,20 @@ p {
 
 .practice-panel[hidden] {
   display: none;
+}
+
+@keyframes practice-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.practice-progress {
+  animation: practice-progress 6s linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .practice-progress { animation: none; }
+  .practice-playback { display: none; }
 }
 
 .practice-explorer .border-photo-rule,
@@ -354,7 +372,7 @@ p {
 }
 
 .animate-marquee {
-  animation: bourse-marquee 48s linear infinite;
+  animation: bourse-marquee 160s linear infinite;
   will-change: transform;
 }
 
@@ -401,7 +419,7 @@ p {
 }
 
 .hero-heading {
-  font-size: clamp(2.5rem, 6.2vw, 6rem);
+  font-size: clamp(2.1875rem, 5.425vw, 5.25rem);
   text-wrap: initial;
 }
 
@@ -436,7 +454,7 @@ p {
     padding-block: 3.5rem 5rem;
   }
   .hero-heading {
-    font-size: clamp(2rem, 9vw, 3.25rem);
+    font-size: clamp(1.75rem, 7.875vw, 2.84375rem);
   }
   .hero-photograph {
     object-position: 58% center;
@@ -448,7 +466,7 @@ p {
 
 @media (width >= 48rem) and (height < 45rem) {
   .hero-content { padding-block: 2rem 3rem; }
-  .hero-heading { font-size: min(5.35vw, 10svh); }
+  .hero-heading { font-size: min(4.68vw, 8.75svh); }
 }
 
 @media (width < 48rem) and (height < 30rem) {
@@ -464,4 +482,30 @@ p {
   }
   .action-primary, .action-secondary { transition: none; }
   .masthead-label::after { transition: none; }
+}
+
+/* Both statements reserve their natural space; reduced motion exposes them together. */
+.vision-mission .vision-slide[data-inactive="true"] { visibility: hidden; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .vision-mission .vision-slides { display: flex; flex-direction: column; gap: 2rem; }
+  .vision-mission .vision-slide { visibility: visible; }
+  .vision-controls { display: none; }
+}
+
+.process-detail[hidden] { display: none; }
+.process-track::before { content: ""; position: absolute; top: 2.5rem; bottom: 2.5rem; left: 2.5rem; width: 1px; background: var(--hairline); }
+.process-node { transition: color 200ms, border-color 200ms; }
+.process-node::after { content: ""; position: absolute; inset: -6px; border: 1px solid var(--signal); border-radius: inherit; opacity: 0; transition: opacity 200ms; }
+.process-step button[aria-pressed="true"] .process-node::after { opacity: 0.35; }
+@media (width >= 64rem) {
+  .process-track::before { left: 12.5%; right: 12.5%; top: 2.5rem; bottom: auto; width: auto; height: 1px; }
+  .process-node { margin-inline: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-node, .process-node::after { transition: none; }
+}
+
+/* Local photo shade keeps the editorial caption readable in either page theme. */
+.markets-photo-shade {
+  background: linear-gradient(180deg, transparent 42%, color-mix(in oklab, var(--photo-ground) 92%, transparent) 100%);
 }

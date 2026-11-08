@@ -1,4 +1,4 @@
-// Firm constants. Swap placeholders (stats) for real figures when available.
+// Firm constants and client-supplied figures.
 
 export const site = {
   name: "Ayush D Gupta & Associates",
@@ -15,7 +15,10 @@ export const site = {
   phones: [
     { display: "+91 99307 66702", tel: "+919930766702" },
   ],
-  emails: ["staff.agaassociates@gmail.com", "info.agaassociates@gmail.com"],
+  emails: ["info.agaassociates@gmail.com"],
+  linkedin: "https://www.linkedin.com/in/cs-ayush-gupta-2b8a7b18b/",
+  maps: "https://maps.app.goo.gl/Vr78SBnALgGmc6Cn8",
+  mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.5888473206624!2d72.85005029999999!3d19.125684900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9d51e504c1f%3A0x67e469a53d577241!2sMadhu%20Industrial%20Estate!5e0!3m2!1sen!2sin!4v1794135545090!5m2!1sen!2sin",
   whatsapp: "919930766702",
   address: {
     lines: [
@@ -25,13 +28,16 @@ export const site = {
     ],
     city: "Mumbai",
   },
-  // ponytail: placeholder figures — swap for client's real numbers.
   stats: [
-    { value: 500, suffix: "+", label: "Clients Served" },
-    { value: 10, suffix: "+", label: "Years of Experience" },
-    { value: 2400, suffix: "+", label: "ROC Filings Completed" },
+    { value: 240, suffix: "+", label: "Clients Served" },
+    { value: 5, suffix: "+", label: "Years of Experience" },
+    { value: 40, suffix: "+", label: "Entities Incorporated" },
   ],
   exchangeLinks: [
+    { label: "SEBI", href: "https://www.sebi.gov.in/" },
+    { label: "ICSI", href: "https://www.icsi.edu/" },
+    { label: "IBBI", href: "https://ibbi.gov.in/" },
+    { label: "MSME", href: "https://msme.gov.in/" },
     { label: "NSE", href: "https://www.nseindia.com/" },
     { label: "BSE", href: "https://www.bseindia.com/" },
     { label: "NSDL", href: "https://nsdl.com/" },

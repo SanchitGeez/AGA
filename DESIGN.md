@@ -3,7 +3,7 @@ version: alpha
 name: Bourse
 description: Markets-terminal design system for Ayush D Gupta & Associates — deep slate, one amber signal, Geist + Geist Mono, tabular figures. Institutional, not startup.
 colors:
-  # ---- Dark (default) · matches app/globals.css exactly ----
+  # ---- Dark (nighttime default) · matches app/globals.css exactly ----
   bg: oklch(0.19 0.015 250)            # slate — page surface
   surface: oklch(0.24 0.018 250)       # panel — cards, ticker rail
   surface-2: oklch(0.285 0.02 250)     # raised: hover / command-bar / chips
@@ -25,6 +25,7 @@ colors:
   photo-dim: oklch(0.92 0.008 250)
   photo-rule: oklch(0.97 0.005 250 / 0.42)
   photo-signal: oklch(0.8 0.14 75)
+  whatsapp: rgb(37 211 102) # Brand-logo-only exception, fixed in both themes
   # ---- Light (ships per reference; applied under [data-theme=light]) ----
   # Bright amber fills remain fixed; light on-signal ink is slightly adjusted.
   light-bg: oklch(0.985 0.003 250)
@@ -41,20 +42,20 @@ colors:
   light-overdue: oklch(0.55 0.19 27)
   light-filed: oklch(0.52 0.1 165)
 typography:
-  hero:     { fontFamily: Fraunces, fontSize: "clamp(2.5rem, 6.2vw, 6rem)", fontWeight: 500, lineHeight: 1.08, letterSpacing: "-0.025em" } # HOME HERO ONLY; responsive overrides below
-  h1:       { fontFamily: Geist, fontSize: "clamp(2.5rem, 1.6rem + 3vw, 4.25rem)", fontWeight: 600, lineHeight: 1.12, letterSpacing: "-0.025em" }
-  h2:       { fontFamily: Geist, fontSize: "clamp(2rem, 1.3rem + 2vw, 3.25rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.025em" }
-  body-lg:  { fontFamily: Geist, fontSize: "1.25rem", fontWeight: 400, lineHeight: 1.65 }
-  body:     { fontFamily: Geist, fontSize: "1.125rem", fontWeight: 400, lineHeight: 1.7 }
-  body-sm:  { fontFamily: Geist, fontSize: "1rem", fontWeight: 400, lineHeight: 1.6 }
-  title:    { fontFamily: Geist, fontSize: "1.5rem", fontWeight: 600, lineHeight: 1.4 }
-  title-lg: { fontFamily: Geist, fontSize: "1.875rem", fontWeight: 600, lineHeight: 1.3 }
-  field:    { fontFamily: Geist, fontSize: "1.125rem", fontWeight: 400, lineHeight: 1.5 }
-  action:   { fontFamily: Geist, fontSize: "1.125rem", fontWeight: 600, lineHeight: 1.5 }
-  label:    { fontFamily: Geist, fontSize: "1rem", fontWeight: 600, lineHeight: 1.5 }
-  mono:     { fontFamily: Geist Mono, fontSize: "1rem", fontWeight: 400, lineHeight: 1.6, fontFeature: "tnum" }
-  supporting: { fontFamily: Geist Mono, fontSize: "0.875rem", lineHeight: 1.5 } # short counts, keyboard hints and brief data labels
-  figure:   { fontFamily: Geist Mono, fontSize: "clamp(2rem,1.2rem + 2.4vw,3rem)", fontWeight: 500, lineHeight: 1, letterSpacing: "-0.025em", fontFeature: "tnum" }
+  hero: { fontFamily: Fraunces, fontSize: "clamp(2.1875rem, 5.425vw, 5.25rem)", fontWeight: 500, lineHeight: 1.08, letterSpacing: "-0.025em" }
+  h1: { fontFamily: Fraunces, fontSize: "clamp(2.1875rem, 1.4rem + 2.625vw, 3.71875rem)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.025em" }
+  h2: { fontFamily: Fraunces, fontSize: "clamp(1.75rem, 1.1375rem + 1.75vw, 2.84375rem)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.025em" }
+  body-lg: { fontFamily: Geist, fontSize: "1.125rem", fontWeight: 400, lineHeight: 1.65 }
+  body: { fontFamily: Geist, fontSize: "1rem", fontWeight: 400, lineHeight: 1.7 }
+  body-sm: { fontFamily: Geist, fontSize: "0.875rem", fontWeight: 400, lineHeight: 1.6 }
+  title: { fontFamily: Fraunces, fontSize: "1.3125rem", fontWeight: 500, lineHeight: 1.4 }
+  title-lg: { fontFamily: Fraunces, fontSize: "1.625rem", fontWeight: 500, lineHeight: 1.3 }
+  field: { fontFamily: Geist, fontSize: "1rem", fontWeight: 400, lineHeight: 1.5 }
+  action: { fontFamily: Geist, fontSize: "1rem", fontWeight: 600, lineHeight: 1.5 }
+  label: { fontFamily: Geist, fontSize: "0.875rem", fontWeight: 600, lineHeight: 1.5 }
+  mono: { fontFamily: Geist Mono, fontSize: "0.875rem", fontWeight: 400, lineHeight: 1.6, fontFeature: "tnum" }
+  supporting: { fontFamily: Geist Mono, fontSize: "0.8125rem", lineHeight: 1.5 }
+  figure: { fontFamily: Geist Mono, fontSize: "clamp(1.75rem,1.05rem + 2.1vw,2.625rem)", fontWeight: 500, lineHeight: 1, letterSpacing: "-0.025em", fontFeature: "tnum" }
 rounded:
   # As built we use Tailwind v4's DEFAULT radius scale (no custom theme radii).
   # Mapping to the utilities actually in the code:
@@ -109,7 +110,7 @@ headings and unmistakable actions. Readability takes precedence over extreme min
 **Key Characteristics:**
 - Deep slate, cool light mode and one restrained amber interface accent.
 - Generous reading type, explicit actions and visible control boundaries.
-- Real statutory data in mono; Geist prose and a single hero-only Fraunces statement.
+- Real statutory data in mono; Geist prose and a single Fraunces heading system.
 - Natural-colour photography with local reading shades and ruled structure.
 
 ## Colors
@@ -165,42 +166,14 @@ surrounding surface. Use `on-signal` on `signal-solid` fills. Ordinary body text
 
 ## Typography
 
-Two workhorse families on a real contrast axis — a grotesque and its monospace sibling — plus
-**one display serif used as a scalpel** (hero headline only):
+The client-approved revision of 8 November 2026 uses **Fraunces for headings and the
+wordmark**, Geist Sans for body and controls, and Geist Mono for actual data. This
+supersedes the earlier hero-only serif rule. The font files remain self-hosted.
 
-- **Geist** (grotesque) — all headings and prose. Neutral, precise, modern without being trendy.
-- **Geist Mono** (tabular) — figures, statutory codes, dates, ticker data, counts and keyboard hints. `font-feature-settings: "tnum"` on all numerics so figures align in columns.
-- **Fraunces** (variable display serif, `font-serif`) — **the home-hero headline only.** One
-  serif, one place. It gives the hero *financial-broadsheet* gravitas (the FT/Economist/Bloomberg
-  register), which pulls the site off "generic Geist SaaS" toward institutional weight.
-
-> **Why a serif — and how it differs from the "editorial-magazine" anti-reference.** The
-> anti-ref rejects *editorial* serif: display-italic + drop caps + broadsheet grid, a saturated
-> magazine look. That is not this. Fraunces here is upright, tight, used once, at large size, for
-> a single institutional headline — the register of a markets desk, not a magazine. The rule that
-> keeps it safe is **containment**: it never appears on sub-page headings, body, or data. If you
-> find yourself reaching for the serif anywhere but the home hero, stop — that's the drift the
-> anti-ref warns about. All other headings stay Geist.
-
-The grotesque + its own mono is the most honest pairing for a data instrument — same skeleton,
-different job. The serif is the one deliberate exception, and it earns its place by staying rare.
-
-The global Tailwind reading scale is 14 / 16 / 18 / 20 / 24 / 30px (`xs` through
-`2xl`), with line heights 1.5 / 1.6 / 1.65 / 1.65 / 1.4 / 1.3. Body defaults to
-18px at 1.7 line height. Prose/actions use 18px, introductions 20px (hero support reaches
-24px on desktop), statutory references and labels 16px. The 14px step serves short counts,
-keyboard hints and compact data labels. It is not the reading-prose size.
-
-Page titles span 40–68px; main section statements 32–52px. Smaller subheadings use the
-24px/30px steps. The hero uses the frontmatter `hero` role with deliberate two-line spans;
-below 768px it uses `clamp(2rem, 9vw, 3.25rem)`. At widths of at least 768px and heights
-below 720px, `min(5.35vw, 10svh)` protects the opening composition. Other h1–h4 balance
-wrapping; prose uses pretty wrapping. Reading measures are local (`max-w-xl`, `max-w-2xl`,
-`max-w-3xl`) rather than a second centered page rail.
-
-**The Reading First Rule.** Keep prose comfortably readable and actions explicit before
-pursuing sparse styling. Increase wrapping or stack content on narrow screens; never
-shrink long names, legal copy or form text to fit a dense desktop arrangement.
+The shared scale is 13 / 14 / 16 / 18 / 21 / 26px. Body text is 16px, introductions
+18px. The roughly 10–15% reduction follows Ayush’s feedback; controls retain 44–54px
+minimum targets. Main titles, section titles and hero sizes are reduced proportionally.
+Long names wrap rather than clip, and the slate/amber contrast tokens are unchanged.
 
 **The Mono Names Data Rule.** Mono labels identify actual figures, statutes, codes,
 deadlines or keyboard hints. They do not introduce prose headings as decorative eyebrows.
@@ -225,9 +198,10 @@ Form labels, ordinary links, search text and explanatory copy use Geist.
   The portrait retains its dedicated 300px column and aligns left when stacked.
 - Flex handles single-axis rows; Grid handles service lists, figures and grouped layouts.
   Scope-of-work lists become two columns only from 1024px. The calendar stacks its
-  code, filing name and date on phones and restores three columns from 768px.
+  code, filing name and date below 1024px, with a visible Due label. Desktop uses
+  an 11rem code column, flexible filing text and a minimum 22rem Due column.
 - The homepage practice explorer pairs a left category rail with one right-hand service
-  panel from 1024px; below that, the selected panel expands inline with a visible photograph.
+  panel from 1024px; below that, the fixed-height selected panel sits below the category list with a visible photograph.
   The Services hub uses six photograph-backed category cards in two columns from 1024px
   and one below, with a 32px gap. Each card contains its introduction and all its services;
   the 25 services are links within categories, not 25 separate cards.
@@ -262,28 +236,19 @@ As built, using Tailwind's default radius scale (no custom radii in the theme):
 ## Components
 
 - **Firm identity** — the supplied circular emblem (sprout, three people, central Y,
-  partial gear) beside the two-line Geist wordmark “AYUSH D GUPTA” / “& ASSOCIATES”.
+  partial gear) beside the two-line Fraunces wordmark “AYUSH D GUPTA” / “& ASSOCIATES”.
   Regenerated as transparent flat line art in `public/brand/firm-emblem.png`; the smaller
   `firm-emblem-web.png` is used as a CSS alpha mask (`.firm-emblem`) so the mark follows
-  `signal` in both themes. Shared `components/site/brand.tsx` in the masthead and footer;
+  `signal` in both themes. Shared `components/site/brand.tsx` in the masthead;
   `ink` lettering and the full name remain on mobile. The hero watermark was removed at
   the client's request. Browser and Apple touch icons use the same emblem. This supersedes
   the initial ADG concept, at the client's request.
-- **Masthead / top-bar** — deliberately larger at the client's request: 80px mobile,
-  96px tablet, 112px desktop (overriding the skill's generic 80px cap). Uses a wider
-  shared `site-container` rail, larger emblem (up to 72px) and bold uppercase name
-  (up to 26px). Navigation is centered in an equal-flank three-column grid, with
-  22px semibold links (24px from 1536px) in `ink`. Order: About, Services, Insights,
-  Career, Contact. A 2px amber underline grows from its center over 200ms on hover
-  or keyboard focus and stays visible for the current page or section; reduced
-  motion removes the transition. Full navigation starts at 1360px; below that,
-  the menu uses centered 22px links with the same indicator. Search/enquiry controls
-  are at least 52px tall; theme/menu targets remain at least 44px wide. At the home top, the header
-  is transparent over the same photograph as the hero, using fixed photo foreground tokens.
-  A 1px hero-start marker observed with `IntersectionObserver` restores normal solid `bg`
-  and page-theme tokens on scroll. Inner pages use the normal solid header. The mobile
-  menu overlays below the rail with a viewport-bounded scrolling height, so opening it does
-  not shift the hero; menu/search surfaces remain opaque. Existing routes are retained.
+- **Masthead / top-bar** — retains 80/96/112px heights, with a compact full-name serif
+  wordmark and “A Peer-Reviewed Firm” below. Navigation: Home, About us, Services,
+  Insights, Career, Contact. Centered desktop navigation starts at 1440px with 18–20px
+  links; below that, all routes are available in the centered mobile menu. The selected
+  route keeps the amber underline. Home remains transparent over the hero, then solid
+  on scroll; menu/search overlays stay opaque. Controls retain generous hit targets.
 - **Ticker** — directly below the home hero; horizontal rail of statutory deadlines in mono; imminent items in `signal`
   with a small live-dot glow; continuous marquee scroll (linear). Reduced-motion → static list.
 - **Command-bar** — native modal `<dialog>` in the browser top layer. A horizontally
@@ -291,29 +256,33 @@ As built, using Tailwind's default radius scale (no custom radii in the theme):
   including short landscape screens. Top position stays fixed while results change. Header
   and footer remain visible; only results scroll. Names wrap above readable practice-area
   labels, with a text Close action and a full-width input focused on open. Searches all
-  25 services and 6 page shortcuts by name, area or governing statute; no result truncation.
+  31 services and page shortcuts by name, area or governing statute; no result truncation.
   Combobox/listbox semantics, Arrow/Enter navigation, Escape/backdrop dismissal, explicit
   Tab wrapping, focus restoration, and preservation of the prior body-scroll setting.
   Uses the existing keyboard shortcut and open event. This supersedes the original flex
   overlay, which stretched the panel vertically and produced a large blank area.
 - **Homepage practice explorer** (`components/home/service-cards.tsx`) — the selected
-  category's full-colour photograph covers the entire section. Six category buttons retain
-  visible counts; one expanded service panel shows names, governing statutes and direct
+  category's full-colour photograph covers the entire section. Category buttons omit
+  service counts; one expanded service panel shows names, plain-English service summaries and direct
   detail links. On desktop the navigation occupies the shaded left rail and the panel sits
-  at lower right; on mobile it expands inline after its button, with an additional visible
-  image. Up/Down and Home/End select categories; native buttons retain Tab, Enter and Space
+  at lower right; on mobile it stays below the category list, with an additional visible
+  image. Panels are 38rem high on desktop and 42rem below 1024px, scrolling internally.
+  Hover or keyboard focus selects a category; touch/click remains supported. An amber
+  progress line advances to the next category every six seconds while visible. Reading
+  hover, keyboard focus and the explicit pause control suspend playback; reduced motion
+  disables automatic playback. Up/Down and Home/End select categories; native buttons retain Tab, Enter and Space
   behavior. `aria-expanded`, controlled regions and `hidden` keep selection explicit.
   Formation is initial; other background images mount on first selection. The previous
   image stays visible until the new one loads, then opacity crossfades over 300ms. A failed
   selected image reveals `photo-ground`; controls and service links remain usable.
 - **Services directory** (`app/services/page.tsx`) — six consistent photograph-backed
-  category cards, each containing its name, description, count and complete lower service
+  category cards, each containing its name, description and complete lower service
   list. Two columns at 1024px+, one on smaller screens; 12px corners, 20px padding (28px
-  from 640px), 46rem minimum height and 32px grid gaps. Category jump navigation and all
-  25 links/statutes remain available without expansion. A restrained local reading gradient
+  from 640px), 52rem fixed height with internal list scrolling and 32px grid gaps. Category jump navigation and all
+  31 links and plain-English summaries remain available without expansion. A restrained local reading gradient
   protects both introduction and list while retaining visible image colour.
 - **Service detail introduction** (`app/services/[slug]/page.tsx`) — every service uses
-  its category photograph behind the breadcrumbs, Geist heading, tagline and governing
+  its category photograph behind the breadcrumbs, Fraunces heading, tagline and governing
   statute. A directional reading gradient protects text; summary, full scope, related links
   and the service-prefilled enquiry form remain on normal theme-aware surfaces below.
   `lib/service-imagery.ts` is the shared six-category image and focal-position map for all
@@ -344,10 +313,12 @@ As built, using Tailwind's default radius scale (no custom radii in the theme):
   The hidden `company` honeypot, field order, payloads and email-only backend remain.
   Contact uses the enquiry heading as its single h1; reused instances use h2.
 - **Figure / count-up** — tabular Geist Mono `figure` in `signal`, with readable 16px Geist
-  labels, inline in a ruled row. This is not a collection of boxed hero metrics.
+  labels. Client figures are 240+ clients, 5+ years and 40+ entities incorporated,
+  all using the same numeric count-up treatment. Shared section spacing clears both
+  edges of the row.
 - **Buttons** — `.action-primary` gives the key action an amber fill; `.action-secondary`
   uses a visible `control-line` outline on `surface`. Both have 52px minimum height,
-  18px semibold Geist text, 12px/24px padding and 6px corners. Hover changes fill or boundary;
+  16px semibold Geist text, 12px/24px padding and 6px corners. Hover changes fill or boundary;
   active moves by 1px; keyboard focus uses the shared 3px outline. Hero secondary actions
   use photo foregrounds and a translucent photo-ground fill.
 - **Text links** — ordinary standalone `.text-link` actions are underlined by default and
@@ -422,9 +393,11 @@ Linux/Windows. So the keyboard hint is OS-aware — `⌘K` on Mac, `Ctrl K` else
 theme toggle uses inline SVG sun/moon icons, not emoji. The command handler always listens
 for both `metaKey` and `ctrlKey`.
 
-**Theme:** default is dark (`:root`); light is opt-in via `data-theme="light"` set by an inline
-`<head>` script (reads `localStorage.theme`) before paint to avoid FOUC, toggled by
-`components/site/theme-toggle.tsx`.
+**Theme:** the before-paint `<head>` script selects light from 06:00 to 18:00 in the
+visitor’s local time and dark overnight. A saved `localStorage.theme` choice takes
+precedence; invalid or unavailable storage falls back to the clock. The theme toggle
+observes the applied document theme and remembers manual changes. Dark tokens remain
+on `:root`; light overrides use `data-theme="light"`.
 
 **z-index scale (semantic, as used):** ticker/masthead sticky `z-40`, WhatsApp float `z-30`;
 the search dialog uses the browser's native top layer. No arbitrary 999s.
@@ -437,7 +410,7 @@ the search dialog uses the browser's native top layer. No arbitrary 999s.
 - Use mono for *data* (labels, deadlines, codes, figures) and Geist for language.
 - Build depth from tonal layers + hairlines; save shadow for overlays and glow for the one live element.
 - Keep copy formal and statute-exact — the aesthetic's institutional guardrail lives in the words.
-- Vary density while preserving 18px prose, clear 16px legal labels and generous targets.
+- Vary density while preserving 16px prose, clear 16px legal labels and generous targets.
 - Keep explicit filled/outlined actions, default link underlines and visible keyboard focus.
 
 **Don't**
@@ -447,6 +420,59 @@ the search dialog uses the browser's native top layer. No arbitrary 999s.
 - Don't turn the 25 services into separate identical cards. Keep them within the six practice
   areas, with direct detail links and governing statutes; the approved hub has six category cards.
 - Don't add a second accent color; the discipline of one signal is the design.
-- Don't spread the display serif — it's the **home-hero headline only**; every other heading is Geist.
+- Use Fraunces consistently for headings and the wordmark; keep body and controls in Geist.
 - Don't animate floaty/bouncy or gate content visibility on reveal classes.
 - Don't use side-stripe borders, glassmorphism, or arbitrary z-index (use a semantic scale).
+
+## Client revision — 8 November 2026
+
+- The service explorer’s minus button now closes the panel and suspends rotation;
+  hovering a different practice or selecting it reopens the fixed-size panel. Touch
+  input selects on tap without the mouse-hover event consuming the first tap.
+- Firm vision and mission appear prominently near the top of About only and rotate
+  every five seconds with manual dots and pause.
+  Hover/focus and offscreen visibility suspend playback; reduced motion shows both
+  statements statically. Both slides reserve their natural height to prevent jumps; the longer mission uses
+  a slightly smaller display scale to avoid excessive empty space on mobile; the inactive slide uses
+  data/ARIA state rather than the HTML hidden attribute, so Tailwind’s hidden reset
+  cannot suppress the static reduced-motion presentation.
+- About separates firm and principal copy. Home adds How we work, entity types and
+  an assignment-specific timeline explanation. Professional collaborations have a page.
+- Overview service cards use plain-English taglines; full statute references remain on
+  detail pages with “Section” spelled out. All 31 detail pages have three FAQs, a starter
+  documents list and a direct enquiry action with the service preselected below.
+- Footer is reduced to navigation, Our office and important links, with privacy/terms
+  links and LinkedIn. Internal footer destinations open in new tabs as requested by the
+  client. Call and WhatsApp are both available in the mobile floating control.
+- Contact embeds Google’s actual share-generated map for the supplied location and
+  retains a directions link. Office hours are deliberately absent.
+- Forms have a distinct company field and hidden website spam trap, server-enforced
+  consent, length/email checks, failure recovery and announced success. Résumés remain
+  email attachments; no new storage service or analytics was introduced.
+
+### Owner-directed visual features
+
+Capital Markets now uses a photograph-led editorial composition after the client
+rejected the circle network. A tall illustrative exchange photograph anchors the left;
+the right combines the heading, concise introduction, four grouped service areas and
+all seven direct links. No service information requires a selector. The layout stacks
+on mobile, and photo/link hover motion respects reduced motion. The component renders
+on the server and obsolete diagram styles are removed.
+
+How we work uses connected stage circles on a horizontal desktop rail, a vertical mobile
+rail and a selected detail panel. Stage numbers communicate actual sequence. Neither
+feature adds scroll hijacking, continuous decorative movement or a motion dependency.
+
+Advisory & Governance has a new generated photograph of walnut chess pieces, a burgundy
+folio and fountain pen. Its optimized WebP is distinct from the hero’s original boardroom;
+image metadata, focal crop and descriptive alt text are in `lib/service-imagery.ts`.
+
+The floating WhatsApp action uses Phosphor’s filled WhatsApp logo in fixed brand green
+(`--whatsapp`, exposed as `text-whatsapp`) in both themes. This is an explicit client
+exception for brand recognition, not a second general interface accent. The chat label
+and mobile call action remain accessible native links.
+
+The Insights calendar uses matching header/row tracks of
+`11rem minmax(0,1.1fr) minmax(22rem,1fr)` from 1024px. Deadline text is left-aligned,
+with relaxed line height and 32px column gaps; smaller screens use labelled stacked
+entries instead of compressing all three columns.

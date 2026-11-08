@@ -37,11 +37,11 @@ find my exact service, and start a conversation — fast."*
 
 A conversion-focused authority site for a peer-reviewed CS firm. Success =
 
-- A qualified visitor identifies their service among **25** in one move and enquires
+- A qualified visitor identifies their service among **31** in one move and enquires
   (call / WhatsApp / form) without friction.
 - A skeptical capital-markets buyer leaves believing CS Ayush Gupta "means business."
 - The firm ranks for Mumbai + service SEO ("company secretary firm in Mumbai",
-  "secretarial audit", "FEMA compliance", "IPO advisory Mumbai") — each of the 25
+  "secretarial audit", "FEMA compliance", "IPO advisory Mumbai") — each of the 31
   services is its own indexable page.
 - The **statutory-deadline ticker** gives repeat reasons to return and positions the
   firm as always-current.
@@ -117,7 +117,7 @@ Strategic, not visual (visual rules live in DESIGN.md).
    markets desk or a growth hack, pick the desk. This governs copy tone, motion energy,
    and every micro-decision. It is the guardrail on the whole aesthetic.
 
-4. **Route, don't parade.** 25 services is the strength and the risk. Navigation is a
+4. **Route, don't parade.** 31 services is the strength and the risk. Navigation is a
    *tool*: a command-bar search (⌘K feel) across all services and a filterable matrix
    resolve "my need" in one move. Never make the visitor scroll a wall of identical cards.
 
@@ -138,7 +138,7 @@ Strategic, not visual (visual rules live in DESIGN.md).
 ```
 Home                                                                        ✅ built
 About      → firm story · CS Ayush bio + credentials · Vision & Mission     ✅ built
-Services   → 6-area hub → 25 service detail pages (full scope + Service JSON-LD) ✅ built
+Services   → 6-area hub → 31 service detail pages (full scope + Service JSON-LD) ✅ built
    Formation & Setup · Ongoing Compliance · Capital Markets ·
    Transactions & Restructuring · Cross-Border & NBFC · Advisory & Governance
 Insights   → the compliance calendar, ordered by next-upcoming (feeds the ticker) ✅ built
@@ -150,13 +150,13 @@ Footer     → NSE · BSE · NSDL · CDSL · ROF · NCLT (the "important links")
 > **As built (2026-07-09):** all routes exist and are wired (nav, ⌘K command-bar, and footer
 > point to the real pages, not home anchors). Two IA notes vs. the original plan:
 > **(1)** the 6 categories live as *anchored sections* on the `/services` hub
-> (`/services#capital-markets`) plus 25 indexable detail pages — no separate per-category routes
-> (YAGNI; the hub + detail pages already cover navigation and SEO). **(2)** Contact uses a
-> location *card* linking to Google Maps, not an embedded iframe (keyless embeds render blank).
+> (`/services#capital-markets`) plus 31 indexable detail pages — no separate per-category routes
+> (YAGNI; the hub + detail pages already cover navigation and SEO). **(2)** Contact now uses Google’s own Share → Embed URL plus the supplied directions link
+> (8 November client revision); the earlier constructed keyless iframe remains retired.
 > Insights ships the **calendar**; dated regulatory-update *articles* are deferred until the
 > client writes them (then add as in-repo MDX — still no CMS).
 
-The **25 services collapse into 6 categories** so the matrix is navigable:
+The **31 services collapse into 6 categories** so the matrix is navigable:
 
 | Category | Services |
 |---|---|
@@ -186,11 +186,12 @@ after the specs; this is the canonical order.
    illustrative, not a representation of the firm's office; no duotone or decorative motion.
 3. **Live ticker** — scrolling statutory deadlines, ordered by next-upcoming. It sits directly
    after the hero, reconnecting the photographic opening to the compliance instrument.
-4. **Figures** — count-up, tabular, *integrated inline* (Clients · Years · ROC filings).
+4. **Figures** — count-up, tabular, *integrated inline* (240+ clients · 5+ years · 40+ entities incorporated).
    Deliberately not the boxed hero-metric cliché.
-5. **Service matrix** — the instrument. All 25 **grouped under the 6 practice areas** (structure
-   visible by default, not only on filter), each row anchored to its **governing statute** (mono
-   `law` column — real data), with a visible search box + counted filter chips. The anti-list.
+5. **Practice explorer** — category navigation without promotional service counts,
+   hover/focus selection and six-second automatic cycling with an active progress line.
+   A fixed-height panel lists the selected practice’s services and governing statutes.
+   Playback pauses for reading and keyboard use; reduced motion disables automatic cycling.
 6. **Capital-markets spotlight** — the growth wedge foregrounded (IPO / SEBI / NCLT).
 7. **The person** — CS Ayush, ICSI, peer-reviewed. Credibility made human but formal.
 8. **Insights / deadlines** — teaser into the calendar; the reason to return.
@@ -230,7 +231,8 @@ after the specs; this is the canonical order.
 - **Stack:** Next.js **16** (App Router, Turbopack) + React 19 + TypeScript + Tailwind **v4**
   (CSS `@theme`, no `tailwind.config`). Static-generated for SEO; one dynamic route (`/api/enquiry`).
 - **Fonts, self-hosted** (no build-time fetch): `geist` package (Sans + Mono) + **Fraunces**
-  variable serif via `next/font/local`. The serif is scoped to the hero headline only.
+  variable serif via `next/font/local`. The client’s 8 November revision uses Fraunces
+  for headings/wordmark, Geist for body/UI and Mono for actual data.
 - **No CMS:** content lives in typed data files under `lib/` — `site.ts`, `services.ts`
   (incl. each service's governing `law`), `service-content.ts` (full statutory scope), and
   `deadlines.ts`. The dev edits. No headless CMS.
@@ -244,7 +246,29 @@ after the specs; this is the canonical order.
   `Service` JSON-LD, plus `app/sitemap.ts` (31 URLs) and `app/robots.ts`.
 - **Assets:** the home hero reuses the approved illustrative boardroom from
   `public/services/colour/`; principal portrait and firm emblem are implemented. Remaining
-  statistics/calendar placeholders are listed in `PROGRESS.md` and never block a build.
+  calendar placeholders are listed in `PROGRESS.md` and never block a build.
 
 > **Status & decision log:** see [PROGRESS.md](./PROGRESS.md) for phase tracking, the
 > decisions made during the build, and known placeholders / tech-debt.
+
+## Client revision — 8 November 2026
+
+Ayush’s feedback is the client brief and supersedes earlier preferences where they conflict.
+The site now uses a compact 16px body / 18px introduction scale and Fraunces headings,
+with the existing slate/amber palette and coherent service photography. Header navigation
+includes Home and About us; the full name carries the peer-reviewed credential.
+
+Service scope now explicitly includes listed-company audit/reporting, tax/legal aspects
+of restructuring, FLA, designs and international trademarks, RERA, Audit/Tax/GST support,
+and DPDP privacy setup. Service detail pages provide a starter document list, three FAQs
+and an obvious enquiry action. Regulatory and assignment timelines remain conditional.
+
+Home explains the working process through a connected stage diagram and entity types
+served. Capital Markets uses an editorial exchange photograph and clearly grouped
+service links, replacing the client-rejected relationship map. Firm vision/mission is
+prominent on About only and rotates at five seconds with manual controls, pause and
+a static reduced-motion presentation.
+About separates firm copy from the principal’s personal experience. Career invites
+ambitious trainees and professionals; partnerships have a dedicated enquiry route.
+Privacy and terms/disclaimer pages describe email-only submissions and illustrative
+photography. Office hours are omitted at the client’s explicit request.

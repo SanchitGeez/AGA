@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 function CountUp({ target }: { target: number }) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
   const ref = useRef<HTMLSpanElement>(null);
   const done = useRef(false);
 
@@ -15,10 +15,9 @@ function CountUp({ target }: { target: number }) {
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (reduce) {
-      setValue(target);
-      return;
-    }
+    if (reduce) return;
+
+    let frame = 0;
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -29,14 +28,14 @@ function CountUp({ target }: { target: number }) {
         const step = (now: number) => {
           const p = Math.min((now - start) / dur, 1);
           setValue(Math.round((1 - Math.pow(1 - p, 4)) * target));
-          if (p < 1) requestAnimationFrame(step);
+          if (p < 1) frame = requestAnimationFrame(step);
         };
-        requestAnimationFrame(step);
+        frame = requestAnimationFrame(step);
       },
       { threshold: 0.4 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => { io.disconnect(); cancelAnimationFrame(frame); };
   }, [target]);
 
   return (
@@ -48,11 +47,11 @@ function CountUp({ target }: { target: number }) {
 
 export function Figures() {
   return (
-    <section className="site-container section-start">
+    <section className="site-container section-space">
       <div className="grid grid-cols-1 divide-y divide-hairline rounded-xl border border-hairline bg-surface sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         {site.stats.map((s) => (
           <div key={s.label} className="px-6 py-8 sm:px-8">
-            <div className="font-mono text-[clamp(2rem,1.2rem+2.4vw,3rem)] font-medium leading-none tracking-tight text-signal">
+            <div className="font-mono text-[clamp(1.75rem,1.05rem+2.1vw,2.625rem)] font-medium leading-none tracking-tight text-signal">
               <CountUp target={s.value} />
               {s.suffix}
             </div>

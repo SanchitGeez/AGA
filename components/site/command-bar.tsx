@@ -12,7 +12,7 @@ interface Item {
 }
 
 const pages: Item[] = [
-  { label: "Services", sub: "All 25 services", href: "/services" },
+  { label: "Services", sub: "All services", href: "/services" },
   { label: "Capital Markets", sub: "IPO · SEBI · NCLT", href: "/services#capital-markets" },
   { label: "About the firm", sub: "CS Ayush Gupta", href: "/about" },
   { label: "Insights", sub: "Compliance calendar", href: "/insights" },
@@ -189,7 +189,7 @@ export function CommandBar() {
           </div>
         </div>
         <p role="status" className="shrink-0 px-4 py-3 text-base text-ink-dim sm:px-6">
-          {q.trim() ? `${results.length} ${results.length === 1 ? "result" : "results"}` : `${serviceItems.length} services and ${pages.length} pages`}
+          {q.trim() ? `${results.length} ${results.length === 1 ? "result" : "results"}` : "Search services and pages"}
         </p>
         <ul ref={listRef} id={`${id}-results`} role="listbox" aria-label="Search results" className="min-h-0 overflow-y-auto overscroll-contain px-2 pb-2 sm:px-3">
           {results.map((r, i) => (

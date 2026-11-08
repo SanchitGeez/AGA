@@ -38,8 +38,10 @@ green at 37 routes.
 - Mono (`font-mono`) names data (figures, labels, codes) — not decoration. No mono eyebrows
   above prose headings (two legacy ones remain in `capital-markets`/`principal` — remove in the
   UI pass, don't add more).
-- **Serif (`font-serif`) is hero-only** — one display serif, one place. Don't spread it.
-- Dark is default; light ships via `[data-theme=light]` — verify contrast in both (WCAG AA).
+- **Typography (client revision 2026-11-08):** Fraunces for headings and the wordmark;
+  Geist Sans for body/UI, Geist Mono for actual data. Body is 16px, introductions 18px.
+- Theme defaults to light 06:00–18:00 local time and dark overnight; saved manual choices
+  take precedence. Light uses `[data-theme=light]` — verify contrast in both (WCAG AA).
 - Keep copy formal and statute-precise. No emoji, no gradients, no hero-metric boxes.
 - **No new storage/services.** The stated constraint is a *single Next.js deployment*. Forms
   email through Resend; résumés pass through as attachments (never stored). Don't add a DB/bucket.
@@ -49,8 +51,9 @@ green at 37 routes.
 **Gotchas learned (don't rediscover):**
 - `⌘`/emoji render as tofu on Linux/Windows → OS-aware key hint (`use-mod-key.ts`), inline-SVG
   icons, never emoji in UI.
-- Keyless Google Maps `iframe` embeds render blank (deprecated) → `contact` uses a location card
-  linking to a Maps search URL. Don't reintroduce the iframe.
+- Do not construct a keyless Maps search iframe. Contact now uses the actual Google
+  Share → Embed URL for the client-supplied Madhu Industrial Estate location, plus a
+  working directions link. Office hours are intentionally omitted (client instruction).
 - Hero image (`public/hero.jpg`) isn't committed yet → `hero-visual.tsx` shows a ruled-grid
   placeholder and auto-treats any photo to slate+amber duotone. Pick photos for composition.
 - Static routes bake `new Date()` at **build time** — the calendar's "next upcoming" order and

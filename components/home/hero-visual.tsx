@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { serviceImagery } from "@/lib/service-imagery";
 
 export function HeroBackground() {
   return (
-    <div className="absolute inset-0 -z-10" aria-hidden="true">
+    <div className="absolute inset-0 -z-10">
       <Image
-        src={serviceImagery.advisory.src}
-        alt=""
+        src="/services/colour/advisory.webp"
+        alt="Illustrative boardroom with green chairs, a walnut table and city views"
         fill
         loading="eager"
         fetchPriority="high"

@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { site, whatsappHref } from "@/lib/site";
+import { PrivacyConsent } from "@/components/site/privacy-consent";
 import { services } from "@/lib/services";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -60,7 +61,7 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
           <dl className="mt-8 divide-y divide-hairline border-t border-hairline">
             <div className="grid gap-2 py-5">
               <dt className="text-base font-semibold text-ink">
-                Call
+                Call / WhatsApp
               </dt>
               <dd className="flex flex-col items-start font-mono text-base tabular-nums">
                 {site.phones.map((p) => (
@@ -92,7 +93,7 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
             </div>
             <div className="grid gap-2 py-5">
               <dt className="text-base font-semibold text-ink">
-                Office
+                Our office
               </dt>
               <dd className="max-w-sm text-base text-ink-dim">
                 {site.address.lines.join(" ")}
@@ -102,12 +103,12 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
         </div>
 
         {status === "sent" ? (
-          <div className="flex flex-col items-start justify-center rounded-xl border border-hairline bg-surface p-6 sm:p-8">
+          <div role="status" className="flex flex-col items-start justify-center rounded-xl border border-hairline bg-surface p-6 sm:p-8">
             <span className="grid size-10 place-items-center rounded-full bg-signal-solid font-mono text-lg text-on-signal">
               ✓
             </span>
             <h3 className="mt-4 text-lg font-semibold text-ink">
-              Thank you — we&apos;ve received your enquiry.
+              Thank you — your enquiry has been sent.
             </h3>
             <p className="mt-2 text-base leading-relaxed text-ink-dim">
               Our team will respond promptly. For anything urgent, call{" "}
@@ -123,7 +124,7 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
             {/* honeypot — hidden from users; bots that fill it are silently dropped */}
             <input
               type="text"
-              name="company"
+              name="website"
               tabIndex={-1}
               autoComplete="off"
               aria-hidden="true"
@@ -138,11 +139,16 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
                 <input id={`${formId}-name`} name="name"
                   autoComplete="name"
                   required
+                  maxLength={120}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
                   className={field}
                 />
+              </div>
+              <div>
+                <label htmlFor={`${formId}-company`} className="form-label">Company / organisation <span className="font-normal text-steel">(optional)</span></label>
+                <input id={`${formId}-company`} name="company" autoComplete="organization" maxLength={160} placeholder="Your company or practice" className={field} />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -151,6 +157,7 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
                   </label>
                   <input id={`${formId}-email`} name="email" autoComplete="email"
                     type="email"
+                    maxLength={254}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@company.com"
@@ -163,6 +170,7 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
                   </label>
                   <input id={`${formId}-phone`} name="phone" autoComplete="tel"
                     type="tel"
+                    maxLength={40}
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 …"
@@ -180,6 +188,7 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
                   className={field}
                 >
                   <option value="">General enquiry</option>
+                  <option value="Professional collaboration">Professional collaboration</option>
                   {services.map((s) => (
                     <option key={s.slug} value={s.name}>
                       {s.name}
@@ -194,12 +203,15 @@ export function Enquire({ defaultService, headingLevel = 2 }: { defaultService?:
                 <textarea id={`${formId}-message`} name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  maxLength={6000}
                   rows={4}
                   placeholder="How can we help?"
                   className={field}
                 />
               </div>
             </div>
+
+            <PrivacyConsent id={formId} />
 
             {status === "error" && (
               <p role="alert" className="mt-4 text-base text-overdue">

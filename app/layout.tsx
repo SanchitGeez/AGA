@@ -24,15 +24,6 @@ export const metadata: Metadata = {
     template: `%s · ${site.shortName}`,
   },
   description: site.description,
-  keywords: [
-    "company secretary firm in Mumbai",
-    "secretarial audit",
-    "SEBI compliance",
-    "FEMA RBI compliance",
-    "IPO advisory",
-    "ROC filings",
-    "corporate compliance Mumbai",
-  ],
   openGraph: {
     title: `${site.name} — Company Secretaries, Mumbai`,
     description: site.description,
@@ -41,8 +32,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Applies a saved light-mode preference before paint (default is dark).
-const themeScript = `try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}`;
+// Local daytime is 06:00–18:00; an explicit saved choice takes precedence.
+const themeScript = `(()=>{let theme;try{theme=localStorage.getItem('theme')}catch(e){}const hour=new Date().getHours();document.documentElement.setAttribute('data-theme',theme==='light'||theme==='dark'?theme:hour>=6&&hour<18?'light':'dark')})()`;
 
 export default function RootLayout({
   children,

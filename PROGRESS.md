@@ -8,15 +8,24 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 
 ---
 
-## At a glance (2026-11-07)
+## At a glance (2026-11-08)
 
-- **What works:** the whole site. Home + About, Services (hub + 25 detail pages with full
+- **What works:** the whole site. Home + About, Services (hub + 31 detail pages with full
   statutory scope), Insights (compliance calendar), Career (résumé upload), Contact. Enquiry &
   résumé forms email the firm via Resend (with a WhatsApp fallback). SEO: metadata, JSON-LD,
-  sitemap, robots. Dark + light. Build is green at **38 generated pages**.
+  sitemap, robots. Dark + light. Build is green at **47 generated pages**.
 - **To make forms send in prod:** set `RESEND_API_KEY` (see README → Email). Nothing else is
   wired to a secret.
-- **Latest UI work:** the site-wide adult-reader readability pass is complete: 18px prose,
+- **Latest client revision (8 November):** Ayush’s feedback is treated as the business
+  brief. Smaller type, serif headings/wordmark, explicit Home/About us navigation and
+  peer-reviewed credential; 240+ clients / 5+ years / 40+ entities incorporated. Expanded
+  service scopes and six additional detail pages (31 services total), documents/FAQs,
+  consent-backed forms, privacy/terms, partnerships, simplified footer, Maps and LinkedIn.
+  Capital Markets now uses a photograph-led editorial layout with grouped service links; How we work has a
+  connected four-stage sequence. Vision/mission is a larger rotating feature near the top
+  of About only. Advisory & Governance has its own generated chess/folio photograph;
+  the original hero is unchanged. Office hours are explicitly omitted.
+- **Previous UI work:** the site-wide adult-reader readability pass is complete: 18px prose,
   20px introductions, larger headings, clearer contrast, 52px actions, 54px labelled fields,
   default link underlines and readable mobile reflow. Both themes retain Bourse. The approved
   full-colour Boardroom opening and six-category service photography remain. Concurrent header
@@ -61,6 +70,153 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 ---
 
 ## Decisions log
+
+*2026-11-08 — Insights deadline-column spacing before publishing*
+
+- Replaced the narrow 200px Due column with a flexible column at least 22rem wide,
+  aligned its text to the left and matched the header/row grid and column gaps.
+- The calendar stays stacked below 1024px, with a visible Due label for each entry;
+  increased row spacing and line height keep longer deadline qualifiers readable.
+- Full lint, content checks and production build pass (47 generated pages). Desktop,
+  tablet and mobile spacing is checked in both themes before the main-branch push.
+
+*2026-11-08 — Main-branch publishing preparation*
+
+- Prepared all client-authorised website revisions, new service/legal/partnership pages,
+  image assets, icon dependency and review evidence for the requested main-branch push.
+- Fresh production build passes with 47 generated pages; full ESLint, service-guide/
+  recurring-calendar checks and whitespace checks pass. Local main matches origin/main
+  before the commit. Environment files remain ignored and are not included.
+- The owner-dependent email-delivery, Google verification and physical-device checks
+  recorded below remain pending; this publishing step does not mark them complete.
+
+*2026-11-08 — Capital Markets rebuilt after client rejection of the diagram*
+
+- Replaced the rejected circle network with an asymmetric, photograph-led composition:
+  a substantial exchange image and local caption shade beside a tighter introduction,
+  four clearly grouped practice areas and all seven direct service links. The section
+  is a Server Component again; no selector state or hidden service content remains.
+- Removed obsolete map geometry, diagram styles and introductory selection instructions.
+  Image hover and link-arrow transitions respect reduced motion. Retained the current
+  Bourse type, palette, section anchor and service URLs.
+- Replaced the floating WhatsApp amber dot with Phosphor’s filled WhatsApp logo in
+  brand green. Added `@phosphor-icons/react` 2.1.10, using a tiny client icon leaf and
+  preserving the native chat link and mobile Call action. The green token is scoped
+  to this requested brand mark rather than used as another general UI accent.
+- Validation: production build passes (47 generated pages); changed-source lint passes.
+  Ten browser cases at 320/390/768/1024/1440px in both themes confirm all seven
+  service links remain visible, no horizontal overflow, the green SVG logo renders
+  and reduced motion disables the image transition. Full lint and whitespace checks
+  pass; the scoped UI detector returns no findings. Evidence is recorded in
+  `.impeccable/review/client-feedback/editorial-checks.json`.
+
+*2026-11-08 — Owner feedback implemented and visual sections expanded*
+
+1. **Authority and design:** the user confirmed the reviewer is Ayush, the firm’s owner,
+   and authorised all requested changes. This supersedes earlier hero-only Fraunces and
+   larger-type preferences. Body/actions are 16px, introductions 18px; headings and
+   figures are approximately 10–15% smaller. Fraunces headings/wordmark, Geist body/UI
+   and Mono data retain slate/amber and comfortable control targets. Header includes Home,
+   About us and “A Peer-Reviewed Firm”. The brand link’s accessible name includes the
+   new visible credential. No service counts were reintroduced.
+2. **Content and identity:** metrics are now owner-specified 240+ clients, 5+ years and
+   40+ entities incorporated. Firm and personal copy are separated; Career uses the
+   requested invitation and experienced-personnel guidance. Removed calendar meta-copy,
+   standardised Our office, removed Mumbai only from the visible footer description,
+   retained local metadata/address/structured data, and simplified the footer. Added
+   SEBI, ICSI, IBBI, MSME and the supplied LinkedIn profile.
+3. **Services:** explicitly surfaced LLP, trust, society and Section 8 formation; added
+   capital reconciliation, annual-report support, Annual Secretarial Compliance Report,
+   RERA, Audit/Tax/GST support and DPDP privacy setup. Secretarial Audit is grouped under
+   Capital Markets. Restructuring covers tax/legal/compliance; FEMA scope includes FLA;
+   IPR includes designs and international filing. All 31 services have scope, starter
+   documents and three relevant FAQs. Overview cards show plain-English taglines; detail
+   references spell out Section. Direct enquiry actions preserve service preselection.
+4. **Interactions and conversion:** practice minus now closes; mouse hover and touch
+   activation follow separate paths so a first tap does not immediately close a selection.
+   Home adds a connected service map and four-stage process with real linked services,
+   hover/focus/click selection and reduced-motion transitions. Vision/mission rotates
+   every five seconds on About only, with dots, named controls, pause, hover/focus and
+   offscreen suspension. Reduced motion exposes both statements and removes rotation.
+   A dedicated partnership page and enquiry selection support CA/CS/law-firm collaboration.
+5. **Forms and privacy:** real organisation field is separate from the renamed hidden
+   website spam trap in both forms and the endpoint. Consent is required in browser and
+   server; added origin, size, length/email and résumé checks, handled delivery exceptions,
+   announced success and retained failure recovery. Public email and default recipient
+   use the existing non-staff info address; owner confirmation is still requested.
+   Privacy and Terms/Disclaimer pages describe the actual email-only implementation.
+   Retention details await the owner; no arbitrary retention period is asserted. No
+   analytics integration exists, so an analytics cookie banner is not introduced.
+6. **Maps and imagery:** owner supplied the exact Maps location and LinkedIn URL and
+   explicitly said not to publish hours. Google’s Share → Embed dialog provided the
+   actual embeddable map, with a directions link retained. New Advisory & Governance
+   image was generated with the built-in image tool; the original boardroom remains the
+   hero. Master: `design/service-imagery/advisory-governance-master.png`; web export:
+   `public/services/colour/advisory-governance.webp` (89,550 bytes). Prompt/provenance:
+   adjacent `.webp.json`. Illustrative-image disclosure remains in Terms/Disclaimer.
+7. **Calendar and SEO:** added listed-company RSCA, shareholding, annual secretarial
+   compliance and conditionally applicable SDD reference deadlines. Multi-date obligations
+   sort by their next occurrence. Removed fixed AGM assumptions and the obsolete annual
+   director-KYC entry; the revised cycle is backed by the ICAI reproduction of MCA’s
+   update. Calendar sources/applicability notes are linked. Removed meta keywords,
+   added descriptive hero-image alt text, retained sitemap/robots and local markup,
+   added legal/partnership sitemap URLs and a custom 404.
+8. **Validation:** full lint and production build pass (47 generated pages). Content
+   checks cover all 31 scopes/guides and recurrence edge cases; seven API negative/spam
+   checks pass without sending mail. Initial Chromium review covered 102 route/theme/
+   viewport cases, 40 sitemap routes and 42 internal destinations; the custom route
+   returns HTTP 404. Interaction tests cover collapse, keyboard/touch-path selection,
+   five-second rotation/pause, service/partnership defaults, required consent and announced
+   mocked success. Final visual checks and Lighthouse results are recorded below.
+9. **Owner-dependent launch work:** local `RESEND_API_KEY` is absent, so a real email and
+   physical-phone receipt test cannot run yet. Need final public-email/domain confirmation,
+   enquiry/résumé retention practices and Search Console/Business Profile access/status.
+   Real iPhone/Android/Safari testing requires devices or an appropriate browser service.
+   No deployment, Google account creation/verification or real mail was performed.
+10. **Final visual verification:** 35 additional checks cover the new diagrams and About
+    feature at 320/390/768/1024/1440px in both themes, all cluster/process selections,
+    measured five-second rotation, both statements visible and accessible under reduced
+    motion, and distinct advisory/hero images. Google’s embedded location finished loading
+    with its place card, map and controls. Browser errors were empty. Production Lighthouse
+    Home scores: performance 83, accessibility 100, best practices 100 and SEO 100; LCP
+    4.7s and CLS 0. The label-in-name warning was addressed by deriving the home link’s
+    name directly from the full visible brand. The focused accessibility recheck passes (100, label-in-name audit passing).
+    The UI detector reported one false positive: SVG `stroke-width` interpolation was
+    mistaken for layout-width animation; it only paints the connection path. These checks
+    do not constitute a physical-device test or a complete WCAG audit.
+
+*2026-11-07 — Client-confirmed incorporation metric*
+
+- Replaced the qualitative peer-reviewed card with the client-supplied **40+ Companies
+  Incorporated** on Home and About through shared firm data. All three cards now use
+  the same numeric count-up treatment; removed the unused text-value styling branch.
+- Validation: production build passes (38 generated pages); changed-source ESLint and
+  whitespace checks pass.
+
+*2026-11-07 — Client metrics, practice browsing, About identity and time-based theme*
+
+- Replaced 500+/10+/2,400+ with client-supplied 200+ clients, 5+ years and the existing
+  peer-reviewed-firm credential. Shared Figures now has section spacing on both sides.
+- Removed promotional service/category totals from Home, the Services directory,
+  directory metadata and search prompts; statutory numbers and search-result counts stay.
+- Practice buttons select on hover/focus, retaining click/touch and arrow/Home/End keys.
+  A six-second amber progress line advances through categories and wraps. Playback pauses
+  offscreen, on reading hover, keyboard focus or the explicit pause control; reduced-motion
+  preference disables playback. The progress animation itself controls advancement.
+- Panels are fixed at 38rem desktop / 42rem smaller screens with internal overflow.
+  Mobile puts the panel below all choices, preventing rotation from shifting navigation.
+- About pairs its introduction with the existing masked emblem, firm name and designation;
+  the identity stacks under the introduction on mobile. No new image or dependency added.
+- Before-paint theme selection uses the visitor’s local hour: light 06:00–18:00, dark
+  otherwise. Valid saved choices override the clock; blocked storage still uses the clock.
+  The toggle observes the applied theme so its action label stays accurate.
+- Validation: production build passes (38 generated pages), changed-source ESLint and
+  whitespace checks pass. Theme-script checks cover 35 hour/storage combinations.
+  Chromium checks cover Home, About and Services at 320/390/1024/1440px across the
+  two themes: identical dimensions across all practice panels, six-second advancement,
+  hover and keyboard selection, pause, reduced motion, remembered theme overrides,
+  spacing and no horizontal overflow. Browser errors are empty; UI detector has no
+  findings. Safari/Firefox and physical-device checks remain outside this scoped pass.
 
 *2026-11-07 — Main-branch publishing preparation*
 
@@ -492,7 +648,7 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 
 Swap these for real client assets when available (never block a build on them):
 
-- **Stats** — `lib/site.ts` (`500+ / 10+ / 2,400+`) are placeholders.
+- **Stats — resolved:** owner confirmed 240+ clients, 5+ years and 40+ entities incorporated (8 November revision).
 - **Hero image — resolved** — approved full-colour illustrative boardroom at
   `public/services/colour/advisory.webp`, shared with Advisory & Governance. It does not
   depict the firm's office; no `public/hero.jpg` placeholder remains in the implementation.
@@ -517,8 +673,8 @@ Deferred (need client input, not stubbed):
 - **Live calendar data** — `lib/deadlines.ts` is illustrative; confirm/extend the dates.
 - Leftover default `public/*.svg` from create-next-app.
 
-Known content polish (UI pass): `/about` repeats the firm blurb + Vision between the intro,
-the reused `Principal` block, and the Vision card — de-duplicate when polishing.
+Resolved content polish (8 November): About now separates the firm introduction, personal
+principal copy and one prominent vision/mission feature.
 
 ---
 

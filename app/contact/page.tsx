@@ -8,9 +8,7 @@ export const metadata: Metadata = {
     "Contact Ayush D Gupta & Associates, Company Secretaries in Andheri (E), Mumbai. Call, WhatsApp, or email us for corporate compliance, SEBI, FEMA, and IPO advisory.",
 };
 
-const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  site.address.lines.join(" "),
-)}`;
+
 
 export default function ContactPage() {
   return (
@@ -18,8 +16,10 @@ export default function ContactPage() {
       <Enquire headingLevel={1} />
 
       <section className="site-container section-end">
+        <h2 className="section-title mb-6 text-ink">Our office</h2>
+        <iframe src={site.mapsEmbed} title="Google Maps: Madhu Industrial Estate, location of our Andheri office" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="mb-6 h-80 w-full rounded-xl border border-hairline sm:h-96" />
         <a
-          href={mapsHref}
+          href={site.maps}
           target="_blank"
           rel="noopener noreferrer"
           className="group flex flex-col justify-between gap-6 rounded-xl border border-hairline bg-surface p-6 transition-colors hover:bg-surface-2 sm:flex-row sm:items-center sm:p-8"
@@ -37,9 +37,10 @@ export default function ContactPage() {
             </address>
           </div>
           <span className="text-link shrink-0 text-base font-semibold text-signal">
-            View on Google Maps ↗
+            Get directions on Google Maps ↗
           </span>
         </a>
+        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-link mt-6 text-ink">Connect with CS Ayush Gupta on LinkedIn →</a>
       </section>
     </>
   );

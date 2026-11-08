@@ -27,8 +27,8 @@ export const serviceImagery: Record<CategoryId, { src: string; alt: string; posi
     position: "68% 50%",
   },
   advisory: {
-    src: "/services/colour/advisory.webp",
-    alt: "Illustrative boardroom with green chairs, a walnut table and city views",
-    position: "65% 50%",
+    src: "/services/colour/advisory-governance.webp",
+    alt: "Walnut chess pieces, a burgundy governance folio and fountain pen in an illustrative professional study",
+    position: "68% 42%",
   },
 };

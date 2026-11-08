@@ -22,26 +22,21 @@ export function Principal() {
           <h2 className="section-title text-ink">
             {site.principal}
           </h2>
-          <p className="mt-2 font-mono text-base text-steel">{site.credential}</p>
+          <p className="mt-2 text-base text-steel">{site.credential}</p>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-dim">
-            {site.name} is a peer-reviewed firm of Company Secretaries offering
-            comprehensive corporate, legal, and regulatory compliance solutions
-            to businesses of all sizes. The firm brings extensive experience
-            across IPOs, corporate restructuring, and regulatory compliance
-            under the Companies Act, SEBI regulations, FEMA, and IPR — delivered
-            with professionalism, integrity, and timely service.
+            {site.principal} is a member of the Institute of Company Secretaries
+            of India (ICSI), with over five years of experience in corporate law,
+            governance and regulatory compliance. His work spans IPO advisory,
+            SEBI and stock-exchange compliance, corporate restructuring, FEMA
+            matters and secretarial practice.
+          </p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-dim">
+            He guides clients through statutory requirements, transaction
+            documentation and governance decisions with a focus on practical
+            advice, professional integrity and timely execution.
           </p>
 
-          <blockquote className="mt-8 border-l-0 border-t border-hairline pt-6">
-            <p className="max-w-2xl text-lg italic leading-relaxed text-ink">
-              “To shape stronger businesses through governance, compliance, and
-              strategic insight.”
-            </p>
-            <cite className="mt-3 block text-sm not-italic text-steel">
-              Firm vision
-            </cite>
-          </blockquote>
         </div>
       </div>
     </section>

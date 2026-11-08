@@ -1,0 +1,960 @@
+{
+  "date": "2026-11-08",
+  "build": "passed, 47 generated pages",
+  "eslint": "passed, app/components/lib/scripts",
+  "whitespace": "passed",
+  "serviceContentChecks": 31,
+  "apiNegativeChecks": 7,
+  "emailSent": false,
+  "routeThemeViewportChecks": [
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/about",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/services",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/career",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/contact",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/insights",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/partner-with-us",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/privacy-policy",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/terms-disclaimer",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/incorporation-registration",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/dpdp-privacy-compliance",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/about",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/services",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/career",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/contact",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/insights",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/partner-with-us",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/privacy-policy",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/terms-disclaimer",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/incorporation-registration",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/startup-advisory",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/regulatory-registrations",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/dsc-services",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/partnership-firms",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/company-secretarial-compliance",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/llp-compliance",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/xbrl-filings",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/statutory-certification",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/secretarial-audit",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/sebi-stock-exchange",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/ipo-advisory",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/corporate-actions",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/corporate-restructuring",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/due-diligence",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/nclt-legal",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/corporate-matchmaking",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/closure-exit",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/rbi-fema",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/nbfc-services",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/advisory-consulting",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/approvals-appearances",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/trademark-ipr",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/drafting-vetting",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/independent-director",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/reconciliation-share-capital-audit",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/annual-report",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/annual-secretarial-compliance-report",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/rera-services",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/audit-tax-gst-support",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/dpdp-privacy-compliance",
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/about",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/services",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/career",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/contact",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/insights",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/partner-with-us",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/privacy-policy",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/terms-disclaimer",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/incorporation-registration",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/dpdp-privacy-compliance",
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/about",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/services",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/career",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/contact",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/insights",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/partner-with-us",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/privacy-policy",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 0,
+      "route": "/terms-disclaimer",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/incorporation-registration",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/startup-advisory",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/regulatory-registrations",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/dsc-services",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/partnership-firms",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/company-secretarial-compliance",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/llp-compliance",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/xbrl-filings",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/statutory-certification",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/secretarial-audit",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/sebi-stock-exchange",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/ipo-advisory",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/corporate-actions",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/corporate-restructuring",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/due-diligence",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/nclt-legal",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/corporate-matchmaking",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/closure-exit",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/rbi-fema",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/nbfc-services",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/advisory-consulting",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/approvals-appearances",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/trademark-ipr",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/drafting-vetting",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/independent-director",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/reconciliation-share-capital-audit",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/annual-report",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/annual-secretarial-compliance-report",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/rera-services",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/audit-tax-gst-support",
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "errors": [],
+      "faq": 3,
+      "route": "/services/dpdp-privacy-compliance",
+      "theme": "dark",
+      "width": 1440
+    }
+  ],
+  "focusedDesignChecks": [
+    {
+      "width": 320,
+      "theme": "dark",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "section": "#capital-markets",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "section": "#how-we-work",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "section": "vision-mission",
+      "overflow": false
+    },
+    {
+      "interaction": "All capital-market clusters select service links"
+    },
+    {
+      "interaction": "All four process stages select their details"
+    },
+    {
+      "interaction": "Five-second vision/mission rotation",
+      "seconds": 5.0
+    },
+    {
+      "interaction": "Reduced motion exposes both statements visually and accessibly"
+    },
+    {
+      "interaction": "Distinct advisory image loads; hero remains unchanged"
+    }
+  ],
+  "interactionChecks": [
+    "Desktop hover and minus-to-close",
+    "Keyboard selection",
+    "Touch-path selection opens on first activation",
+    "Vision/mission advanced automatically in 5.6s",
+    "Vision/mission pause",
+    "Reduced motion exposes both statements",
+    "Service enquiry preselection",
+    "Partnership enquiry preselection",
+    "Company field, required consent and announced success (submission mocked)",
+    "Custom 404"
+  ],
+  "sitemapRoutes": 40,
+  "internalDestinationsResolved": 42,
+  "notFoundStatus": 404,
+  "lighthouse": {
+    "performance": 83,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "LCP": "4.7s",
+    "CLS": 0,
+    "labelContentNameMatch": "passed in focused recheck"
+  },
+  "detector": {
+    "findings": 1,
+    "interpretation": "False positive: SVG stroke-width painting was matched as CSS layout width animation"
+  },
+  "maps": "Google embed loaded the supplied Madhu Industrial Estate place card and map controls",
+  "advisoryImage": "public/services/colour/advisory-governance.webp",
+  "pending": [
+    "Owner confirmation of public email and final domain",
+    "Owner retention practices for enquiry emails and resumes",
+    "Resend configuration and real inbox/phone test",
+    "Search Console and Google Business Profile ownership/verification",
+    "Physical iPhone/Android and Safari testing"
+  ]
+}

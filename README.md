@@ -3,7 +3,7 @@
 Marketing + lead-generation site for a peer-reviewed Company Secretary firm in Mumbai.
 Design system codename **Bourse** — a markets-terminal aesthetic (deep slate, one amber
 signal, Geist + Geist Mono, tabular figures, a live statutory-deadline ticker, a photographic
-25-service practice explorer and command-bar search). Serious and institutional by design, not startup-y.
+practice-area explorer and command-bar search). Serious and institutional by design, not startup-y.
 
 ## New here? Read in this order
 
@@ -68,12 +68,12 @@ app/
   page.tsx               home page (composes the home sections + LegalService JSON-LD)
   globals.css            Bourse tokens (:root + [data-theme=light]) + base styles + keyframes
   robots.ts              robots.txt (MetadataRoute)
-  sitemap.ts             sitemap.xml — 6 pages + 25 service URLs
-  fonts/fraunces.woff2   self-hosted variable serif (hero headline only)
+  sitemap.ts             sitemap.xml — 9 top-level pages + 31 service URLs
+  fonts/fraunces.woff2   self-hosted variable serif (headings and wordmark)
   api/enquiry/route.ts   enquiry + résumé email endpoint (Resend; résumé = attachment, no storage)
   about/ contact/ career/ insights/   top-level pages
-  services/page.tsx      services hub (6 photographic category cards, all 25 links)
-  services/[slug]/       25 static detail pages (category-photo introduction, scope + Service JSON-LD)
+  services/page.tsx      services hub (6 photographic category cards, all 31 service links)
+  services/[slug]/       31 static detail pages (category-photo introduction, scope + Service JSON-LD)
 components/
   site/    masthead, command-bar, ticker, footer, theme-toggle, whatsapp-float, resume-form,
            use-mod-key
@@ -82,10 +82,11 @@ components/
            principal, insights-teaser, enquire
 lib/
   site.ts               firm constants (name, phones, emails, address, stats, exchange links)
-  services.ts           the 25 services + 6 categories + `law` (governing statute) — feeds
+  services.ts           the 31 services + 6 categories + `law` (governing statute) — feeds
                         explorer, hub, command-bar, detail pages
   service-content.ts    full statutory scope-of-work per service (from the brief) — detail pages
   service-imagery.ts    6 category photographs + focal crops — explorer, hub, detail intros
+  service-guides.ts     initial documents and three FAQs per service
   deadlines.ts          statutory deadlines + `upcomingDeadlines()` — feeds ticker + insights
 public/services/colour/ optimised full-colour WebPs for the six practice areas
 design/service-imagery/ photographic masters, provenance and approved implementation brief
@@ -99,13 +100,14 @@ design/service-imagery/ photographic masters, provenance and approved implementa
 - **Amber is a scalpel** — `signal` for text/figures, `signal-solid` for fills; a small fraction
   of any viewport.
 - **Mono names data, not decoration** — Geist Mono for figures/labels/codes; Geist for prose.
-- **The serif (Fraunces) is hero-only** — one display serif, one place. Don't spread it.
-- **Reading scale:** 18px prose/actions, 20px introductions, 16px labels/statutes and 14px
+- **Typography:** Fraunces headings and wordmark; Geist body/UI; Mono for actual data.
+- **Reading scale:** 16px prose/actions, 18px introductions, 16px labels/statutes and 14px
   short counts/keyboard hints. Use shared `page-title` / `section-title` headings.
 - **Controls:** `action-primary` / `action-secondary` are at least 52px; `form-field` is
   at least 54px with 18px text, paired `form-label` and a visible `control-line` border.
   Standalone `text-link` actions are underlined and at least 48px tall.
-- **Dark is default**, light via the theme toggle — verify text/control contrast in both.
+- **Time-based default:** light 06:00–18:00 local time, dark overnight; saved manual theme
+  choices take precedence. Verify text/control contrast in both.
   The target is WCAG AA; scoped contrast/Lighthouse checks are not a full conformance claim.
 - Keep copy formal and statute-precise — that's the institutional guardrail.
 
@@ -136,8 +138,29 @@ through Resend. Vercel supports both as part of one project, so no separate back
 The résumé limit is 4 MB, below Vercel's function request-body limit. Do not set Next.js static
 export (`output: "export"`): the email route needs a server runtime.
 
-Before a public launch, confirm the domain and replace the placeholder firm statistics and deadline
+Before a public launch, confirm the domain and replace the placeholder deadline
 calendar noted in `PROGRESS.md`. The hero uses the approved full-colour illustrative boardroom
 image (`public/services/colour/advisory.webp`), continuous behind the home header and opening;
 it does not depict the firm's office. The principal portrait's master and web export live in
 `public/portraits/`.
+
+## Client feedback revision — 8 November 2026
+
+The client-approved revision includes smaller typography, serif headings, 240+ clients /
+5+ years / 40+ entities incorporated, prominent About-only vision/mission, an editorial capital-markets feature and connected process sequence, collapsible practice panels,
+expanded services and guides, privacy/terms pages, a professional-collaboration page,
+verified Google Maps embed and LinkedIn. Office hours are intentionally omitted.
+
+Validation commands (Node 22.6+ for type stripping):
+
+```bash
+npm run lint
+npm run build
+node --experimental-strip-types scripts/check-content.mjs
+node scripts/check-enquiry.mjs http://127.0.0.1:3002
+```
+
+The enquiry check script runs negative and spam-trap cases only; it never sends email.
+Real inbox delivery requires `RESEND_API_KEY` and an appropriate sender/recipient setup.
+Search Console, Google Business Profile verification and physical-phone testing require
+owner access or participation; see PROGRESS.md for outstanding items.

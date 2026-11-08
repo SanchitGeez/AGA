@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const reasons = [
   "Meaningful, client-impacting assignments across corporate law and governance",
   "Exposure to IPOs, SEBI, FEMA, NCLT, and restructuring work",
-  "Mentorship from a peer-reviewed practice led by an ICSI member",
+  "Learning from experienced professionals with structured guidance",
 ];
 
 export default function CareerPage() {
@@ -21,8 +21,9 @@ export default function CareerPage() {
           Career
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-dim">
-          Join our team and shape your career in corporate law, governance, and
-          advisory, while working on meaningful, client-impacting assignments.
+          We invite ambitious trainees and professionals to join our practice.
+          Develop your skills in corporate law, governance and advisory through
+          practical assignments and guidance from experienced personnel.
         </p>
 
         <ul className="mt-10 border-t border-hairline">

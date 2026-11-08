@@ -1,0 +1,8 @@
+{
+  "use": "Advisory & Governance services only; hero retains its original boardroom photograph",
+  "mode": "Built-in image_gen",
+  "master": "design/service-imagery/advisory-governance-master.png",
+  "web": "public/services/colour/advisory-governance.webp",
+  "prompt": "Photorealistic editorial institutional photograph. A sculptural walnut chess king and other chess pieces on a slate/walnut chessboard, a closed burgundy governance folio and fountain pen. Warm afternoon side light, deep navy shadows, restrained amber reflections, refined professional study. Visual weight upper/right with space for overlays. No boardroom, skyline, people, text, logos or watermark. Convey judgement, board responsibility and strategic advice. Landscape framing.",
+  "illustrative": true
+}

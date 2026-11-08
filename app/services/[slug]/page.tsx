@@ -9,6 +9,7 @@ import {
   categoryName,
 } from "@/lib/services";
 import { getServiceScope } from "@/lib/service-content";
+import { getServiceGuide } from "@/lib/service-guides";
 import { site } from "@/lib/site";
 import { Enquire } from "@/components/home/enquire";
 import { serviceImagery } from "@/lib/service-imagery";
@@ -44,6 +45,7 @@ export default async function ServicePage({
     (s) => s.slug !== service.slug,
   );
   const scope = getServiceScope(service.slug);
+  const guide = getServiceGuide(service);
   const image = serviceImagery[service.category];
 
   const jsonLd = {
@@ -69,7 +71,7 @@ export default async function ServicePage({
       />
       <article>
         <header className="service-detail-hero relative isolate overflow-hidden bg-photo-ground text-photo-ink">
-          <Image src={image.src} alt="" fill sizes="100vw" preload className="-z-20 object-cover" style={{ objectPosition: image.position }} />
+          <Image src={image.src} alt={image.alt} fill sizes="100vw" preload className="-z-20 object-cover" style={{ objectPosition: image.position }} />
           <div className="service-detail-shade absolute inset-0 -z-10" aria-hidden="true" />
           <div className="site-container section-space flex min-h-[25rem] flex-col justify-center sm:min-h-[28rem]">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-photo-ink">
@@ -86,6 +88,7 @@ export default async function ServicePage({
             <p className="mt-4 max-w-xl text-lg text-photo-ink">{service.tagline}</p>
             <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 text-base">
               <span className="font-mono text-photo-signal">{service.law}</span>
+              <a href="#enquire" className="action-primary">Enquire about this service</a>
               {scope.length > 0 && <a href="#scope" className="text-link gap-4 text-photo-ink hover:text-photo-signal">Scope of work <span aria-hidden="true">↓</span></a>}
             </div>
           </div>
@@ -114,6 +117,16 @@ export default async function ServicePage({
               </ul>
             </div>
           )}
+
+          <section className="mt-12" aria-labelledby="documents-heading">
+            <h2 id="documents-heading" className="text-2xl text-ink">Documents to get started</h2>
+            <p className="mt-3 max-w-3xl text-base text-ink-dim">The initial list below helps us assess your assignment. We confirm the exact requirements after review. Please do not send confidential records through the initial enquiry form.</p>
+            <ul className="mt-5 max-w-3xl list-disc space-y-3 pl-5 text-base text-ink-dim">{guide.documents.map((document) => <li key={document}>{document}</li>)}</ul>
+          </section>
+          <section className="mt-12" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" className="text-2xl text-ink">Frequently asked questions</h2>
+            <div className="mt-5 max-w-3xl border-t border-hairline">{guide.faqs.map((faq) => <details key={faq.question} className="border-b border-hairline py-4"><summary className="min-h-11 py-2 text-base font-medium text-ink">{faq.question}</summary><p className="pb-2 pt-3 text-base leading-relaxed text-ink-dim">{faq.answer}</p></details>)}</div>
+          </section>
 
           {related.length > 0 && (
             <div className="mt-12">

@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+function subscribeToTheme(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => observer.disconnect();
+}
 
 function SunIcon() {
   return (
@@ -20,15 +26,14 @@ function MoonIcon() {
 }
 
 export function ThemeToggle() {
-  const [light, setLight] = useState(false);
-
-  useEffect(() => {
-    setLight(document.documentElement.getAttribute("data-theme") === "light");
-  }, []);
+  const light = useSyncExternalStore(
+    subscribeToTheme,
+    () => document.documentElement.getAttribute("data-theme") === "light",
+    () => false,
+  );
 
   const toggle = () => {
     const next = !light;
-    setLight(next);
     document.documentElement.setAttribute("data-theme", next ? "light" : "dark");
     try {
       localStorage.setItem("theme", next ? "light" : "dark");
