@@ -24,6 +24,8 @@ practice-area explorer and command-bar search). Serious and institutional by des
   **Fraunces** variable serif via `next/font/local` (`app/fonts/fraunces.woff2`)
 - **Resend** — transactional email for the enquiry + résumé forms
 - **No CMS** — all content is typed data in `lib/`
+- **Package manager:** npm. Commit only `package-lock.json`; a second lockfile can make
+  Vercel select a different installer and reject otherwise valid dependency updates.
 
 > ⚠️ **This Next.js is a modified build with breaking changes from public docs.** Before writing
 > anything framework-level, read the real docs in `node_modules/next/dist/docs/`. (As-checked in

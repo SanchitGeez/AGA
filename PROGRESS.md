@@ -71,6 +71,18 @@ before undoing anything, so a deliberate choice isn't mistaken for an accident.
 
 ## Decisions log
 
+*2026-11-08 — Vercel dependency-install recovery*
+
+- The production deployment for `5ae886b` failed. Reproduced a CI install failure locally:
+  `ERR_PNPM_OUTDATED_LOCKFILE` because the pnpm importer lacked the newly added Phosphor
+  dependency, while package.json and the canonical npm lockfile already included it.
+- Removed the obsolete pnpm lockfile and pnpm-only build-permission workspace file.
+  The repository now exposes only package-lock.json for Vercel package-manager detection,
+  matching the documented npm workflow rather than maintaining two competing lockfiles.
+- Validated a clean archived checkout with `npm ci` and `npm run build`, without local
+  environment files or existing node_modules. Install succeeds and all 47 pages build.
+  The cloud redeployment is monitored after the fix is pushed.
+
 *2026-11-08 — Insights deadline-column spacing before publishing*
 
 - Replaced the narrow 200px Due column with a flexible column at least 22rem wide,
